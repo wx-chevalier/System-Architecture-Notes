@@ -1,13 +1,3 @@
-  - [GUI 应用程序架构](/GUI%20应用程序架构/README.md)
-    - [单向数据流](/GUI%20应用程序架构/单向数据流/README.md)
-      - [Clean Architecture](/GUI%20应用程序架构/单向数据流/Clean%20Architecture.md)
-      - [Flux](/GUI%20应用程序架构/单向数据流/Flux.md)
-    - [双向数据流](/GUI%20应用程序架构/双向数据流/README.md)
-      - [MVC](/GUI%20应用程序架构/双向数据流/MVC.md)
-      - [MVP](/GUI%20应用程序架构/双向数据流/MVP.md)
-      - [MVVM](/GUI%20应用程序架构/双向数据流/MVVM.md)
-    - [组件化](/GUI%20应用程序架构/组件化/README.md)
-      - [Atomic Design](/GUI%20应用程序架构/组件化/Atomic%20Design.md)
   - [TOGAF](/TOGAF/README.md)
     
   - [UML](/UML/README.md)
