@@ -676,7 +676,7 @@ java.lang.Thread.run(Thread.java:745)
                 }
 
 
-                //贴纸，类似标签的数据结构， "share_paster_ids":[{"url1":["1","2"]},{"url2":["1","2"]}]
+                //贴纸，类似标签的数据结构，"share_paster_ids":[{"url1":["1","2"]},{"url2":["1","2"]}]
                 if (!"".equals(share_img_path_with_pasters)) {
                     //判断是否是json格式
                     if (!isJSONArray(share_img_path_with_pasters)) {

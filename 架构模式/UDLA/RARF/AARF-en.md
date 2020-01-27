@@ -4,7 +4,7 @@ Inspired By Flux and Microservice，I want to do something different in server s
 
 Sometime, even the front-end add one element in its view, I need to rewrite one controller to adapt to suitable RequestData. So , I want to present my Asynchronous Abstract Resource Flow idea. I don’t know wherther it is good and it;s only during the draft progress, no one except me know what it is.
 
-I think the impression of Docker, which ships data via container between different sevice, may be a little alike. AARF don’t map request to one controller, it’s not Ordering food， but self-help.
+I think the impression of Docker, which ships data via container between different sevice, may be a little alike. AARF don’t map request to one controller, it’s not Ordering food，but self-help.
 
 In this post, I use AARF as abbreviation to indicate on Asynchronous Abstract Resource Flow.Main principle of AARF is split the complex business logic into micro handlers, which is mapping to single resource. Besides, for the convenience of MVVM(data binding), responded data is
 
@@ -16,7 +16,7 @@ In conclusion, the front-end draft the responsed data structure by define the re
 
 **attribute is the most granular level atom in one model, and each attribute has its unique name.**For example, in a simple model of library，there are several attributes, user_name, user_age, book_name, book_author. user_name and user_age can be allocated to User Resource naturally. On the other hand, book_name and book_author are assigned to Book Resource. In addition, User Resource has one attribute called user_id, this is identify for one user resource.
 
-In conclusion， there are two category of attributes in AARF model, one is called identify attribute, which can be used to index one resource and can be shared among different resource. Anonther is called value attribute, which only can be owned by one Resource.
+In conclusion，there are two category of attributes in AARF model, one is called identify attribute, which can be used to index one resource and can be shared among different resource. Anonther is called value attribute, which only can be owned by one Resource.
 
 ## Resource Definition
 

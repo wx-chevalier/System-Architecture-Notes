@@ -139,7 +139,7 @@ note left
 end note
 ```
 
-通过使用关键词 note left of，note right of 或 note over ， 我们还可以把注解放置在与之相关的参与者的左边或右边，或下方。通过改变注解的背景色，我们还可以高亮一个注解文本块。如果要使用多行注解，可以使用关键词 end note 来表示注解的结束。
+通过使用关键词 note left of，note right of 或 note over ，我们还可以把注解放置在与之相关的参与者的左边或右边，或下方。通过改变注解的背景色，我们还可以高亮一个注解文本块。如果要使用多行注解，可以使用关键词 end note 来表示注解的结束。
 
 ```puml
 participant Alice
@@ -298,7 +298,7 @@ customer -- (checkout)
 --> (*)
 ```
 
-在描述箭头时， up|down|left|right 这几个单词的写法可以简化， 用单词开头的一个或两个字母来替换就行了，比如 -down-> 也可以写成 -d-> 或者 -do-> 。在 PlantUML 里，我们可以使用 if/then/else 关键词来定义分支。
+在描述箭头时，up|down|left|right 这几个单词的写法可以简化，用单词开头的一个或两个字母来替换就行了，比如 -down-> 也可以写成 -d-> 或者 -do-> 。在 PlantUML 里，我们可以使用 if/then/else 关键词来定义分支。
 
 ```puml
 (*) --> "Initialisation"
@@ -358,7 +358,7 @@ endif
 <img:file.png> to include an image
 ```
 
-针对较长文本描述活动，可以起一个较短别名（如："long text" as A1）， 在图形定义脚本中可以直接使用别名。PlantUML 可以通过在脚本里使用 note 来添加注释文本块。PlantUML 用上面列表里的命令来标注一个注释块的开始，然后用 end note 来标注注释块的结束。同时 note 命令也允许使用单行定义一个文本块， 详见下面的例子。
+针对较长文本描述活动，可以起一个较短别名（如："long text" as A1），在图形定义脚本中可以直接使用别名。PlantUML 可以通过在脚本里使用 note 来添加注释文本块。PlantUML 用上面列表里的命令来标注一个注释块的开始，然后用 end note 来标注注释块的结束。同时 note 命令也允许使用单行定义一个文本块，详见下面的例子。
 
 ```puml
 (*) --> "Some Activity" as s
