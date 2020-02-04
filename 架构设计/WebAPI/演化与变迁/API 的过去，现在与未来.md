@@ -1,5 +1,3 @@
-
-
 ![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/12/3/1-V4DQWx-EKXphLTaV19JT2w.jpeg)
 
 # API 的过去，现在与未来

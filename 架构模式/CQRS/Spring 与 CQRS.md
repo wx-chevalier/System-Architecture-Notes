@@ -8,31 +8,32 @@
 
 ```java
 public interface IUserQueryService {
+  List<User> getUsersList(int page, int size, String sortDir, String sort);
 
-    List<User> getUsersList(int page, int size, String sortDir, String sort);
+  String checkPasswordResetToken(long userId, String token);
 
-    String checkPasswordResetToken(long userId, String token);
+  String checkConfirmRegistrationToken(String token);
 
-    String checkConfirmRegistrationToken(String token);
-
-    long countAllUsers();
-
+  long countAllUsers();
 }
 
 public interface IUserCommandService {
+  void registerNewUser(
+    String username,
+    String email,
+    String password,
+    String appUrl
+  );
 
-    void registerNewUser(String username, String email, String password, String appUrl);
+  void updateUserPassword(User user, String password, String oldPassword);
 
-    void updateUserPassword(User user, String password, String oldPassword);
+  void changeUserPassword(User user, String password);
 
-    void changeUserPassword(User user, String password);
+  void resetPassword(String email, String appUrl);
 
-    void resetPassword(String email, String appUrl);
+  void createVerificationTokenForUser(User user, String token);
 
-    void createVerificationTokenForUser(User user, String token);
-
-    void updateUser(User user);
-
+  void updateUser(User user);
 }
 ```
 
@@ -82,57 +83,75 @@ public class UserQueryRestController {
 @Controller
 @RequestMapping(value = "/api/users")
 public class UserCommandRestController {
+  @Autowired
+  private IUserCommandService userService;
 
-    @Autowired
-    private IUserCommandService userService;
+  @Autowired
+  private ModelMapper modelMapper;
 
-    @Autowired
-    private ModelMapper modelMapper;
+  @RequestMapping(value = "/registration", method = RequestMethod.POST)
+  @ResponseStatus(HttpStatus.OK)
+  public void register(
+    HttpServletRequest request,
+    @RequestBody UserRegisterCommandDto userDto
+  ) {
+    String appUrl = request
+      .getRequestURL()
+      .toString()
+      .replace(request.getRequestURI(), "");
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.OK)
-    public void register(
-      HttpServletRequest request, @RequestBody UserRegisterCommandDto userDto) {
-        String appUrl = request.getRequestURL().toString().replace(request.getRequestURI(), "");
+    userService.registerNewUser(
+      userDto.getUsername(),
+      userDto.getEmail(),
+      userDto.getPassword(),
+      appUrl
+    );
+  }
 
-        userService.registerNewUser(
-          userDto.getUsername(), userDto.getEmail(), userDto.getPassword(), appUrl);
-    }
+  @PreAuthorize("isAuthenticated()")
+  @RequestMapping(value = "/password", method = RequestMethod.PUT)
+  @ResponseStatus(HttpStatus.OK)
+  public void updateUserPassword(
+    @RequestBody UserUpdatePasswordCommandDto userDto
+  ) {
+    userService.updateUserPassword(
+      getCurrentUser(),
+      userDto.getPassword(),
+      userDto.getOldPassword()
+    );
+  }
 
-    @PreAuthorize("isAuthenticated()")
-    @RequestMapping(value = "/password", method = RequestMethod.PUT)
-    @ResponseStatus(HttpStatus.OK)
-    public void updateUserPassword(@RequestBody UserUpdatePasswordCommandDto userDto) {
-        userService.updateUserPassword(
-          getCurrentUser(), userDto.getPassword(), userDto.getOldPassword());
-    }
+  @RequestMapping(value = "/passwordReset", method = RequestMethod.POST)
+  @ResponseStatus(HttpStatus.OK)
+  public void createAResetPassword(
+    HttpServletRequest request,
+    @RequestBody UserTriggerResetPasswordCommandDto userDto
+  ) {
+    String appUrl = request
+      .getRequestURL()
+      .toString()
+      .replace(request.getRequestURI(), "");
+    userService.resetPassword(userDto.getEmail(), appUrl);
+  }
 
-    @RequestMapping(value = "/passwordReset", method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.OK)
-    public void createAResetPassword(
-      HttpServletRequest request,
-      @RequestBody UserTriggerResetPasswordCommandDto userDto)
-    {
-        String appUrl = request.getRequestURL().toString().replace(request.getRequestURI(), "");
-        userService.resetPassword(userDto.getEmail(), appUrl);
-    }
+  @RequestMapping(value = "/password", method = RequestMethod.POST)
+  @ResponseStatus(HttpStatus.OK)
+  public void changeUserPassword(
+    @RequestBody UserchangePasswordCommandDto userDto
+  ) {
+    userService.changeUserPassword(getCurrentUser(), userDto.getPassword());
+  }
 
-    @RequestMapping(value = "/password", method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.OK)
-    public void changeUserPassword(@RequestBody UserchangePasswordCommandDto userDto) {
-        userService.changeUserPassword(getCurrentUser(), userDto.getPassword());
-    }
+  @PreAuthorize("hasRole('USER_WRITE_PRIVILEGE')")
+  @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+  @ResponseStatus(HttpStatus.OK)
+  public void updateUser(@RequestBody UserUpdateCommandDto userDto) {
+    userService.updateUser(convertToEntity(userDto));
+  }
 
-    @PreAuthorize("hasRole('USER_WRITE_PRIVILEGE')")
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    @ResponseStatus(HttpStatus.OK)
-    public void updateUser(@RequestBody UserUpdateCommandDto userDto) {
-        userService.updateUser(convertToEntity(userDto));
-    }
-
-    private User convertToEntity(UserUpdateCommandDto userDto) {
-        return modelMapper.map(userDto, User.class);
-    }
+  private User convertToEntity(UserUpdateCommandDto userDto) {
+    return modelMapper.map(userDto, User.class);
+  }
 }
 ```
 
@@ -142,41 +161,41 @@ public class UserCommandRestController {
 
 ```java
 public class UserQueryDto {
-    private Long id;
+  private Long id;
 
-    private String username;
+  private String username;
 
-    private boolean enabled;
+  private boolean enabled;
 
-    private Set<Role> roles;
+  private Set<Role> roles;
 
-    private long scheduledPostsCount;
+  private long scheduledPostsCount;
 }
 
 public class UserRegisterCommandDto {
-    private String username;
-    private String email;
-    private String password;
+  private String username;
+  private String email;
+  private String password;
 }
 
 public class UserUpdatePasswordCommandDto {
-    private String oldPassword;
-    private String password;
+  private String oldPassword;
+  private String password;
 }
 
 public class UserTriggerResetPasswordCommandDto {
-    private String email;
+  private String email;
 }
 
 public class UserChangePasswordCommandDto {
-    private String password;
+  private String password;
 }
 
 public class UserUpdateCommandDto {
-    private Long id;
+  private Long id;
 
-    private boolean enabled;
+  private boolean enabled;
 
-    private Set<Role> roles;
+  private Set<Role> roles;
 }
 ```

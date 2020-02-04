@@ -35,51 +35,60 @@ A ResourceHandler is an observable(rxjava), it’s only handling logic for its r
 ```java
 @Component
 public class UserResourceHandler implements AbstractResourceHandler {
+  @Autowired
+  DispatcherController dispatcherController;
 
-    @Autowired
-    DispatcherController dispatcherController;
+  @Override
+  public Observable<ResourceBag> handle(ResourceBag resourceBag) {
+    return Observable.<ResourceBag>create(
+      (
+        subscriber -> {
+          //Before
+          //Initialize and fill this resource content by its resource_id
+          String user_id = Optional
+            .ofNullable(resourceBag.getUserId())
+            .orElseGet(
+              () -> {
+                return String.valueOf(
+                  resourceBag.getUriMapping().get(resourceBag.getFlowIndex())[1]
+                );
+              }
+            );
 
-    @Override
-    public Observable<ResourceBag> handle(ResourceBag resourceBag) {
+          Resource userResource = new Resource();
 
-        return Observable.<ResourceBag>create((subscriber -> {
+          userResource.attributes.put("user_id", user_id);
 
-            //Before
-            //Initialize and fill this resource content by its resource_id
-            String user_id = Optional.ofNullable(resourceBag.getUserId()).orElseGet(() -> {
-                return String.valueOf(resourceBag.getUriMapping().get(resourceBag.getFlowIndex())[1]);
-            });
-
-            Resource userResource = new Resource();
-
-            userResource.attributes.put("user_id", user_id);
-
-//            System.out.println(resourceBag.getFlowIndex() + "AAAAAA" + resourceBag.getUriMapping().size());
-
+          //            System.out.println(resourceBag.getFlowIndex() + "AAAAAA" + resourceBag.getUriMapping().size());
             //Insert this resource into resource bag
-            resourceBag.getResources().add(userResource);
+            resourceBag
+            .getResources()
+            .add(userResource);
 
-            //chech whether it is terminal
-            //After
-
-            if (resourceBag.getUriMapping().size() > resourceBag.getFlowIndex() + 1) {
-                dispatcherController.forward(resourceBag).subscribe(r -> {
-                    resourceBag.decreaseFlowIndex();
-                    subscriber.onNext(r);
-                    subscriber.onCompleted();
-                });
-            } else {
-                //if terminal, use onNext to backward
-                resourceBag.decreaseFlowIndex();
-                subscriber.onNext(resourceBag);
-                subscriber.onCompleted();
-            }
-
-
-        }));
-
-    }
-
+          //chech whether it is terminal
+          //After
+          if (
+            resourceBag.getUriMapping().size() > resourceBag.getFlowIndex() + 1
+          ) {
+            dispatcherController
+              .forward(resourceBag)
+              .subscribe(
+                r -> {
+                  resourceBag.decreaseFlowIndex();
+                  subscriber.onNext(r);
+                  subscriber.onCompleted();
+                }
+              );
+          } else {
+            //if terminal, use onNext to backward
+            resourceBag.decreaseFlowIndex();
+            subscriber.onNext(resourceBag);
+            subscriber.onCompleted();
+          }
+        }
+      )
+    );
+  }
 }
 ```
 

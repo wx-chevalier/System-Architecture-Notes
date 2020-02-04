@@ -1,5 +1,3 @@
-
-
 # RESTful 接口
 
 # HTTP Methods

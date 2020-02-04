@@ -1,13 +1,12 @@
->[原文地址 :Microsoft API Guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#63-silent-fail-rule)
->[笔者有关于 REST 系列文章](https://github.com/wx-chevalier/just-coder-handbook/#restful) 笔者之前翻译过一篇[来自于 PayPal 的 RESTful API 标准](https://segmentfault.com/a/1190000005924733)，其是 PayPal 内部遵循的 RESTful 的接口规范，本文则是微软提出的 API 风格指南，笔者认为二者各有优劣。微软的准则相对更加详细严谨，但是对于复杂资源请求，却没有 PayPal 提及的多。本文目前仅包含第一部分的翻译，笔者日后为添加上第二部分。
+> [原文地址 :Microsoft API Guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#63-silent-fail-rule) >[笔者有关于 REST 系列文章](https://github.com/wx-chevalier/just-coder-handbook/#restful) 笔者之前翻译过一篇[来自于 PayPal 的 RESTful API 标准](https://segmentfault.com/a/1190000005924733)，其是 PayPal 内部遵循的 RESTful 的接口规范，本文则是微软提出的 API 风格指南，笔者认为二者各有优劣。微软的准则相对更加详细严谨，但是对于复杂资源请求，却没有 PayPal 提及的多。本文目前仅包含第一部分的翻译，笔者日后为添加上第二部分。
 
 微软云平台为开发者提供了基于 HTTP 的 REST 风格的 API 接口，虽然不同的服务都是基于特定语言的一些请求框架的实现，但是基于 HTTP 的 REST 的操作却是遵循一致的规则。本指南的目的即是提供可以使得任何的 HTTP 客户端能够以相同的行为模式与规范来使用的接口。而保障开发者的一致性体验的关键，即是保证 REST API 遵循统一的设计指南，从而简单易用，符合人们的直觉反应。本指南的目标在于 :
 
-* 为 Microsoft 提供的所有 REST 风格的 Endpoints 都遵循一直的实践模式
-* 尽可能与目前产业界中大规模使用的 REST/HTTP 的最佳实践相符合
-* 保证所有使用 Microsoft 服务的应用开发者能够方便快捷地基于 REST 接口进行访问
-* 允许服务开发者能够基于之前的工作快速搭建新的接口
-* 允许所有的非 Microsoft 合作者也能使用这些规范
+- 为 Microsoft 提供的所有 REST 风格的 Endpoints 都遵循一直的实践模式
+- 尽可能与目前产业界中大规模使用的 REST/HTTP 的最佳实践相符合
+- 保证所有使用 Microsoft 服务的应用开发者能够方便快捷地基于 REST 接口进行访问
+- 允许服务开发者能够基于之前的工作快速搭建新的接口
+- 允许所有的非 Microsoft 合作者也能使用这些规范
 
 在正式介绍本指南之前，推荐阅读如下一些参考资料
 
@@ -142,8 +141,8 @@ Link: {help}; rel="help"
 
 对于某些给定 API 的基本操作不应该支持自定义的请求头。对于一些需要额外数据的服务应该支持自定义的请求头。不过自定义的非标准的请求头应该遵循如下的规范 :
 
-* RFC 3864 中暂定为临时的请求头格式
-* 请求头应该尽可能地符合使用场景
+- RFC 3864 中暂定为临时的请求头格式
+- 请求头应该尽可能地符合使用场景
 
 ## Specifying Headers as Query Parameters: 以查询参数方式提交自定义请求头
 

@@ -8,13 +8,13 @@
 
 URI 应当包含`vN`，其中`N`指明版本号。基于 URL 的版本控制相较于其他复杂的请求头的方法会显得简单易用很多。
 
-* URI Template
+- URI Template
 
 ```
 /v{version}/
 ```
 
-* Example
+- Example
 
 ```
 /v1/
@@ -24,13 +24,13 @@ URI 应当包含`vN`，其中`N`指明版本号。基于 URL 的版本控制相�
 
 如果在 URI 中你需要考虑命名空间这个概念，那么应当选择紧邻在`version`之后的第一个字段。命名空间折射出消费者对于 API 功能的观点，而不一定是公司本身业务逻辑层级的划分。
 
-* URI Template
+- URI Template
 
 ```
 /{version}/{namespace}/
 ```
 
-* Example
+- Example
 
 ```
 /v1/vault/
@@ -40,7 +40,7 @@ URI 应当包含`vN`，其中`N`指明版本号。基于 URL 的版本控制相�
 
 URI 与资源之间的关联应当保证一致性，避免出现容易引起混淆的子命名空间或者子目录的命名，这样有助于使用者能够很明晰地构造这些请求的 URI。
 
-* URI Template
+- URI Template
 
 ```
 /{version}/{namespace}/{resource}/{resource-id}/{sub-resource}/{sub-resource-id}
@@ -81,19 +81,19 @@ Hypermedia links 用于在分页的集合资源中指明请求其他页资源的
 
 `sort_by` 以及 `sort_order` 参数可以用来指明需要被排序的资源集合。一般来说`sort_by`需要包含某个独立资源名，而`sort_order`应该是`asc`或者`desc`值。
 
-* URI Template
+- URI Template
 
 ```
 GET /{version}/{namespace}/{resource}
 ```
 
-* Example Request
+- Example Request
 
 ```
 GET /v1/vault/credit-cards
 ```
 
-* Example Resopnse
+- Example Resopnse
 
 ```
 ~~~
@@ -152,19 +152,19 @@ GET /v1/vault/credit-cards
 
 单个资源一般比资源集合中的对应项更详细，同时需要注意 GET 请求不应该影响到系统。对于敏感数据的资源标识不应该是连续的或者数值类型的，另外，如果待读取的数据是其他数据的子类，那么应该使用不可变的字符串标识符，这样可读性与可调试性都会更好。
 
-* URI Template
+- URI Template
 
 ```
 GET /{version}/{namespace}/{resource}/{resource-id}
 ```
 
-* Example Request
+- Example Request
 
 ```
 GET /v1/vault/customers/CUSTOMER-66W27667YB813414MKQ4AKDY
 ```
 
-* Example Response
+- Example Response
 
 ```
 {
@@ -177,7 +177,7 @@ GET /v1/vault/customers/CUSTOMER-66W27667YB813414MKQ4AKDY
 }
 ```
 
-* HTTP Status
+- HTTP Status
 
 如果指定的资源并不存在，那么应该返回`404 Not Found`状态，否则应该返回`200 OK`状态码
 
@@ -185,13 +185,13 @@ GET /v1/vault/customers/CUSTOMER-66W27667YB813414MKQ4AKDY
 
 注意，使用 PUT 动作更新单个资源的时候需要除了需要修正的值否则保证 PUT 请求的值与 GET 响应的值保持一致性，另外对于像`create_time`这样系统自动计算的值也可以忽略。
 
-* URI Template
+- URI Template
 
 ```
 PUT /{version}/{namespace}/{resource}/{resource-id}
 ```
 
-* Example Request
+- Example Request
 
 ```
 PUT /v1/vault/customers/CUSTOMER-66W27667YB813414MKQ4AKDY
@@ -205,19 +205,19 @@ PUT /v1/vault/customers/CUSTOMER-66W27667YB813414MKQ4AKDY
 }
 ```
 
-* HTTP Status 任何处理失败的请求都应该返回`400 Bad Request`, 特别是如果客户端想要更改某个只读的字段，也应该返回`400 Bad Request`。如果具体的业务逻辑上存在校验规则，譬如对于数据的类型、长度等等，那么应该提供具体的操作码说明。如果部分场景下需要客户单与其他 API 进行交互或者在本次请求之外发出额外的请求，那么应该返回`422`状态码，详情可以参考[PPaaS Blog on this topic](http://ppaas/news/2014/05/01/added-standards-for-422-http-status/)这篇文章。对于其他成功的更新请求，应该返回`204 No Content`状态码，即没有任何的返回体。
+- HTTP Status 任何处理失败的请求都应该返回`400 Bad Request`, 特别是如果客户端想要更改某个只读的字段，也应该返回`400 Bad Request`。如果具体的业务逻辑上存在校验规则，譬如对于数据的类型、长度等等，那么应该提供具体的操作码说明。如果部分场景下需要客户单与其他 API 进行交互或者在本次请求之外发出额外的请求，那么应该返回`422`状态码，详情可以参考[PPaaS Blog on this topic](http://ppaas/news/2014/05/01/added-standards-for-422-http-status/)这篇文章。对于其他成功的更新请求，应该返回`204 No Content`状态码，即没有任何的返回体。
 
 ## Update Partial Single Resoure
 
 不同于每次 PUT 请求中都需要更新资源的全部属性，PACTH 可以根据指定的域更新对应的属性值，并且不会影响到其他属性。[JSON Patch](https://tools.ietf.org/html/rfc6902) 是一个推荐的信息格式，在 PayPal 的几乎所有关于 PATCH 的操作中都有所应用。除非客户端的特别需要，否则每次 PATCH 操作的返回状态都应该是`204 No Content`, 这样从带宽的角度，特别是在移动设备中能够更好地节约流量。
 
-* URI Template
+- URI Template
 
 ```
 PATCH /{version}/{namespace}/{resource}/{resource-id}
 ```
 
-* Example Request
+- Example Request
 
 ```
 PATCH /v1/notifications/webhooks/52Y53119KP6130839
@@ -229,25 +229,25 @@ PATCH /v1/notifications/webhooks/52Y53119KP6130839
     }
 ```
 
-* Example Response
+- Example Response
 
 ```
 204 No Content
 ```
 
-* HTTP Status 和 PUT 请求一致。
+- HTTP Status 和 PUT 请求一致。
 
 ## Delete Single Resource
 
 在删除一个资源的时候，为了保证客户端的可重试性，应当将 DELETE 操作当做幂等操作对待。因此每次删除操作都应该返回`204 No Content`状态码，否则如果你返回的是`404 Not Found`可能会让客户端误认为该资源是并不存在，而不是被删除了。应该使用 GET 请求来验证某个资源是否被成功删除，而不应该通过 DELETE 请求进行验证。
 
-* URI Template
+- URI Template
 
 ```
 DELETE /{version}/{namespace}/{resource}/{resource-id}
 ```
 
-* Example Request
+- Example Request
 
 ```
 DELETE /v1/vault/customers/CUSTOMER-66W27667YB813414MKQ4AKDY
@@ -258,13 +258,13 @@ DELETE /v1/vault/customers/CUSTOMER-66W27667YB813414MKQ4AKDY
 
 一般来说，创建某个资源的请求体与 GET/PUT 不太一致，大部分情况下 API Server 都会为该资源创建一个全局的资源描述符，即使用[Create New Resource - Consumer ID]()。一旦 POST 请求被成功执行，也就意味着资源创建成功，那么该资源的描述符也会被添加到资源集合的 URI 中。Hypermedia links 提供了一种较为便捷的方式访问新近创建的资源，可以使用`rel`: `self`。
 
-* URI Template
+- URI Template
 
 ```
 POST /{version}/{namespace}/{resource}
 ```
 
-* Example Request
+- Example Request
 
 ```
 ~~~
@@ -288,7 +288,7 @@ POST /v1/vault/credit-cards
 ~~~
 ```
 
-* Example Response
+- Example Response
 
 ```
 ~~~
@@ -330,14 +330,14 @@ POST /v1/vault/credit-cards
 
 ## Cautions
 
-* 多层的资源标识符本身对于 Consumer 而言也是一种负担。
-  * 尽可能地将具有唯一标识符的资源或者没必要指明父资源的资源作为 First-Level Resource。
-* 要注意使用多个资源标识符的时候务必不能产生歧义，譬如`/{version}/{namespace}/{resource}/{resource-id}/{sub-resource-id}`这种直接将子资源标识符放在父资源标识符之后的做法就是不合适的，会让 Consumer 迷糊。
-* 实践中这种资源的层叠嵌套不要超过两层。
-  * 要保证 API 客户端的可用性，如果在某个 URI 中维持大量的层级资源标识符会大大增加复杂度。
-  * 服务端开发者需要校验每一层级的标识符来判断是否具有访问权限，如果层级过深极易导致复杂度的陡升。
+- 多层的资源标识符本身对于 Consumer 而言也是一种负担。
+  - 尽可能地将具有唯一标识符的资源或者没必要指明父资源的资源作为 First-Level Resource。
+- 要注意使用多个资源标识符的时候务必不能产生歧义，譬如`/{version}/{namespace}/{resource}/{resource-id}/{sub-resource-id}`这种直接将子资源标识符放在父资源标识符之后的做法就是不合适的，会让 Consumer 迷糊。
+- 实践中这种资源的层叠嵌套不要超过两层。
+  - 要保证 API 客户端的可用性，如果在某个 URI 中维持大量的层级资源标识符会大大增加复杂度。
+  - 服务端开发者需要校验每一层级的标识符来判断是否具有访问权限，如果层级过深极易导致复杂度的陡升。
 
-- URI Templates
+* URI Templates
 
 ```
 POST /{version}/{namespace}/{resource}/{resource-id}/{sub-resource}
@@ -347,7 +347,7 @@ PUT /{version}/{namespace}/{resource}/{resource-id}/{sub-resource}/{sub-resource
 DELETE /{version}/{namespace}/{resource}/{resource-id}/{sub-resource}/{sub-resource-id}
 ```
 
-* Examples
+- Examples
 
 ```
 GET /v1/notifications/webhooks/{webhook-id}/event-types
@@ -361,13 +361,13 @@ DELETE /v1/factory/widgets/PART-4312/sub-assemblies/INNER_COG
 
 当父子资源之间实际上是一一映射的关系时，可以使用单数形式的资源名来表明多个资源标识符的作用。这种情况下子资源往往也是父资源的一部分，即所谓的被父资源所有。否则子资源应当被放置于独立的资源集合中，并且以其他方式表明父子资源的关联。如果需要创建这种所谓的 Singleton 子资源，应该使用 PUT 动作，因为 PUT 是幂等性的。可以使用 PATCH 来进行部分更新，不过千万要注意不能使用 PATCH 进行创建操作。
 
-* URI Template
+- URI Template
 
 ```
 GET/PUT /{version}/{namespace}/{resource}/{resource-id}/{sub-resource}
 ```
 
-* Examples
+- Examples
 
 ```
 GET /v1/customers/devices/DEV-FDU233FDSE213f)/vendor-information
@@ -375,7 +375,7 @@ GET /v1/customers/devices/DEV-FDU233FDSE213f)/vendor-information
 
 # Complex Operation
 
-* URI Template
+- URI Template
 
 ```
 ~~~
@@ -387,26 +387,26 @@ POST /{namespace}/{action-resource}
 
 ## Risks
 
-* 架构设计的可扩展性 _ 一旦这种模式被滥用了，URI 的数量会急剧增长，特别是根级别的 Action 可以随着时间疯狂增长。同样的这也会导致路由或者对外提供服务的配置复杂度急速增长。_ URI 无法再被扩展，即不能再使用子资源。
-* 可测试性 : 因为缺乏丰富的 GET 等读取类操作而使得与 [Resource Collection](#resource-collection)-oriented 模式相比有较大缺陷
-* 历史 : 所有对于 Action 的调用应该存在某种资源中，譬如`/action-resource-history`。
+- 架构设计的可扩展性 _ 一旦这种模式被滥用了，URI 的数量会急剧增长，特别是根级别的 Action 可以随着时间疯狂增长。同样的这也会导致路由或者对外提供服务的配置复杂度急速增长。_ URI 无法再被扩展，即不能再使用子资源。
+- 可测试性 : 因为缺乏丰富的 GET 等读取类操作而使得与 [Resource Collection](#resource-collection)-oriented 模式相比有较大缺陷
+- 历史 : 所有对于 Action 的调用应该存在某种资源中，譬如`/action-resource-history`。
 
 ## Benefits
 
-* 避免因为短暂性数据而导致资源集合模型的损害。
-* 可用性的提升：这种 Action-Oriented 模式能够大大简化客户端交互内容，不过客户端并不能获益于资源本身的可读性
+- 避免因为短暂性数据而导致资源集合模型的损害。
+- 可用性的提升：这种 Action-Oriented 模式能够大大简化客户端交互内容，不过客户端并不能获益于资源本身的可读性
 
 ## Resource-Oriented Alternative
 
 与上文提及的这种单纯的 Action-Oriented RFC 风格 URL 相比，更好地方法就是与[Resource Collection](#resource-collection)相结合，并且使用`GET /{actions}`来获取历史记录。这也允许未来基于资源模型的扩展。除此之外，这种模式也能较好地与[event sourcing](http://martinfowler.com/eaaDev/EventSourcing.html)概念相结合。
 
-* URI Template
+- URI Template
 
 ```
 POST /{version}/{namespace}/{action}
 ```
 
-* Example Request
+- Example Request
 
 ```
 ~~~
@@ -417,7 +417,7 @@ POST /v1/risk/payment-decisions
 ~~~
 ```
 
-* Example Response
+- Example Response
 
 ```
 ~~~
@@ -442,13 +442,13 @@ POST /v1/risk/payment-decisions
 
 一般来说，Action 的响应状态都是`200 OK`以及资源本身，如果没有任何的资源状态的修正，那么应该返回`204 No Content`，并且不应该附上任何的响应体。
 
-* URI Template
+- URI Template
 
 ```
 POST /{version}/{namespace}/{resource}/{resource-id}/{complex-operation}
 ```
 
-* Example Request
+- Example Request
 
 ```
 ~~~
@@ -459,7 +459,7 @@ POST /v1/payments/billing-agreements/I-0LN988D3JACS/suspend
 ~~~
 ```
 
-* Example Response
+- Example Response
 
 ```
 ~~~
@@ -469,7 +469,7 @@ POST /v1/payments/billing-agreements/I-0LN988D3JACS/suspend
 
 不过需要注意的是，虽然这种模式可以改变状态，也并不意味着所有的关于资源的状态改变都要使用所谓的复杂操作模式。简单的状态的改变仍然可以使用 PUT/PATCH，也就是意味着混合使用[Resource Collection](#resource-collection)与 Complex Operation 从而减少操作的数目。
 
-* Example Request (for mixed use of PUT)
+- Example Request (for mixed use of PUT)
 
 ```
 ~~~
@@ -497,13 +497,13 @@ PATCH /v1/payments/billing-agreements/I-0LN988D3JACS
 
 该系列的操作往往可以在一次请求中处理多个 creates/updates/deletes 操作。这一点往往从性能与可用性方面综合考虑，这也会在影响多个资源的请求中更好地维持原子性。参考下面这个例子，capture 和 payment 都会同时被 refund 操作影响。对于 capture 资源的 PUT 或者 PATCH 操作会隐性地影响 payment 资源。
 
-* URI Template
+- URI Template
 
 ```
 POST /{version}/{namespace}/{action}
 ```
 
-* Example Request
+- Example Request
 
 ```
 ~~~
@@ -511,7 +511,7 @@ POST /v1/payments/captures/{capture-id}/refund
 ~~~
 ```
 
-* Example Response
+- Example Response
 
 ```
 ~~~
@@ -551,13 +551,13 @@ POST /v1/payments/captures/{capture-id}/refund
 
 这一个类型的复杂操作并不会保留客户端的状态或者创建新的资源。往往就是一个简单的 RPC 调用，然后直接获取返回值。该操作一般不会用在子资源中，因为子资源操作一般会影响父资源的状态。此时返回是建议使用`200 OK`这个状态码。
 
-* URI Template
+- URI Template
 
 ```
 POST /{version}/{namespace}/{action}
 ```
 
-* Example Request
+- Example Request
 
 ```
 POST /v1/risk/evaluate-payment
@@ -566,7 +566,7 @@ POST /v1/risk/evaluate-payment
 }
 ```
 
-* Example Response
+- Example Response
 
 ```
 200 OK
@@ -583,13 +583,13 @@ POST /v1/risk/evaluate-payment
 
 如果响应体比较大的情况下应当使用分页方式，需要注意的是，Consumer 应该在每次子请求的时候都使用 POST 方式。这样也就意味着，在 POST 请求体中需要维护一些查询参数。分页查询参数同样可以参考[Resource Collections](#paging)这一部分。同样可以适用于提供 `next`, `previous`, `first`, `last` 来进行其他页的快速读取。
 
-* URI Template
+- URI Template
 
 ```
 POST /{version}/{namespace}/{search-resource}
 ```
 
-* Example Request
+- Example Request
 
 ```
 	POST /v1/factory/widgets-search
@@ -600,7 +600,7 @@ POST /{version}/{namespace}/{search-resource}
 	}
 ```
 
-* Example Response
+- Example Response
 
 ```
 	200 OK
@@ -627,13 +627,13 @@ POST /{version}/{namespace}/{search-resource}
 
 在部分需要进行计算或者静态引用的场景下，GET 会比 POST 请求更为合适，因为 POST 在 HTTP 层面是不会有缓存的。GET 请求本身是幂等的，即不会改变资源的状态，而 POST 请求可以用于[Complex Operations](#complex-operation)。
 
-* URI Template
+- URI Template
 
 ```
 GET /{version}/{namespace}/{read-only-resource}
 ```
 
-* Example Request
+- Example Request
 
 ```
 GET /v1/location/geocode?address=77+N.+Washington+Street%2C+Boston%2C+MA%2C+02114
