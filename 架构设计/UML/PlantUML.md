@@ -72,7 +72,7 @@ Alice -> Alice: This is a signal to self.\nIt also demonstrates\nmultiline \ntex
 在用例图里可以通过以下方式来改变箭头的样式：
 
 - 使用 \ 或 / 来替换 < 或 > 可以让箭头只显示上半部分或下半部分。
-- 重复输入箭头或斜杠（ >> // ），用来绘制空心箭头。
+- 重复输入箭头或斜杠（>> // ），用来绘制空心箭头。
 - 使用双横线 -- 替代 - 可以用来绘制点线。
 - 在箭头后面加个 o 可以在箭头前绘制一个圆圈。
 - 使用 <-> 可用来绘制双向箭头。
@@ -106,7 +106,7 @@ Bob -> Alice : Authentication Request
 Bob <- Alice : Authentication Response
 ```
 
-如果需要指定一个起始号码，可以直接在 autonumber 后面加个数字就行 了，如果要设置自增量，再在后面加一个数字就行了（ autonumber start increment）。
+如果需要指定一个起始号码，可以直接在 autonumber 后面加个数字就行 了，如果要设置自增量，再在后面加一个数字就行了（autonumber start increment）。
 
 ```puml
 autonumber
