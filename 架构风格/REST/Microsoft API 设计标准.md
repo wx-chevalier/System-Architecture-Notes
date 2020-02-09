@@ -20,7 +20,7 @@
 
 ## Errors: 错误
 
-Errors，或者更准确地说，Service Errors ，被定义为因为客户端将错误的数据传递给了服务端而导致服务端拒绝该请求。典型的譬如无效的认证状态、错误的参数、未知的版本 ID 等等。一般来说，服务端会以`4xx`系列的 HTTP 错误码来进行响应，注意，Errors 并不会影响整体的 API 可用性。
+Errors，或者更准确地说，Service Errors，被定义为因为客户端将错误的数据传递给了服务端而导致服务端拒绝该请求。典型的譬如无效的认证状态、错误的参数、未知的版本 ID 等等。一般来说，服务端会以`4xx`系列的 HTTP 错误码来进行响应，注意，Errors 并不会影响整体的 API 可用性。
 
 ## Faults: 故障
 
@@ -125,7 +125,7 @@ Link: {help}; rel="help"
 
 ## Standard Request Headers: 标准请求头
 
-所有遵循 Microsoft REST API 指南的服务都需要支持如下的请求头 : | Header | Type | Description | | --------------------------------- | ------------------------------------- | ---------------------------------------- | | Authorization | String | 请求的认证头 | | Date | Date | [RFC 3339](https://tools.ietf.org/html/rfc3339) 格式的时间戳 | | Accept | Content type | 请求的资源类型 : application/xml text/xml application/json text/javascript (for JSONP) | | Accept-Encoding | Gzip, deflate | REST 端必须支持 GZIP 与 DEFLATE 编码，对于大型资源的请求，服务端可以忽略未压缩的请求。| | Accept-Language | "en", "es", etc. | 指定响应的偏好语言，对于那些支持国际化的服务端必须要处理该请求头。| | Accept-Charset | Charset type like "UTF-8" | 默认是 UTF-8, 但是服务端也要能处理 ISO-8859-1。| | Content-Type | Content type | 请求体的 MIME 类型 (PUT/POST/PATCH) | | Prefer | return=minimal, return=representation | 如果指定了 return=minimal，服务端对于插入或者修改操作应该返回一个空的响应体。如果指定了 return=representation ，服务端应该在响应时返回创建好的或者更新后的资源。当部分客户端希望能够较好的带宽利用与响应时间时，服务端应该支持该请求头。| | If-Match, If-None-Match, If-Range | String | 支持对于资源的优化的并发更新控制的必须要支持该请求头，也可以使用 ETags 等其他的头信息来进行缓存操作。|
+所有遵循 Microsoft REST API 指南的服务都需要支持如下的请求头 : | Header | Type | Description | | --------------------------------- | ------------------------------------- | ---------------------------------------- | | Authorization | String | 请求的认证头 | | Date | Date | [RFC 3339](https://tools.ietf.org/html/rfc3339) 格式的时间戳 | | Accept | Content type | 请求的资源类型 : application/xml text/xml application/json text/javascript (for JSONP) | | Accept-Encoding | Gzip, deflate | REST 端必须支持 GZIP 与 DEFLATE 编码，对于大型资源的请求，服务端可以忽略未压缩的请求。| | Accept-Language | "en", "es", etc. | 指定响应的偏好语言，对于那些支持国际化的服务端必须要处理该请求头。| | Accept-Charset | Charset type like "UTF-8" | 默认是 UTF-8, 但是服务端也要能处理 ISO-8859-1。| | Content-Type | Content type | 请求体的 MIME 类型 (PUT/POST/PATCH) | | Prefer | return=minimal, return=representation | 如果指定了 return=minimal，服务端对于插入或者修改操作应该返回一个空的响应体。如果指定了 return=representation，服务端应该在响应时返回创建好的或者更新后的资源。当部分客户端希望能够较好的带宽利用与响应时间时，服务端应该支持该请求头。| | If-Match, If-None-Match, If-Range | String | 支持对于资源的优化的并发更新控制的必须要支持该请求头，也可以使用 ETags 等其他的头信息来进行缓存操作。|
 
 ## Standard Response Headers
 
