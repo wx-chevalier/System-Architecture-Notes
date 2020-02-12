@@ -26,7 +26,7 @@
 
 # 现在
 
-Deep Blue 出现的三年之后，也就是 2000 年时，Roy Fielding 发布了影响深远的著名论文：Architectural Styles and the Design of Network-based Software Architectures 。也就是后来广为人知的 REST API 架构风格，为广大的开发者规划出了基于 HTTP 协议的 Web APIs 蓝图。同年，Salesforce 发布了他们 Web API 的首个版本，允许第三方通过这些 Web API 自动化管理交易流程。随后，包括 eBay、Google 等在内的科技巨头纷纷发布了他们的 Web API。
+Deep Blue 出现的三年之后，也就是 2000 年时，Roy Fielding 发布了影响深远的著名论文：Architectural Styles and the Design of Network-based Software Architectures。也就是后来广为人知的 REST API 架构风格，为广大的开发者规划出了基于 HTTP 协议的 Web APIs 蓝图。同年，Salesforce 发布了他们 Web API 的首个版本，允许第三方通过这些 Web API 自动化管理交易流程。随后，包括 eBay、Google 等在内的科技巨头纷纷发布了他们的 Web API。
 
 ![](https://coding.net/u/hoteam/p/Cache/git/raw/master/1-8ApzsT2WtYF0pkVIS1hvjw.png)
 

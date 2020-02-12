@@ -298,7 +298,7 @@ customer -- (checkout)
 --> (*)
 ```
 
-在描述箭头时，up|down|left|right 这几个单词的写法可以简化，用单词开头的一个或两个字母来替换就行了，比如 -down-> 也可以写成 -d-> 或者 -do-> 。在 PlantUML 里，我们可以使用 if/then/else 关键词来定义分支。
+在描述箭头时，up|down|left|right 这几个单词的写法可以简化，用单词开头的一个或两个字母来替换就行了，比如 -down-> 也可以写成 -d-> 或者 -do->。在 PlantUML 里，我们可以使用 if/then/else 关键词来定义分支。
 
 ```puml
 (*) --> "Initialisation"
