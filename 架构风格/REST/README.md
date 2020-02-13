@@ -17,11 +17,11 @@ URI 只代表资源的实体，不代表它的形式。严格地说，有些网�
 
 ## Action | 动作
 
-GET （SELECT）：从服务器检索特定资源，或资源列表。
-POST （CREATE）：在服务器上创建一个新的资源。
-PUT （UPDATE）：更新服务器上的资源，提供整个资源。
-PATCH （UPDATE）：更新服务器上的资源，仅提供更改的属性。
-DELETE （DELETE）：从服务器删除资源。
+GET（SELECT）：从服务器检索特定资源，或资源列表。
+POST（CREATE）：在服务器上创建一个新的资源。
+PUT（UPDATE）：更新服务器上的资源，提供整个资源。
+PATCH（UPDATE）：更新服务器上的资源，仅提供更改的属性。
+DELETE（DELETE）：从服务器删除资源。
 首先是四个半种动作：
 post、delete、put/patch、get
 因为 put/patch 只能算作一类，所以将 patch 归为半个。
