@@ -19,7 +19,7 @@
       - [EventSourcing](/架构模式/CQRS/EventSourcing.md)
       - [Spring 与 CQRS](/架构模式/CQRS/Spring%20与%20CQRS.md)
     - [EDA](/架构模式/EDA/README.md)
-      
+      - [事件溯源](/架构模式/EDA/事件溯源.md)
     - [UDLA](/架构模式/UDLA/README.md)
       - [COLA](/架构模式/UDLA/COLA/README.md)
         
