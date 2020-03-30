@@ -8,7 +8,8 @@
 ![](http://7xkt0f.com1.z0.glb.clouddn.com/B5EE471B-D893-4B88-8B5A-53C46588A801.png)
 然后我们直接看最终的 Controller 的写法：
 
-```@RequestMapping("/login/{verifyCode}")
+```
+@RequestMapping("/login/{verifyCode}")
 String login(HttpServletRequest request, @PathVariable("verifyCode") String verifyCode) {
 
     //初始化上下文
@@ -874,7 +875,7 @@ java.lang.Thread.run(Thread.java:745)
                             return;
                         }
                     } else if (share_category.equals("1")) {
-                        //承诺的实现还没写
+                        //Promises的实现还没写
                         try {
                             socialShareServiceImpl.insertPromiseWithAt(user_id, share_category, share_description,
                                     share_img_path, share_city, share_county, share_lon, share_lat, activityMap, groupMap, user_ids, share_img_path_with_lables);
