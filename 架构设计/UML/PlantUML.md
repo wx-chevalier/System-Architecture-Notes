@@ -11,6 +11,8 @@ Alice -> Bob: synchronous call
 Alice ->> Bob: asynchronous call
 ```
 
+# 常用模板
+
 # 顺序图（Sequence Diagram）
 
 顺序图用 -> , -->, <-, <-- 来绘制参与者（Participants）之 间的消息（Message）。
