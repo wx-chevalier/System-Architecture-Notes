@@ -23,22 +23,25 @@
       - [Spring 与 CQRS](/架构模式/CQRS/Spring%20与%20CQRS.md)
     - [EDA](/架构模式/EDA/README.md)
       - [事件溯源](/架构模式/EDA/事件溯源.md)
-    - [UDMA](/架构模式/UDMA/README.md)
-      - [COLA](/架构模式/UDMA/COLA/README.md)
-        
+    - [UDLMA](/架构模式/UDLMA/README.md)
       - RARF
-        - [AARF ch](/架构模式/UDMA/RARF/AARF-ch.md)
-        - [AARF en](/架构模式/UDMA/RARF/AARF-en.md)
-        - [RARF.en](/架构模式/UDMA/RARF/RARF.en.md)
-        - [RARF](/架构模式/UDMA/RARF/RARF.md)
-        - [类 Redux 的代码组织](/架构模式/UDMA/RARF/类%20Redux%20的代码组织.md)
+        - [AARF.en](/架构模式/UDLMA/RARF/AARF.en.md)
+        - [AARF](/架构模式/UDLMA/RARF/AARF.md)
+        - [RARF.en](/架构模式/UDLMA/RARF/RARF.en.md)
+        - [RARF](/架构模式/UDLMA/RARF/RARF.md)
+        - [类 Redux 的代码组织](/架构模式/UDLMA/RARF/类%20Redux%20的代码组织.md)
       - 扩展
-        - [反应式](/架构模式/UDMA/扩展/反应式.md)
-        - [扩展点](/架构模式/UDMA/扩展/扩展点.md)
+        - [反应式](/架构模式/UDLMA/扩展/反应式.md)
+        - [扩展点](/架构模式/UDLMA/扩展/扩展点.md)
     - 业务逻辑架构
       - [事务脚本](/架构模式/业务逻辑架构/事务脚本.md)
       - [活动记录](/架构模式/业务逻辑架构/活动记录.md)
       - [表模块](/架构模式/业务逻辑架构/表模块.md)
+    - 典型案例
+      - [COLA](/架构模式/典型案例/COLA/README.md)
+        
+      - [DOMA](/架构模式/典型案例/DOMA/README.md)
+        
   - [架构衍化](/架构衍化/README.md)
     - [GUI 应用程序架构](/架构衍化/GUI%20应用程序架构/README.md)
       - [单向数据流](/架构衍化/GUI%20应用程序架构/单向数据流/README.md)
