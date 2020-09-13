@@ -23,10 +23,21 @@ https://images0.cnblogs.com/blog2015/435188/201504/221630054068285.png
 
 Event Sourcing－事件溯源。而对于领域对象来说，我们也应该知晓其整个生命周期的演变过程，这样有利于查看并还原某一“时刻”的领域对象，在 EDA 架构中，对于领域对象状态的保存是通过领域事件进行完成，所以我们要想记录领域对象的状态记录，就需要把领域对象所经历的所有事件进行保存下来，这就是 Event Store（事件存储），这个东西就相当于 Git 代码服务器，存储所有领域对象所经历的事件，对于某一事件来说，可以看作是对应领域对象的“快照”。
 
-提取最后的参考资料
+# EDA 成熟度模型
 
-http://www.cnblogs.com/xishuai/p/iddd-cqrs-and-eda.html#xishuai_h1
+我们通过 Gartner 报告总结的 EDA 成熟度模型，展望以下 EDA 架构的未来：
+
+- Incidental：偶发性地使用事件通知机制来进行一些状态的捕获，没有明确的事件处理策略；
+ 
+- Brokered：提供托管的事件代理服务，组织中部分应用开始采用基于消息或者事件的异步化架构；
+ 
+- Centralized：以战略的形式提出中心化的 EDA 解决方案，有专门的组织团队提供 EDA 实现，EDA 架构开始广泛被采用；
+ 
+- Advanced：EDA 架构开始触达更多的业务领域，比如流计算，数据分析，AI，以及 API 市场等，跨组织的事件生态开始形成并进行扩张；
+ 
+- Pervasive：事件变得无处不在，庞大的事件生态形成，组织间的隔离被事件彻底打通，企业的关键业务都将采取 EDA 架构；事件驱动与请求驱动两个生态完成融合。
 
 # 链接
 
 - https://zhuanlan.zhihu.com/p/79095599
+- 提取最后的参考资料 http://www.cnblogs.com/xishuai/p/iddd-cqrs-and-eda.html#xishuai_h1
