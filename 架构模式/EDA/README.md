@@ -37,6 +37,8 @@ Event Sourcing－事件溯源。而对于领域对象来说，我们也应该知
  
 - Pervasive：事件变得无处不在，庞大的事件生态形成，组织间的隔离被事件彻底打通，企业的关键业务都将采取 EDA 架构；事件驱动与请求驱动两个生态完成融合。
 
+![EDA 成熟度模型](https://s1.ax1x.com/2020/09/13/w0qKHK.png)
+
 # 链接
 
 - https://zhuanlan.zhihu.com/p/79095599
