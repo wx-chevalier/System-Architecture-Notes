@@ -129,6 +129,7 @@
           - [会员系统 DSL 描述](/架构风格/领域驱动设计/应用案例/ContextMapper/会员系统%20DSL%20描述.md)
         - [银行转账](/架构风格/领域驱动设计/应用案例/银行转账.md)
       - [设计与建模](/架构风格/领域驱动设计/设计与建模/README.md)
+        - [Domain Driven Design Starter Modelling Process](/架构风格/领域驱动设计/设计与建模/Domain-Driven%20Design%20Starter%20Modelling%20Process.md)
         - [用例分析与关系推导](/架构风格/领域驱动设计/设计与建模/用例分析与关系推导.md)
         - [领域划分](/架构风格/领域驱动设计/设计与建模/领域划分.md)
         - [领域协作](/架构风格/领域驱动设计/设计与建模/领域协作.md)
