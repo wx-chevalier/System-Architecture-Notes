@@ -68,7 +68,7 @@ Deep Blue 出现的三年之后，也就是 2000 年时，Roy Fielding 发布了
 
 # 未来
 
-在过去的数十年中，我们尝试了使用不同的程序与工具来解决上文中提及的数个问题。API Workflow 、 API Style Guide、API Documentation Best Practices，以及其他企业级的保持同步性、避免大规模变化与避免人为错误的标准都是我们披荆斩棘一路走来的成果。我们使用了 Swagger 这样优秀的文档生成器来尽可能保证文档与代码的一致性，我们规定了复杂的测试流程、雇佣更多的开发者来维护庞杂的 API 系统。某个大公司雇佣专门的团队来辅助 API 文档的编写与更新也是见怪不怪的事情。我把这个过程重新组织下就是：我们雇佣开发者来负责为其他开发者编写可读的 API 文档，从而辅助他们理解某个机器接口，并且编写合适的消费程序来使用这些接口。我的一个朋友是这么说的: Programmers tend to solve programming problems by more programming.
+在过去的数十年中，我们尝试了使用不同的程序与工具来解决上文中提及的数个问题。API Workflow 、API Style Guide、API Documentation Best Practices，以及其他企业级的保持同步性、避免大规模变化与避免人为错误的标准都是我们披荆斩棘一路走来的成果。我们使用了 Swagger 这样优秀的文档生成器来尽可能保证文档与代码的一致性，我们规定了复杂的测试流程、雇佣更多的开发者来维护庞杂的 API 系统。某个大公司雇佣专门的团队来辅助 API 文档的编写与更新也是见怪不怪的事情。我把这个过程重新组织下就是：我们雇佣开发者来负责为其他开发者编写可读的 API 文档，从而辅助他们理解某个机器接口，并且编写合适的消费程序来使用这些接口。我的一个朋友是这么说的: Programmers tend to solve programming problems by more programming.
 
 而现在的 API 分享与发现，对于幸运的几个不差钱的公司他们可以花钱进行市场推广与营销，而其他可怜兮兮的小公司只能默默地在 Hacker News 上进行推广。
 
@@ -113,7 +113,7 @@ print forecast(Temperature)
 
 ## 即将到来的 2017
 
-上面描述的理想状态可能离我们还非常远，不过在 2017 里我们已经发现很多的进展。譬如[HATEOAS](https://spring.io/understanding/HATEOAS)允许我们以超媒体语义的方式进行运行时解析。[JSON-LD](https://blog.codeship.com/json-ld-building-meaningful-data-apis/)格式也被越来越多的 API 提供商接受，而类似于 Google、Microsoft 、 Yahoo 以及 Yandex 等 API 提供商也逐渐接受[Schema.org](https://schema.org/)中的专属词汇。而类似于[ALPS](http://alps.io/)这样的格式也允许我们为接口的数据与使用情景提供语义化支持，与此同时，[GraphQL Schema](http://graphql.org/learn/schema/)也允许我们在运行时发现 GraphQL 接口的使用方式。最后，类似于[HitchHQ](https://www.hitchhq.com/)或[Rapid API](http://rapidapi.com/)也为统一的 API 发布与注册提供了便捷支持。
+上面描述的理想状态可能离我们还非常远，不过在 2017 里我们已经发现很多的进展。譬如[HATEOAS](https://spring.io/understanding/HATEOAS)允许我们以超媒体语义的方式进行运行时解析。[JSON-LD](https://blog.codeship.com/json-ld-building-meaningful-data-apis/)格式也被越来越多的 API 提供商接受，而类似于 Google、Microsoft 、Yahoo 以及 Yandex 等 API 提供商也逐渐接受[Schema.org](https://schema.org/)中的专属词汇。而类似于[ALPS](http://alps.io/)这样的格式也允许我们为接口的数据与使用情景提供语义化支持，与此同时，[GraphQL Schema](http://graphql.org/learn/schema/)也允许我们在运行时发现 GraphQL 接口的使用方式。最后，类似于[HitchHQ](https://www.hitchhq.com/)或[Rapid API](http://rapidapi.com/)也为统一的 API 发布与注册提供了便捷支持。
 
 # 延伸阅读
 

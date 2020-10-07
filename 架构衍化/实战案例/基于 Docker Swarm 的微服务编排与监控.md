@@ -10,7 +10,7 @@
 
 使用 Docker 进行自动化部署，使用 Docker Swarm 进行集群管理与自动负载均衡，使用 Portainer 进行界面化的容器管理与监控，使用 Declarative Crawler 进行应用级别的监控。
 
-涉及到静态页面、Node.js 、 Java、Python
+涉及到静态页面、Node.js 、Java、Python
 
 使用 Caddy 作为反向代理与请求路口，使用 Jenkins 作为持续集成构建服务，使用 MySQL/TiDB 作为核心关系型数据库，使用 Redis 作为缓存数据库，使用 ElasticSearch/Kibana 作为搜索引擎支撑，使用 Presto 作为跨数据库查询层，使用 FileBeat 进行日志搜集，使用 Kafka / Kafka Streaming 作为消息队列以及简易流处理工具。
 

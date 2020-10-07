@@ -17,7 +17,7 @@
 
 ## Stateful
 
-这种状态下，服务处于激活状态，并且能够处理连续的任务。如果服务处于 Stateful 状态下，它可以处理三个类型的数据：Session 、 Context 与 Business。
+这种状态下，服务处于激活状态，并且能够处理连续的任务。如果服务处于 Stateful 状态下，它可以处理三个类型的数据：Session 、Context 与 Business。
 
 ### Session
 

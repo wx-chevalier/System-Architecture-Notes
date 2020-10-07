@@ -1,6 +1,6 @@
 # PlantUML
 
-PlantUML 是一个快速创建 UML 图形的组件，官网上之所以称它是一个组件，我 想主要是因为多数情况下我们都是在 Eclipse、NetBenas、Intellijidea、 Emacs、Word 等软件里来使用 PlantUML。
+PlantUML 是一个快速创建 UML 图形的组件，官网上之所以称它是一个组件，我 想主要是因为多数情况下我们都是在 Eclipse、NetBenas、Intellijidea、Emacs、Word 等软件里来使用 PlantUML。
 
 ![PlantUML](https://tva1.sinaimg.cn/large/007DFXDhgy1g4htjnq1ovj316d0u0tf7.jpg)
 

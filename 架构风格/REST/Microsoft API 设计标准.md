@@ -229,4 +229,4 @@ Accept: application/json
 
 ## Client Library Optional
 
-开发者应该能够使用多种语言或者平台来进行客户端开发，譬如 Windows、MacOS 、 Linux、C# 、 Python、Node.js 以及 Ruby。服务应该允许利用 curl 等工具进行快速访问。
+开发者应该能够使用多种语言或者平台来进行客户端开发，譬如 Windows、MacOS 、Linux、C# 、Python、Node.js 以及 Ruby。服务应该允许利用 curl 等工具进行快速访问。
