@@ -112,7 +112,7 @@ ContextMap UserContextMap {
 
 # BoundedContext
 
-在 ContextMap 中我们描述了它们之间的关联关系，接下来我们要进行 BoundedContext 的详细定义。BoundedContext 包含的内容相信大多数同学都知道，如 Entity， ValueObject，Aggregate，Service，Repository、DomainEvent 等，这个大家应该都比较熟悉。这里我们给出一个 ContextMapper 对 BoundedContext 的代码，如下：
+在 ContextMap 中我们描述了它们之间的关联关系，接下来我们要进行 BoundedContext 的详细定义。BoundedContext 包含的内容相信大多数同学都知道，如 Entity，ValueObject，Aggregate，Service，Repository、DomainEvent 等，这个大家应该都比较熟悉。这里我们给出一个 ContextMapper 对 BoundedContext 的代码，如下：
 
 ```js
 BoundedContext AccountContext implements AccountDomain {
@@ -169,7 +169,7 @@ BoundedContext 的更多信息，可以参考 sculptor 的文档，根据实际�
 
 ## UserStory
 
-这个 DSL 比较明确的，主要是三元素：作为 “aaa"，我希望能"xxx"，我希望能”yyyy"，以便 "zzz"， 也是符合 UserStory 的典型三要素：角色、活动和商业价值。
+这个 DSL 比较明确的，主要是三元素：作为 “aaa"，我希望能"xxx"，我希望能”yyyy"，以便 "zzz"，也是符合 UserStory 的典型三要素：角色、活动和商业价值。
 
 ```js
 UserStory Customers {
@@ -192,7 +192,7 @@ UseCase UC1_Example {
 }
 ```
 
-在 Aggregate 聚合中，你可以设置 useCases 属性来描述对应的 UseCase， 如下：
+在 Aggregate 聚合中，你可以设置 useCases 属性来描述对应的 UseCase，如下：
 
 ```js
 Aggregate Contract {
