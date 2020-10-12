@@ -9,7 +9,6 @@ Uncle Bob 提出 Clean Architecture 最早并不是专门面向于 GUI 应用程
 ## iOS Viper Architecture
 
 Viper 架构中职责分割地更为细致，大概分为了五层:
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/1-0pN3BNTXfwKbf08lhwutag.png)
 
 - Interactor:包含了与数据以及网络相关的业务逻辑，譬如从服务端获取数据并构造出实体对象。很多时候我们会使用所谓的 Services 或者 Managers 来负责此方面的工作
 - 包含 UI 相关的一些业务逻辑，调用 Interactor 中的方法

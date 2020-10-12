@@ -11,8 +11,6 @@ MVVM 模式进一步深化了 Presentation Model 的思想，利用 Data Binding
 - ViewModel 从 Model 中获取最新的模型，并且更新自己的数据状态
 - View 根据最新的 ViewModel 的数据进行重新渲染
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/BB708F10-1F39-4FFE-A66C-319293AAC71F.png)
-
 根据上述流程，我们可知 MVVM 模式的特性为：
 
 - ViewModel、Model 中存在 ViewLogic 实现，View 则不保存任何状态信息
@@ -21,8 +19,6 @@ MVVM 模式进一步深化了 Presentation Model 的思想，利用 Data Binding
 - Model 不需要了解 View 的实现细节，需要了解 ViewModel 的实现细节
 
 # iOS
-
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/1-uhPpTHYzTmHGrAZy8hiM7w.png)
 
 ```swift
 import UIKit

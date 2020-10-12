@@ -12,8 +12,6 @@
 - Controller 将用户输入转化为 Model 所需要进行的更改
 - Model 中的更改结束之后，Controller 通知 View 进行更新以表现出当前 Model 的状态
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/B24AC2FE-EC59-48AA-B94F-417AC73D9886.png)
-
 根据上述流程，我们可知经典的 MVC 模式的特性为：
 
 - View、Controller、Model 中皆有 ViewLogic 的部分实现
@@ -29,13 +27,9 @@
 
 - View 作为 Observer 会监听 Model 中的任意更新，一旦有更新事件发出，View 会自动触发更新以展示最新的 Model 状态
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/565313A4-6639-468A-9E27-FE9E126CEFA2.png)
-
 可知其与经典的 MVC 模式区别在于不需要 Controller 通知 View 进行更新，而是由 Model 主动调用 View 进行更新。这种改变提升了整体效率，简化了 Controller 的功能，不过也导致了 View 与 Model 之间的紧耦合。
 
 # iOS
-
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/1-PkWjDU0jqGJOB972cMsrnA.png)
 
 Cocoa MVC 中往往会将大量的逻辑代码放入 ViewController 中，这就导致了所谓的 Massive ViewController，而且很多的逻辑操作都嵌入到了 View 的生命周期中，很难剥离开来。或许你可以将一些业务逻辑或者数据转换之类的事情放到 Model 中完成，不过对于 View 而言绝大部分时间仅起到发送 Action 给 Controller 的作用。ViewController 逐渐变成了几乎所有其他组件的 Delegate 与 DataSource，还经常会负责派发或者取消网络请求等等职责。你的代码大概是这样的:
 

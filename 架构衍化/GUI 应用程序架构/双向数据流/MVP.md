@@ -11,8 +11,6 @@
 - Model 将更新之后的值返回给 Presenter
 - Presenter 将更新之后的模型返回给 View
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/28983226-1BC6-4AD2-900B-E7D254266D4F.png)
-
 根据上述流程，我们可知 Passive View 版本的 MVP 模式的特性为：
 
 - View、Presenter、Model 中皆有 ViewLogic 的部分实现
@@ -25,11 +23,8 @@
 
 简化 Presenter 的部分功能，使得 Presenter 只起到需要复杂控制或者调解的操作，而简单的 Model 展示转化直接由 View 与 Model 进行交互：
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/EB81D8B6-227A-4E94-8107-C6DCC7920574.png)
-
 # iOS MVP
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/1-hKUCPEHg6TDz6gtOlnFYwQ.png)
 Cocoa 中 MVP 模式是将 ViewController 当做纯粹的 View 进行处理，而将很多的 ViewLogic 与模型操作移动到 Presenter 中进行，代码如下:
 
 ```swift

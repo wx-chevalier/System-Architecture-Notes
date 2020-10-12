@@ -21,7 +21,6 @@ Flux 不能算是绝对的先行者，但是在 Unidirectional Architecture 中�
 - Actions:用户输入之后触发 View 发出的事件
 - Dispatcher:负责分发 Actions
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/923C026D-DCF6-49F1-932E-88A632578068.png)
 根据上述流程，我们可知 Flux 模式的特性为：
 
 - Dispatcher: Event Bus 中设置有一个单例的 Dispatcher，很多 Flux 的变种都移除了 Dispatcher 依赖。
@@ -77,8 +76,6 @@ class ViewCounterButton
 ```
 
 上述代码逻辑用上文提及的 MVC 模式图演示就是:
-
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/1-wjSds7V7Q2jqC7AqkTK8hg.gif)
 
 而如果用 Flux 模式实现，会是下面这个样子:
 
@@ -138,8 +135,6 @@ CounterButton = React.createClass(
 
 其数据流图为:
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/1-C1WAATMd5gagQXy73bPEzw.gif)
-
 ## Redux: 集中式的状态管理
 
 Redux 是 Flux 的所有变种中最为出色的一个，并且也是当前 Web 领域主流的状态管理工具，其独创的理念与功能深刻影响了 GUI 应用程序架构中的状态管理的思想。Redux 将 Flux 中单例的 Dispatcher 替换为了单例的 Store，即也是其最大的特性，集中式的状态管理。并且 Store 的定义也不是从零开始单独定义，而是基于多个 Reducer 的组合，可以把 Reducer 看做 Store Factory。Redux 的重要组成部分包括:
@@ -152,7 +147,6 @@ Redux 是 Flux 的所有变种中最为出色的一个，并且也是当前 Web 
 
 - Reducers:用于响应 Actions 并且更新全局状态树的纯函数
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/EE52C4A6-0755-47D9-9A4B-70080E177869.png)
 根据上述流程，我们可知 Redux 模式的特性为：
 
 - 以工厂模式组装 Stores: Redux 允许我以`createStore()`函数加上一系列组合好的 Reducer 函数来创建 Store 实例，还有另一个`applyMiddleware()`函数可以允许在`dispatch()`函数执行前后链式调用一系列中间件。
@@ -170,7 +164,6 @@ Redux 是 Flux 的所有变种中最为出色的一个，并且也是当前 Web 
 - Actions:以 Mailbox 的方式传递用户事件的载体
 - Update:用于更新状态的纯函数
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/7/2/mvu-unidir-ui-arch.jpg)
 根据上述流程，我们可知 Elm 模式的特性为：
 
 - 到处可见的层次化组合:Redux 只是在 View 层允许将组件进行层次化组合，而 MVU 中在 Model 与 Update 函数中也允许进行层次化组合，甚至 Actions 都可以包含内嵌的子 Action

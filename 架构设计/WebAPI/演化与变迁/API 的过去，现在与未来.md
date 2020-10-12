@@ -1,5 +1,3 @@
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/12/3/1-V4DQWx-EKXphLTaV19JT2w.jpeg)
-
 # API 的过去，现在与未来
 
 随着微服务架构的流行，貌似我们已经聊了很多关于现在的 API 的设计与规范，不过能够畅想的未来的 API 又是怎样的模式呢？首先，我们需要回顾下 API 的过去与现在。
@@ -11,8 +9,6 @@
 ## 土耳其机器人：The Turk
 
 我们可以追溯到 1770 年匈牙利帝国时代的哈普斯堡王朝，匈牙利作家兼发明家沃尔夫冈 · 冯 · 肯佩伦(Wolfgang von Kempelen )建造了土耳其机器人(The Turk )，它由一个枫木箱子跟箱子后面伸出来的人形傀儡组成，傀儡穿着宽大的外衣，并戴着穆斯林的头巾。这个机器人可以下国际象棋，发明家打算让他的机器人与当时最优秀的国际象棋选手一较高下。在机器人完成之后，Kempelen 带着他的机器人来到了玛丽亚 · 特蕾西亚的宫殿，一时之间这个能自动下国际象棋的机器人风靡欧洲上流社会，包括波拿马拿破仑与本杰明富兰克林等在内的人士都见证了机器人战胜知名对手的对弈。不过当时可没有什么人工智能与机器学习技术，而是有一个实实在在的象棋大师被隐藏在盒子中，这个机器人不过是 Kempelen 的一个小把戏而已。就像魔术师一样欺骗那些观众，让他们误以为是一台真正的机器在下棋，最终在 1850 年这个把戏被揭穿。
-
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2016/12/3/1-oIgOhyZQJmcb97mlvCySww.png)
 
 不过这个小把戏也为我们留下了一句俗语，从此之后人们会使用`Mechanical Turk`来指代那些貌似完全自动化运行，不过还是逃不开人类介入的系统。
 
@@ -28,33 +24,23 @@
 
 Deep Blue 出现的三年之后，也就是 2000 年时，Roy Fielding 发布了影响深远的著名论文：Architectural Styles and the Design of Network-based Software Architectures。也就是后来广为人知的 REST API 架构风格，为广大的开发者规划出了基于 HTTP 协议的 Web APIs 蓝图。同年，Salesforce 发布了他们 Web API 的首个版本，允许第三方通过这些 Web API 自动化管理交易流程。随后，包括 eBay、Google 等在内的科技巨头纷纷发布了他们的 Web API。
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/1-8ApzsT2WtYF0pkVIS1hvjw.png)
-
 看起来已经进入了信息互联互通的盛世，机器与机器之间通过 Web APIs 进行信息交互，不过总感觉怪怪的。我们理想的情况是某个机器暴露部分接口，其他机器发现并且使用这些接口，然后现实还是很残酷的。
-
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/1/1/1-7BHcqb9ngZh0hQTHN2UNPw.png)
 
 在现实环境中，某个服务发布一系列接口，然后相关的开发人员编写接口规范文档然后四处播散。而另外部分的开发人员首先需要阅读文档，然后根据文档规范编写相应的程序指示机器去访问这些接口。
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/1/1/1-A2hxMv1jgxu-yUq01BiiYQ.png)
-
 在这种情况下，开发者不可避免的以中间媒介的方式介入了这种机器与机器的沟通中，就好像我们上文提到的 Mechanical Turl 类似，都有人藏在盒中操纵这些机器。因此，现阶段的 API，更应该叫做 API Turks。
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/1/1/1-ShHhX2xVpa6oYcZ7G4vV3A.png)
-
 我们的视线再转回 Web APIs 本身，现在可谓进入了 Web APIs 的黄金时代，随着 World Wide Web 的迅猛发展与巨大成功，Web APIs 的数量也极速爆发。
-
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/1/1/1-cm0XL67LjHttOX0lLOUYMQ.png)
 
 随着 API 数量与访问量的指数级的增长，因为人为大规模的介入 API 的开发与访问也带来了越来越多的问题。基本上每个 API 都会存在以下问题：
 
 - Synchronicity: 同步性
 
-现有模式下，在两台机器互联互通之前我们需要编写与分享 API 说明文档，即使我们忽略了因为人为沟通而导致的误解，如果 APIs 的规范发生了变化很多开发者还是会照着旧的文档编写 API 消费程序，最终导致驴头不对马嘴。在工程实践中，想要保持文档与 API 的实时一致性非常困难，需要大量的人力物力，另一方面，想要保持所有的客户端与 API 保持一致更是痴人说梦。![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/1/1/1-2SCmHLfgdpJKcsng_z_bVg.png)
+现有模式下，在两台机器互联互通之前我们需要编写与分享 API 说明文档，即使我们忽略了因为人为沟通而导致的误解，如果 APIs 的规范发生了变化很多开发者还是会照着旧的文档编写 API 消费程序，最终导致驴头不对马嘴。在工程实践中，想要保持文档与 API 的实时一致性非常困难，需要大量的人力物力，另一方面，想要保持所有的客户端与 API 保持一致更是痴人说梦。
 
 - Versioning: 版本控制
 
-上面提及的接口同步问题也随之带来了版本控制的问题，鉴于实际上大部分的接口并没有严格遵循 Fielding 的 REST 准则，很多的 API 客户端都与这些接口强耦合。这种强耦合最终会导致一个非常脆弱、鲁棒性非常低的系统，任何 API 的变化都有可能导致客户端的崩溃。同时，API 客户端的升级也是完全依赖于开发者，这一点的代价也非常昂贵且缓慢，并且还要考虑到大量的已经部署的无法轻易升级的老版本 API 客户端。![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/1/1/1-9utOz-qyggiV9LdF2tCvzw.png)
+上面提及的接口同步问题也随之带来了版本控制的问题，鉴于实际上大部分的接口并没有严格遵循 Fielding 的 REST 准则，很多的 API 客户端都与这些接口强耦合。这种强耦合最终会导致一个非常脆弱、鲁棒性非常低的系统，任何 API 的变化都有可能导致客户端的崩溃。同时，API 客户端的升级也是完全依赖于开发者，这一点的代价也非常昂贵且缓慢，并且还要考虑到大量的已经部署的无法轻易升级的老版本 API 客户端。
 
 这林林总总的问题让我们畏惧改变，每次对代码的修改都好似埋下未知的炸弹。我们不敢去修改已存在的接口，而是不断地编写新的接口，最终导致代码库日益庞杂。我们需要投入更多的人力物力，背负更多的技术负债，以及无休止的讨论来解决版本难题。
 
@@ -68,13 +54,13 @@ Deep Blue 出现的三年之后，也就是 2000 年时，Roy Fielding 发布了
 
 # 未来
 
-在过去的数十年中，我们尝试了使用不同的程序与工具来解决上文中提及的数个问题。API Workflow 、API Style Guide、API Documentation Best Practices，以及其他企业级的保持同步性、避免大规模变化与避免人为错误的标准都是我们披荆斩棘一路走来的成果。我们使用了 Swagger 这样优秀的文档生成器来尽可能保证文档与代码的一致性，我们规定了复杂的测试流程、雇佣更多的开发者来维护庞杂的 API 系统。某个大公司雇佣专门的团队来辅助 API 文档的编写与更新也是见怪不怪的事情。我把这个过程重新组织下就是：我们雇佣开发者来负责为其他开发者编写可读的 API 文档，从而辅助他们理解某个机器接口，并且编写合适的消费程序来使用这些接口。我的一个朋友是这么说的: Programmers tend to solve programming problems by more programming.
+在过去的数十年中，我们尝试了使用不同的程序与工具来解决上文中提及的数个问题。API Workflow、API Style Guide、API Documentation Best Practices，以及其他企业级的保持同步性、避免大规模变化与避免人为错误的标准都是我们披荆斩棘一路走来的成果。我们使用了 Swagger 这样优秀的文档生成器来尽可能保证文档与代码的一致性，我们规定了复杂的测试流程、雇佣更多的开发者来维护庞杂的 API 系统。某个大公司雇佣专门的团队来辅助 API 文档的编写与更新也是见怪不怪的事情。我把这个过程重新组织下就是：我们雇佣开发者来负责为其他开发者编写可读的 API 文档，从而辅助他们理解某个机器接口，并且编写合适的消费程序来使用这些接口。我的一个朋友是这么说的: Programmers tend to solve programming problems by more programming.
 
 而现在的 API 分享与发现，对于幸运的几个不差钱的公司他们可以花钱进行市场推广与营销，而其他可怜兮兮的小公司只能默默地在 Hacker News 上进行推广。
 
 ## Human role in M2M Communication
 
-让我们再来回顾下前面抛出的问题，为什么我们一定需要人类参与到 API Turks 中呢？人类在机器与机器的通信中又占据了怎么不可或缺的角色？实际上人类最关键的作用在于 API 的发现与理解，我们在找到合适的服务之后需要来理解是否能用它达成预定目标以及到底应该怎么做。![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/1/1/1-AIypIid7NmqmclbF1K1VLg.png)
+让我们再来回顾下前面抛出的问题，为什么我们一定需要人类参与到 API Turks 中呢？人类在机器与机器的通信中又占据了怎么不可或缺的角色？实际上人类最关键的作用在于 API 的发现与理解，我们在找到合适的服务之后需要来理解是否能用它达成预定目标以及到底应该怎么做。
 
 ## Autonomous APIs
 
@@ -102,8 +88,6 @@ print forecast(Temperature)
 
 这样的使用方式不仅能够保证 API 消费者弹性地应对 API 变化，还能保证多个 API 之间的代码复用性。譬如，你不再需要为某个单独的地区需求开发特定的天气应用，你可以开发某个通用的客户端，它知道如何呈现天气预报，也能自动地使用譬如 AccuWeather、Weather Underground 或者任何其他特定地区的天气服务提供商来获取特定地区的天气信息。
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/1/1/1-bPHOr3rUiidXOg6wng-42Q.png)
-
 总结来看，自动化 API 的构建会包含以下几块：
 
 - Vocabulary Registry
@@ -113,7 +97,7 @@ print forecast(Temperature)
 
 ## 即将到来的 2017
 
-上面描述的理想状态可能离我们还非常远，不过在 2017 里我们已经发现很多的进展。譬如[HATEOAS](https://spring.io/understanding/HATEOAS)允许我们以超媒体语义的方式进行运行时解析。[JSON-LD](https://blog.codeship.com/json-ld-building-meaningful-data-apis/)格式也被越来越多的 API 提供商接受，而类似于 Google、Microsoft 、Yahoo 以及 Yandex 等 API 提供商也逐渐接受[Schema.org](https://schema.org/)中的专属词汇。而类似于[ALPS](http://alps.io/)这样的格式也允许我们为接口的数据与使用情景提供语义化支持，与此同时，[GraphQL Schema](http://graphql.org/learn/schema/)也允许我们在运行时发现 GraphQL 接口的使用方式。最后，类似于[HitchHQ](https://www.hitchhq.com/)或[Rapid API](http://rapidapi.com/)也为统一的 API 发布与注册提供了便捷支持。
+上面描述的理想状态可能离我们还非常远，不过在 2017 里我们已经发现很多的进展。譬如[HATEOAS](https://spring.io/understanding/HATEOAS)允许我们以超媒体语义的方式进行运行时解析。[JSON-LD](https://blog.codeship.com/json-ld-building-meaningful-data-apis/)格式也被越来越多的 API 提供商接受，而类似于 Google、Microsoft、Yahoo 以及 Yandex 等 API 提供商也逐渐接受[Schema.org](https://schema.org/)中的专属词汇。而类似于[ALPS](http://alps.io/)这样的格式也允许我们为接口的数据与使用情景提供语义化支持，与此同时，[GraphQL Schema](http://graphql.org/learn/schema/)也允许我们在运行时发现 GraphQL 接口的使用方式。最后，类似于[HitchHQ](https://www.hitchhq.com/)或[Rapid API](http://rapidapi.com/)也为统一的 API 发布与注册提供了便捷支持。
 
 # 延伸阅读
 
