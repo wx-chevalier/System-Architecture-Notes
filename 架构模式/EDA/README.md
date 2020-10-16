@@ -28,18 +28,18 @@ Event Sourcing－事件溯源。而对于领域对象来说，我们也应该知
 我们通过 Gartner 报告总结的 EDA 成熟度模型，展望以下 EDA 架构的未来：
 
 - Incidental：偶发性地使用事件通知机制来进行一些状态的捕获，没有明确的事件处理策略；
- 
+
 - Brokered：提供托管的事件代理服务，组织中部分应用开始采用基于消息或者事件的异步化架构；
- 
+
 - Centralized：以战略的形式提出中心化的 EDA 解决方案，有专门的组织团队提供 EDA 实现，EDA 架构开始广泛被采用；
- 
+
 - Advanced：EDA 架构开始触达更多的业务领域，比如流计算，数据分析，AI，以及 API 市场等，跨组织的事件生态开始形成并进行扩张；
- 
+
 - Pervasive：事件变得无处不在，庞大的事件生态形成，组织间的隔离被事件彻底打通，企业的关键业务都将采取 EDA 架构；事件驱动与请求驱动两个生态完成融合。
 
 ![EDA 成熟度模型](https://s1.ax1x.com/2020/09/13/w0qKHK.png)
 
-# 链接
+# TBD
 
 - https://zhuanlan.zhihu.com/p/79095599
 - 提取最后的参考资料 http://www.cnblogs.com/xishuai/p/iddd-cqrs-and-eda.html#xishuai_h1

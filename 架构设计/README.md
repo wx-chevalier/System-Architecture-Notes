@@ -2,11 +2,10 @@
 
 # 软件架构设计原则
 
-
 ## 可用性
 
 ## 可塑性
 
-# 链接
+# TBD
 
 - https://github.com/dwmkerr/hacker-laws

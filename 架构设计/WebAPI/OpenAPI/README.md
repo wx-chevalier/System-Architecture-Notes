@@ -47,6 +47,6 @@ components:
           description: Longitude is the degrees longitude of the location, in the range [-180, 180].
 ```
 
-# 链接
+# TBD
 
 - https://www.breakyizhan.com/swagger/2806.html
