@@ -1,7 +1,7 @@
 # 整洁架构
 
 在过去几年我们看到关于系统架构的很多想法。这些包括：Alistair Cockburn 的六边形架构(也叫做端口与适配器)，Steve Freeman, 和 Nat Pryce 在他们精彩的著作 Growing Object Oriented Software 采用、Jeffrey Palermo 的 Onion Architecture、
-去年一片博客里的 Screaming Architecture、James Coplien 与 Trygve Reenskaug 的 DCI、Ivar Jacobson 的书： Object Oriented Software Engineering: A Use-Case Driven Approach 的 BCE。尽管这些架构在一些细节上都有不同，它们仍是相似的。他们都有同样的目标，隔离关注点。他们都通过将软件分层来达到隔离。每个都至少有一层业务规则，另一层作为接口。
+去年一片博客里的 Screaming Architecture、James Coplien 与 Trygve Reenskaug 的 DCI、Ivar Jacobson 的书：Object Oriented Software Engineering: A Use-Case Driven Approach 的 BCE。尽管这些架构在一些细节上都有不同，它们仍是相似的。他们都有同样的目标，隔离关注点。他们都通过将软件分层来达到隔离。每个都至少有一层业务规则，另一层作为接口。
 
 每个这些架构产出的系统都是：
 
