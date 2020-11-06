@@ -38,7 +38,7 @@ Clean-Architecture-Sample
 
 实体是可以通过函数实现的核心业务对象。用 MVC 术语来说，它们是整洁架构的模型层。所有的实体和服务都封装在 pkg 目录中。这其实就是我们要抽象出的东西，让它和其他部分分开。
 
-如果你看一下 user 下面的 entity.go ，它看起来是这样的。
+如果你看一下 user 下面的 entity.go，它看起来是这样的。
 
 ```go
 import "github.com/jinzhu/gorm"
