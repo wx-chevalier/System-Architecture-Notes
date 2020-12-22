@@ -1,19 +1,17 @@
-# SOA
-
 # SOA 面向服务架构
 
 SOA（Service-Oriented Architecture）面向服务架构，是在互联网应用规模迅速增长，集中式架构已无法做到无限制地提升系统的吞吐量的背景下，产生的涉及模块化开发、分布式扩展部署等相对宽泛的概念。
 
-![](https://i.postimg.cc/g2sRJB03/image.png)
+![SOA 的五大触角视图](https://i.postimg.cc/g2sRJB03/image.png)
 
 SOA 是一个组件模型，它将应用程序的不同功能单元（称为服务）通过这些服务之间定义良好的接口和契约联系起来。SOA 中的接口独立于实现服务的硬件平台、操作系统和编程语言，采用中立的方式进行定义。这使得构建在各种各样的系统中的服务可以以一种统一和通用的方式进行交互。面向服务架构，它可以根据需求通过网络对松散耦合的粗粒度应用组件进行分布式部署、组合和使用。服务层是 SOA 的基础，可以直接被应用调用，从而有效控制系统中与软件代理交互的人为依赖性。
 
 实施 SOA 的关键目标是实现企业 IT 资产的最大化作用。要实现这一目标，就要在实施 SOA 的过程中牢记以下特征：可从企业外部访问、随时可用、粗粒度的服务接口分级、松散耦合、可重用的服务、服务接口设计管理、标准化的服务接口、支持各种消息模式、精确定义的服务契约。
 
-![](https://i.postimg.cc/pTqK6Gw2/image.png)
+![ESB 示意图](https://i.postimg.cc/pTqK6Gw2/image.png)
 
 服务消费者（Service Consumer）可以通过发送消息来调用服务，这些消息由一个服务总线（Service Bus）转换后发送给适当的服务实现。这种服务架构可以提供一个业务规则引（Business Rules Engine），该引擎容许业务规则被合并在一个服务里或多个服务里。这种架构也提供了一个服务管理基础（Service Management Infrastructure），用来管理服务，类似审核，列表（billing），日志等功能。此外，该架构给企业提供了灵活的业务流程，更好地处理控制请求（Regulatory Requirement），例如 Sarbanes Oxley（SOX），并且可以在不影响其他服务的情况下更改某项服务。
 
 由于分布式系统十分复杂，因此产生了大量的用于简化分布式系统开发的分布式中间件和分布式数据库，服务化的架构设计理念也被越来越多的公司所认同。如下是 Dubbo 官方文档公布了一张有关 SOA 系统演化过程的图片：
 
-![](https://tva1.sinaimg.cn/large/007rAy9hgy1g35rmkfy3hj30jg05ut9c.jpg)
+![Dubbo SOA 系统演化示意](https://tva1.sinaimg.cn/large/007rAy9hgy1g35rmkfy3hj30jg05ut9c.jpg)
