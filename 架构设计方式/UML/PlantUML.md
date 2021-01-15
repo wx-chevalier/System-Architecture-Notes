@@ -15,7 +15,7 @@ Alice ->> Bob: asynchronous call
 
 # 顺序图（Sequence Diagram）
 
-顺序图用 -> , -->, <-, <-- 来绘制参与者（Participants）之 间的消息（Message）。
+顺序图用 ->, -->, <-, <-- 来绘制参与者（Participants）之 间的消息（Message）。
 
 ```puml
 Alice -> Bob: Authentication Request

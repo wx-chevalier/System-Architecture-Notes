@@ -2,7 +2,7 @@
 
 Inspired By Flux and Microservice，I want to do something different in server side. I am a fresh bird for developing，but has some practice in both frontend and backend. Recently, I develop an app containing iOS, android and web client(React). I use the Spring MVC as server-side framework. It’s good, but the mvc make me sometimes annoyed. Spring MVC mapping request to single controller according to its uri, that works well but demand or the product of my app suffers frequent change. Some one think its called agile, but result in so much deprecated code .
 
-Sometime, even the front-end add one element in its view, I need to rewrite one controller to adapt to suitable RequestData. So , I want to present my Asynchronous Abstract Resource Flow idea. I don’t know wherther it is good and it;s only during the draft progress, no one except me know what it is.
+Sometime, even the front-end add one element in its view, I need to rewrite one controller to adapt to suitable RequestData. So, I want to present my Asynchronous Abstract Resource Flow idea. I don’t know wherther it is good and it;s only during the draft progress, no one except me know what it is.
 
 I think the impression of Docker, which ships data via container between different sevice, may be a little alike. AARF don’t map request to one controller, it’s not Ordering food，but self-help.
 
