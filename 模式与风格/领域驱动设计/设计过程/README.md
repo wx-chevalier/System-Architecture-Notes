@@ -1,5 +1,7 @@
 # 领域建模
 
+![领域驱动设计过程](https://s3.ax1x.com/2021/02/02/ynoylD.md.png)
+
 DDD 的落地实现中，我们首先可以将领域设计模式分解到问题空间（Problem Space）与解空间（Solution Space）两大类中：问题空间的划分更多着眼于业务上值得注意的、重要的点；解空间则更关注与应用的组织架构，保证应用本身更易于管理。
 
 ![问题空间](https://i.postimg.cc/J0SgsLHy/image.png)
