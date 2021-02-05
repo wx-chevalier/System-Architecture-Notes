@@ -24,6 +24,10 @@ Donald Knuth 1974 年在 ACM Journal 上发表的文章《Structured Programming
 
 复杂性是万恶之源，总结而言，我们在注重整体架构与性能的同时，要避免过早地优化、避免过度优化。
 
+# 逻辑显性化
+
+> 参阅 [领域驱动设计/数据视图]() 中的 DP 案例。
+
 # 简单设计的量化标准
 
 在满足需求的基本前提下，简单设计其实为代码的重构给出了三个量化标准：重复性、可读性与简单性。重复性是一个客观的标准，可读性则出于主观的判断，故而应优先考虑尽可能消除代码的重复，然后在此基础上保证代码清晰地表达设计者的意图，提高可读性。只要达到了重用和可读，就应该到此为止，不要画蛇添足地增加额外的代码元素，如变量、函数、类甚至模块，保证实现方案的简单。
@@ -41,3 +45,36 @@ Donald Knuth 1974 年在 ACM Journal 上发表的文章《Structured Programming
 > I believe that the hardest part of software projects, the most common source of project failure, is communication with the customers and users of that software. -- Martin Fowler
 
 针对上面提到的问题，后来我们和电信专家一起设计了一种协议设计语言（并提供可视化的工具），这种设计语言使用的电信专家所熟悉的词汇。然后通过一个类似于编译器的程序将电信专家定义好的协议模型转换为内存中的 Java 结构。这样整个项目的运行和维护就变得简单高效了，省去了低效的交流和不准确人工转换。
+
+在提取了 includePage() 方法后，就可以消除四段几乎完全相似的重复代码。重构后的长函数为：
+
+```java
+public static String testableHtml(PageData pageData, boolean includeSuiteSetup) throws Exception {
+    WikiPage wikiPage = pageData.getWikiPage();
+    StringBuffer buffer = new StringBuffer();
+
+    if (pageData.hasAttribute("Test")) {
+        if (includeSuiteSetup) {
+            includePage(wikiPage, buffer, SuiteResponder.SUITE_SETUP_NAME, "-setup");
+        }
+        includePage(wikiPage, buffer, "SetUp", "-setup");
+    }
+    buffer.append(pageData.getContent());
+    if (pageData.hasAttribute("Test")) {
+        includePage(wikiPage, buffer, "TearDown", "-teardown");
+        if (includeSuiteSetup) {
+            includePage(wikiPage, buffer, SuiteResponder.SUITE_TEARDOWN_NAME, "-teardown");
+        }
+    }
+    pageData.setContent(buffer.toString());
+    return pageData.getHtml();
+}
+```
+
+从重复性角度看，以上代码已经去掉了重复。当然，也可以将 pageData.hasAttribute("Test")视为重复，因为该表达式在第 5 行和第 12 行都出现过，表达式用到的常量"Test"也是重复。不过，你若认为这是从代码可读性角度对其重构，也未尝不可：
+
+```java
+private static boolean isTestPage(PageData pageData) {
+    return pageData.hasAttribute("Test");
+}
+```
