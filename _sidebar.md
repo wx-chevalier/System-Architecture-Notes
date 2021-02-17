@@ -95,6 +95,7 @@
       - [3.5.4 简单性原则](/复杂性与设计原则/KISS/简单性原则/README.md)
         - [3.5.4.1 案例：FitNess](/复杂性与设计原则/KISS/简单性原则/案例：FitNess.md)
         - [3.5.4.2 案例：Istio](/复杂性与设计原则/KISS/简单性原则/案例：Istio.md)
+      - [3.5.5 避免提早优化](/复杂性与设计原则/KISS/避免提早优化.md)
   - [4 架构设计方式](/架构设计方式/README.md)
     - [4.1 UML](/架构设计方式/UML/README.md)
       - [4.1.1 PlantUML](/架构设计方式/UML/PlantUML.md)

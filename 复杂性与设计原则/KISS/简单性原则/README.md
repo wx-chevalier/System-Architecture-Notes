@@ -16,17 +16,132 @@ Kent Beck 提出的简单设计原则，内容为：
 
 第四个原则是“奥卡姆剃刀”的体现，更加文雅的翻译表达即“如无必要，勿增实体”。在软件开发中，那些不必要的抽象反而会产生多余的概念，实际会干扰代码阅读者的判断，增加代码的复杂度。因此，简单设计强调恰如其分的设计，若实现的功能通过了所有测试，就意味着满足了客户的需求，这时，只需要尽可能消除重复，清晰表达了设计者意图，就不可再增加额外的软件元素。若存在多余实体，当用奥卡姆的剃刀一割了之。
 
-# 避免提早优化
-
-Donald Knuth 1974 年在 ACM Journal 上发表的文章《Structured Programming with go to Statements》中写道：Premature optimizationComplexity is the root of all evil or: How I Learned to Stop Worrying and Love the Monolith。其意就是在没有量化的性能测试检测出真正存在的性能问题前，各种在代码层面的“炫技式”优化，可能不仅提升不了性能，反而会导致更多 bug。
-
-![重构的危害](https://s1.ax1x.com/2020/03/16/8JFiGQ.png)
-
-复杂性是万恶之源，总结而言，我们在注重整体架构与性能的同时，要避免过早地优化、避免过度优化。
-
 # 逻辑显性化
 
 > 参阅 [领域驱动设计/数据视图]() 中的 DP 案例。
+
+晦涩难懂是导致复杂性的两个主要原因之一。当有关系统的重要信息对于新开发人员而言并不明显时，就会发生模糊。解决晦涩问题的方法是以显而易见的方式编写代码。如果代码很明显，则意味着某人可以不加思索地快速阅读该代码，并且他们对代码的行为或含义的最初猜测将是正确的。如果代码很明显，那么读者就不需要花费很多时间或精力来收集他们使用代码所需的所有信息。如果代码不明显，那么读者必须花费大量时间和精力来理解它。这不仅降低了它们的效率，而且还增加了误解和错误的可能性。明显的代码比不明显的代码需要更少的注释。
+
+读者的想法是“显而易见”：注意到别人的代码不明显比发现自己的代码有问题要容易得多。因此，确定代码是否显而易见的最佳方法是通过代码审查。如果有人在阅读您的代码时说它并不明显，那么无论您看起来多么清晰，它也不是显而易见。通过尝试理解什么使代码变得不明显，您将学习如何在将来编写更好的代码。
+
+## 应当坚持的
+
+明智地使用空白。代码格式化的方式会影响其理解的容易程度。考虑以下参数文档，其中空格已被压缩：
+
+```java
+/**
+ *  ...
+ *  @param numThreads The number of threads that this manager should
+ *  spin up in order to manage ongoing connections. The MessageManager
+ *  spins up at least one thread for every open connection, so this
+ *  should be at least equal to the number of connections you expect
+ *  to be open at once. This should be a multiple of that number if
+ *  you expect to send a lot of messages in a short amount of time.
+ *  @param handler Used as a callback in order to handle incoming
+ *  messages on this MessageManager's open connections. See
+ *  {@code MessageHandler} and {@code handleMessage} for details.
+ */
+```
+
+很难看到一个参数的文档在哪里结束而下一个参数的文档在哪里开始。甚至不知道有多少个参数或它们的名称是什么。如果添加了一些空白，结构会突然变得清晰，文档也更容易扫描：
+
+```java
+/**
+ *  @param numThreads
+ *           The number of threads that this manager should spin up in
+ *           order to manage ongoing connections. The MessageManager spins
+ *           up at least one thread for every open connection, so this
+ *           should be at least equal to the number of connections you
+ *           expect to be open at once. This should be a multiple of that
+ *           number if you expect to send a lot of messages in a short
+ *           amount of time.
+ *  @param handler
+ *           Used as a callback in order to handle incoming messages on
+ *           this MessageManager's open connections. See
+ *           {@code MessageHandler} and {@code handleMessage} for details.
+ */
+```
+
+空行也可用于分隔方法中的主要代码块，例如以下示例：
+
+```cpp
+void* Buffer::allocAux(size_t numBytes) {
+    //  Round up the length to a multiple of 8 bytes, to ensure alignment.
+    uint32_t numBytes32 =  (downCast<uint32_t>(numBytes) + 7) & ~0x7;
+    assert(numBytes32 != 0);
+    //  If there is enough memory at firstAvailable, use that. Work down
+    //  from the top, because this memory is guaranteed to be aligned
+    //  (memory at the bottom may have been used for variable-size chunks).
+    if  (availableLength >= numBytes32) {
+        availableLength -= numBytes32;
+        return firstAvailable + availableLength;
+    }
+    //  Next, see if there is extra space at the end of the last chunk.
+    if  (extraAppendBytes >= numBytes32) {
+        extraAppendBytes -= numBytes32;
+        return lastChunk->data + lastChunk->length + extraAppendBytes;
+    }
+    //  Must create a new space allocation; allocate space within it.
+    uint32_t allocatedLength;
+    firstAvailable = getNewAllocation(numBytes32, &allocatedLength);
+    availableLength = allocatedLength numBytes32;
+    return firstAvailable + availableLength;
+}
+```
+
+如果每个空白行之后的第一行是描述下一个代码块的注释，则此方法特别有效：空白行使注释更可见。语句中的空白有助于阐明语句的结构。比较以下两个语句，其中之一具有空格，而其中一个没有空格：
+
+```cpp
+for(int pass=1;pass>=0&&!empty;pass--) {
+for (int pass = 1; pass >= 0 && !empty; pass--) {
+```
+
+注释。有时无法避免非显而易见的代码。发生这种情况时，重要的是使用注释来提供缺少的信息以进行补偿。要做到这一点，您必须使自己处于读者的位置，弄清楚什么可能会使他们感到困惑，以及哪些信息可以消除这种混乱。
+
+## 应当避免的
+
+有很多事情可以使代码变得不明显。本节提供了一些示例。其中某些功能（例如事件驱动的编程）在某些情况下很有用，因此您可能最终还是要使用它们。发生这种情况时，额外的文档可以帮助最大程度地减少读者的困惑。
+
+事件驱动的编程。在事件驱动的编程中，应用程序对外部事件做出响应，例如网络数据包的到来或按下鼠标按钮。一个模块负责报告传入事件。应用程序的其他部分通过在事件发生时要求事件模块调用给定的函数或方法来注册对某些事件的兴趣。事件驱动的编程使其很难遵循控制流程。永远不要直接调用事件处理函数。它们是由事件模块间接调用的，通常使用函数指针或接口。即使您在事件模块中找到了调用点，也仍然无法确定将调用哪个特定功能：这将取决于在运行时注册了哪些处理程序。因此，很难推理事件驱动的代码或说服自己相信它是可行的。
+
+为了弥补这种模糊性，请为每个处理程序函数使用接口注释，以指示何时调用该函数，如以下示例所示：
+
+```cpp
+/**
+ * This method is invoked in the dispatch thread by a transport if a
+ * transport-level error prevents an RPC from completing.
+ */
+void Transport::RpcNotifier::failed() {
+    ...
+}
+```
+
+如果无法通过快速阅读来理解代码的含义和行为，则它是一个危险标记。通常，这意味着有些重要的信息对于阅读代码的人来说并不能立即清除。通用容器。许多语言提供了用于将两个或多个项目组合到一个对象中的通用类，例如 Java 中的 Pair 或 C ++中的 std :: pair。这些类很诱人，因为它们使使用单个变量轻松传递多个对象变得容易。最常见的用途之一是从一个方法返回多个值，如以下 Java 示例所示：
+
+```java
+return new Pair<Integer, Boolean>(currentTerm, false);
+```
+
+不幸的是，通用容器导致代码不清晰，因为分组后的元素的通用名称模糊了它们的含义。在上面的示例中，调用者必须使用 result.getKey（）和 result.getValue（）引用两个返回的值，而这两个值都不提供这些值的实际含义。因此，最好不要使用通用容器。如果需要容器，请定义专门用于特定用途的新类或结构。然后，您可以为元素使用有意义的名称，并且可以在声明中提供其他文档，而对于常规容器而言，这是不可能的。
+
+此示例说明了一条通用规则：软件应设计为易于阅读而不是易于编写。通用容器对于编写代码的人来说是很方便的，但是它们会使随后的所有读者感到困惑。对于编写代码的人来说，花一些额外的时间来定义特定的容器结构是更好的选择，以便使生成的代码更加明显。不同类型的声明和分配。考虑以下 Java 示例：
+
+```java
+private List<Message> incomingMessageList;
+...
+incomingMessageList = new ArrayList<Message>();
+```
+
+将该变量声明为 List，但实际值为 ArrayList。这段代码是合法的，因为 List 是 ArrayList 的超类，但是它会误导看到声明但不是实际分配的读者。实际类型可能会影响变量的使用方式（ArrayList 与 List 的其他子类相比，具有不同的性能和线程安全属性），因此最好将声明与分配匹配。违反读者期望的代码。考虑以下代码，这是 Java 应用程序的主程序：
+
+```java
+public static void main(String[] args) {
+    ...
+    new RaftClient(myAddress, serverAddresses);
+}
+```
+
+大多数应用程序在其主程序返回时退出，因此读者可能会认为这将在此处发生。但是，事实并非如此。RaftClient 的构造函数创建其他线程，即使应用程序的主线程完成，该线程仍可继续运行。应该在 RaftClient 构造函数的接口注释中记录此行为，但是该行为不够明显，因此值得在 main 末尾添加简短注释。该注释应指示该应用程序将继续在其他线程中执行。如果代码符合读者期望的惯例，那么它是最明显的。如果没有，那么记录该行为很重要，以免使读者感到困惑。
 
 # 简单设计的量化标准
 
