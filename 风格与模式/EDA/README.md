@@ -16,7 +16,7 @@ EDA 要求我们的是通过业务流程，首先要识别出有价值的业务�
 
 ![EDA 成熟度模型](https://s1.ax1x.com/2020/09/13/w0qKHK.png)
 
-# TBD
+# Links
 
 - https://zhuanlan.zhihu.com/p/79095599
 - 提取最后的参考资料 http://www.cnblogs.com/xishuai/p/iddd-cqrs-and-eda.html#xishuai_h1

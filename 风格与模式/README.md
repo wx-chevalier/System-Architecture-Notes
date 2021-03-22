@@ -58,6 +58,6 @@ CQRS 使用分离的接口将数据查询操作(Queries)和数据修改操作(Co
 
 ![Herberto Graca 综合图](https://s3.ax1x.com/2021/02/04/y1Uazq.png)
 
-# TBD
+# Links
 
 - https://www.infoq.cn/article/m*aORjCU6gQiIbPCVtoK
