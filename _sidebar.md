@@ -23,11 +23,15 @@
         - [2.5.1.1 会员系统 DSL 描述](/领域驱动设计/应用案例/ContextMapper/会员系统%20DSL%20描述.md)
       - [2.5.2 Domain Driven Design Starter Modelling Process](/领域驱动设计/应用案例/Domain-Driven%20Design%20Starter%20Modelling%20Process/README.md)
         
-      - [2.5.3 保险电商系统](/领域驱动设计/应用案例/保险电商系统/README.md)
+      - [2.5.3 Modular Monolith with DDD](/领域驱动设计/应用案例/Modular%20Monolith%20with%20DDD/README.md)
         
-      - 2.5.4 数字钱包系统
-        - [2.5.4.1 代码设计](/领域驱动设计/应用案例/数字钱包系统/代码设计.md)
-        - [2.5.4.2 银行转账](/领域驱动设计/应用案例/数字钱包系统/银行转账.md)
+      - [2.5.4 Sairyss Domain Driven Hexagonal](/领域驱动设计/应用案例/Sairyss%20Domain%20Driven%20Hexagonal/README.md)
+        
+      - [2.5.5 保险电商系统](/领域驱动设计/应用案例/保险电商系统/README.md)
+        
+      - 2.5.6 数字钱包系统
+        - [2.5.6.1 代码设计](/领域驱动设计/应用案例/数字钱包系统/代码设计.md)
+        - [2.5.6.2 银行转账](/领域驱动设计/应用案例/数字钱包系统/银行转账.md)
   - [3 风格与模式](/风格与模式/README.md)
     - [3.1 CQRS](/风格与模式/CQRS/README.md)
       - [3.1.1 EventSourcing](/风格与模式/CQRS/EventSourcing.md)
