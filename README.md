@@ -28,7 +28,7 @@
 
 # Software Architecture Series | 软件架构设计实践
 
-![软件架构题图](https://i.postimg.cc/L8T6Sz3G/image.png)
+![软件架构头图](https://i.postimg.cc/L8T6Sz3G/image.png)
 
 什么是架构？ISO/IEC 42010:20072 中对架构的定义如下：The fundamental organization of a system, embodied in its components, their relationships to each other and the enviroment, and the principles governing its design and evolution. 维基百科中的定义是：软件体系结构是指软件系统的基本结构，创建此类结构的规则以及这些结构的文档。需要这些结构来推断软件系统。每个结构包括软件元素，它们之间的关系，元素和关系的属性，以及每个元素的引入和配置的基本原理。这里定义了架构的三要素：职责明确的模块或者组件、组件间明确的关联关系、约束和指导原则。
 
