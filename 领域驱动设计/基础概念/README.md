@@ -121,3 +121,7 @@ An Anticorruption Layer is the most defensive Context Mapping relationship, wher
 防腐层是隔离最彻底的做法，其优点是没有 Share（完全解耦，各自独立），其缺点也是没有 Share（有一定的转换成本）。笔者比较赞成防腐层的做法，因为增加的语义转换陈本，相较于系统的可维护性和可理解性而言，是完全值得的。
 
 Whenever possible, you should try to create an Anticorruption Layer between your downstream model and an upstream integration model, so that you can produce model concepts on your side of the integration that specifically fit your business needs and that keep you completely isolated from foreign concepts.
+
+# Links
+
+- https://zhuanlan.zhihu.com/p/381540329 深入理解领域驱动设计中的聚合
