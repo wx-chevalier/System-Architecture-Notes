@@ -77,7 +77,7 @@ var bye = Header({ text: "Good Bye" });
 
 # Passive Module & Reactive Module
 
-箭头表示的归属权实际上也是 Passive Programming 与 Reactive Programming 的区别，譬如我们的系统中有 Foo 与 Bar 两个模块，可以把它们当做 OOP 中的两个类。如果我们在 Foo 与 Bar 之间建立一个箭头，也就意味着 Foo 能够影响 Bar 中的状态 :
+箭头表示的归属权实际上也是 Passive Programming 与 Reactive Programming 的区别，譬如我们的系统中有 Foo 与 Bar 两个模块，可以把它们当做 OOP 中的两个类。如果我们在 Foo 与 Bar 之间建立一个箭头，也就意味着 Foo 能够影响 Bar 中的状态
 
 譬如 Foo 在进行一次网络请求之后将 Bar 内部的计数器加一操作：
 
@@ -94,7 +94,7 @@ function onNetworkRequest() {
 
 Bar 是 Passive 的，它允许其他模块改变其内部状态。而 Foo 是主动地，它需要保证能够正确地更新 Bar 的内部状态，Passive 模块并不知道谁会更新到它。而另一种方案就是类似于控制反转，由 Bar 完成对于自己内部状态的更新:
 
-在这种模式下，Bar 监听来自于 Foo 中的事件，并且在某些事件发生之后进行内部状态更新 :
+在这种模式下，Bar 监听来自于 Foo 中的事件，并且在某些事件发生之后进行内部状态更新
 
 ```js
 // This is inside the Bar module

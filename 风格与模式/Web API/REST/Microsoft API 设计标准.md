@@ -1,6 +1,6 @@
 > [原文地址 :Microsoft API Guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#63-silent-fail-rule) >[笔者有关于 REST 系列文章](https://github.com/wx-chevalier/just-coder-handbook/#restful) 笔者之前翻译过一篇[来自于 PayPal 的 RESTful API 标准](https://segmentfault.com/a/1190000005924733)，其是 PayPal 内部遵循的 RESTful 的接口规范，本文则是微软提出的 API 风格指南，笔者认为二者各有优劣。微软的准则相对更加详细严谨，但是对于复杂资源请求，却没有 PayPal 提及的多。本文目前仅包含第一部分的翻译，笔者日后为添加上第二部分。
 
-微软云平台为开发者提供了基于 HTTP 的 REST 风格的 API 接口，虽然不同的服务都是基于特定语言的一些请求框架的实现，但是基于 HTTP 的 REST 的操作却是遵循一致的规则。本指南的目的即是提供可以使得任何的 HTTP 客户端能够以相同的行为模式与规范来使用的接口。而保障开发者的一致性体验的关键，即是保证 REST API 遵循统一的设计指南，从而简单易用，符合人们的直觉反应。本指南的目标在于 :
+微软云平台为开发者提供了基于 HTTP 的 REST 风格的 API 接口，虽然不同的服务都是基于特定语言的一些请求框架的实现，但是基于 HTTP 的 REST 的操作却是遵循一致的规则。本指南的目的即是提供可以使得任何的 HTTP 客户端能够以相同的行为模式与规范来使用的接口。而保障开发者的一致性体验的关键，即是保证 REST API 遵循统一的设计指南，从而简单易用，符合人们的直觉反应。本指南的目标在于
 
 - 为 Microsoft 提供的所有 REST 风格的 Endpoints 都遵循一直的实践模式
 - 尽可能与目前产业界中大规模使用的 REST/HTTP 的最佳实践相符合
@@ -64,13 +64,13 @@ URL 必须保证友好的可读性与可构造性，这有助于对于那些尚�
 https://api.contoso.com/v1.0/people/jdoe@contoso.com/inbox
 ```
 
-而与之相反的，一个可读性较差的 URL 为 :
+而与之相反的，一个可读性较差的 URL 为
 
 ```
 https://api.contoso.com/EWS/OData/Users('jdoe@microsoft.com')/Folders('AAMkADdiYzI1MjUzLTk4MjQtNDQ1Yy05YjJkLWNlMzMzYmIzNTY0MwAuAAAAAACzMsPHYH6HQoSwfdpDx-2bAQCXhUk6PC1dS7AERFluCgBfAAABo58UAAA=')
 ```
 
-另一个常用的模式就是将某个 URL 作为参数值传递过去，譬如 :
+另一个常用的模式就是将某个 URL 作为参数值传递过去，譬如
 
 ```
 https://api.contoso.com/v1.0/items?url=https://resources.contoso.com/shoes/fancy
@@ -78,7 +78,7 @@ https://api.contoso.com/v1.0/items?url=https://resources.contoso.com/shoes/fancy
 
 ## URL 长度
 
-HTTP 1.1 协议，在 RFC 2616 的[3.2.1](http://tools.ietf.org/html/rfc2616#section-3.2.1)章节中规定了 URL 长度的限制 :
+HTTP 1.1 协议，在 RFC 2616 的[3.2.1](http://tools.ietf.org/html/rfc2616#section-3.2.1)章节中规定了 URL 长度的限制
 
 > HTTP 协议本身不会对 URL 长度有任何限制，服务端必须要能够处理任何有效的 URL，并且对于基于 GET 的过长请求也要能够有效处理。当 URL 过长导致服务端无法处理时，服务端应该返回 414 号错误码。
 
@@ -86,7 +86,7 @@ HTTP 1.1 协议，在 RFC 2616 的[3.2.1](http://tools.ietf.org/html/rfc2616#sec
 
 ## Canonical Identifier: 标准的标识符
 
-除了需要提供友好的 URL 之外，能够被移动或者重命名的资源必须要包含唯一且稳定的标识符。注意，系统中并不会强制要求以 GUID 作为标识符，典型的包含统一标识符的 URL 如下 :
+除了需要提供友好的 URL 之外，能够被移动或者重命名的资源必须要包含唯一且稳定的标识符。注意，系统中并不会强制要求以 GUID 作为标识符，典型的包含统一标识符的 URL 如下
 
 ```
 https://api.contoso.com/v1.0/people/7011042402/inbox
@@ -98,13 +98,13 @@ https://api.contoso.com/v1.0/people/7011042402/inbox
 
 ### POST
 
-POST 操作必须返回创建好的对象的访问链接，譬如我们有个服务是允许用户创建自建的云服务器，请求方式可能如下 :
+POST 操作必须返回创建好的对象的访问链接，譬如我们有个服务是允许用户创建自建的云服务器，请求方式可能如下
 
 ```
 POST http://api.contoso.com/account1/servers
 ```
 
-响应值应该是如下这样 :
+响应值应该是如下这样
 
 ```
 201 Created
@@ -117,7 +117,7 @@ Location: http://api.contoso.com/account1/servers/server321
 
 ### OPTIONS and Link Headers
 
-OPTIONS 操作允许客户端查询某个对象的元信息，至少需要返回该资源支持的动词类别。除以之外，建议是在返回时也包含上一个辅助文档的地址，譬如 :
+OPTIONS 操作允许客户端查询某个对象的元信息，至少需要返回该资源支持的动词类别。除以之外，建议是在返回时也包含上一个辅助文档的地址，譬如
 
 ```
 Link: {help}; rel="help"
@@ -139,7 +139,7 @@ Link: {help}; rel="help"
 
 ## Custom Headers: 自定义请求头
 
-对于某些给定 API 的基本操作不应该支持自定义的请求头。对于一些需要额外数据的服务应该支持自定义的请求头。不过自定义的非标准的请求头应该遵循如下的规范 :
+对于某些给定 API 的基本操作不应该支持自定义的请求头。对于一些需要额外数据的服务应该支持自定义的请求头。不过自定义的非标准的请求头应该遵循如下的规范
 
 - RFC 3864 中暂定为临时的请求头格式
 - 请求头应该尽可能地符合使用场景
