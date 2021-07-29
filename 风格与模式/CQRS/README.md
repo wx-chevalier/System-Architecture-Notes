@@ -6,11 +6,11 @@ CQRS（Command & Query Responsibility Segregation）命令查询职责分离，�
 
 来自用户 UI 的请求分为 Query（查询）和 Command（命令），这些请求操作都会被 Service Interfaces（服务接口，只是一个统称）接收，然后再进行分发处理，对于命令操作会更新 Update Data store，因为读与写分离，为了保持数据的一致性，我们还需要把数据更新应用到 Read Data store。对于一般的应用系统来说，查询会占很大的比重，因为读与写分离了，所以我们可以针对查询进行进一步性能优化，而且还可以保持查询的灵活性和独立性，这种方式在应对大型业务系统来说是非常重要的，从这种层面上来说，CQRS 不用于 DDD 架构好像也是可以的，因为它是一种风格，并不局限于一种架构实现，所以你可以把它有价值的东西进行提炼，应用到合适的一个架构系统中也是可以的。
 
-Command Bus（命令总线）：图中没有，应该放在 Command Handler 之前，可以看作是 Command 发布者。
-Command Handler（命令处理器）：处理来自 Command Bus 分发的请求，可以看作是 Command 订阅者、处理者。
-Event Bus（事件总线）：一般在 Command Handler 完成之后，可以看作是 Event 发布者。
-Event Handler（事件处理器）：处理来自 Event Bus 分发的请求，可以看作是 Event 订阅者、处理者。
-Event Store（事件存储）：对应概念 Event Sourcing（事件溯源），可以用于事件回放处理，还原指定对象状态。
+- Command Bus（命令总线）：图中没有，应该放在 Command Handler 之前，可以看作是 Command 发布者。
+- Command Handler（命令处理器）：处理来自 Command Bus 分发的请求，可以看作是 Command 订阅者、处理者。
+- Event Bus（事件总线）：一般在 Command Handler 完成之后，可以看作是 Event 发布者。
+- Event Handler（事件处理器）：处理来自 Event Bus 分发的请求，可以看作是 Event 订阅者、处理者。
+- Event Store（事件存储）：对应概念 Event Sourcing（事件溯源），可以用于事件回放处理，还原指定对象状态。
 
 首先抽离两个重要概念：Command（命令）和 Event（事件），Command 是一种命令的语气（本身就是命令的意思，呵呵），它的效果就是对某种对象状态的修改，Command Bus 收集来自 UI 的 Command 命令，并根据具体命令分发给具体的 Command Handler 进行处理，这时候就会产生一些领域操作，并对相应的领域对象进行修改，Command Handler 只是修改操作，并不会涉及到修改之后的操作（比如保存、事件发布等），Command Handler 完成之后并不表示这个 Command 命令就此结束，它需要把接下来的操作交给 Event Bus（完成之后的操作），并分发给相应的 Event Handler 订阅者进行处理，一般是数据保存、事件存储等。
 
