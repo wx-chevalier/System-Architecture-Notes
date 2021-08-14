@@ -4,9 +4,7 @@
 
 # Overview
 
-为了能有一个大概的印象，我们以一个简单的登录注册逻辑作为示范，整个流程中只有两条主要的逻辑线，大概如下图所示：
-![](http://7xkt0f.com1.z0.glb.clouddn.com/B5EE471B-D893-4B88-8B5A-53C46588A801.png)
-然后我们直接看最终的 Controller 的写法：
+为了能有一个大概的印象，我们以一个简单的登录注册逻辑作为示范，整个流程中只有两条主要的逻辑线，然后我们直接看最终的 Controller 的写法：
 
 ```
 @RequestMapping("/login/{verifyCode}")
@@ -955,8 +953,6 @@ Redux 有一个非常诱人的特性叫时空旅行，即可以回溯整个应�
 RxJava 这种链式调用形式的异步写法很是清晰明了，不过需要注意的是 RxJava 本身并不一定是并发地，默认情况下所有的 Observable 与 Subscriber 都是在一个线程里运行，但是可以简单的使用`subscribeOn`方法将某个 Observable 扔到子线程中运行。
 
 # Terminology
-
-![](http://7xkt0f.com1.z0.glb.clouddn.com/0F1F45B5-53DB-4768-8122-BE7F43151230.png)
 
 ## Context
 
