@@ -22,8 +22,9 @@
 ### Observer Pattern:自带观察者模式的 MVC
 
 上文中也已提及，MVC 滥觞于 Observer 模式，经典的 MVC 模式也可以与 Observer 模式相结合，其典型的用户流程为：
--  用户交互输入了某些内容
-- Controller 将用户输入转化为 Model 所需要进行的更改
+
+- 用户交互输入了某些内容
+- Controller 将用户输入转化为 Model 所需要进行的更改
 
 - View 作为 Observer 会监听 Model 中的任意更新，一旦有更新事件发出，View 会自动触发更新以展示最新的 Model 状态
 
@@ -44,27 +45,27 @@ userCell.configureWithUser(user)
 import UIKit
 
 struct Person { // Model
- let firstName: String
- let lastName: String
+ let firstName: String
+ let lastName: String
 }
 
 
 class GreetingViewController : UIViewController { // View + Controller
- var person: Person!
- let showGreetingButton = UIButton()
- let greetingLabel = UILabel()
-    
- override func viewDidLoad() {
-  super.viewDidLoad()
-  self.showGreetingButton.addTarget(self, action: "didTapButton:", forControlEvents: .TouchUpInside)
- }
-    
- func didTapButton(button: UIButton) {
-  let greeting = "Hello" + " " + self.person.firstName + " " + self.person.lastName
-  self.greetingLabel.text = greeting
-     
- }
- // layout code goes here
+ var person: Person!
+ let showGreetingButton = UIButton()
+ let greetingLabel = UILabel()
+
+ override func viewDidLoad() {
+  super.viewDidLoad()
+  self.showGreetingButton.addTarget(self, action: "didTapButton:", forControlEvents: .TouchUpInside)
+ }
+
+ func didTapButton(button: UIButton) {
+  let greeting = "Hello" + " " + self.person.firstName + " " + self.person.lastName
+  self.greetingLabel.text = greeting
+
+ }
+ // layout code goes here
 }
 // Assembling of MVC
 let model = Person(firstName: "David", lastName: "Blaine")
@@ -89,17 +90,17 @@ Button mCounterIncrementButton;
 int mClicks = 0;
 
 public void onCreate(Bundle b) {
-  super.onCreate(b);
+  super.onCreate(b);
 
-  mCounterText = (TextView) findViewById(R.id.tv_clicks);
-  mCounterIncrementButton = (Button) findViewById(R.id.btn_increment);
+  mCounterText = (TextView) findViewById(R.id.tv_clicks);
+  mCounterIncrementButton = (Button) findViewById(R.id.btn_increment);
 
-  mCounterIncrementButton.setOnClickListener(new View.OnClickListener() {
- public void onClick(View v) {
-   mClicks++;
-   mCounterText.setText(""+mClicks);
- }
-  });
+  mCounterIncrementButton.setOnClickListener(new View.OnClickListener() {
+ public void onClick(View v) {
+   mClicks++;
+   mCounterText.setText(""+mClicks);
+ }
+  });
 }
 ```
 
@@ -119,74 +120,74 @@ public void onSubmitClicked(View v) {
 
 ```xml
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-   <data>
-    <variable name="counter" type="com.example.Counter"/>
-    <variable name="counter" type="com.example.ClickHandler"/>
-   </data>
-   <LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:text="@{counter.value}"/>
-    <Buttonandroid:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:text="@{handlers.clickHandle}"/>
-   </LinearLayout>
+   <data>
+    <variable name="counter" type="com.example.Counter"/>
+    <variable name="counter" type="com.example.ClickHandler"/>
+   </data>
+   <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="@{counter.value}"/>
+    <Buttonandroid:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="@{handlers.clickHandle}"/>
+   </LinearLayout>
 </layout>
 ```
 
-后来[Anvil](https://github.com/zserge/anvil)这样的受 React 启发的组件式框架以及 Jedux 这样借鉴了 Redux 全局状态管理的框架也将 Unidirectional  架构引入了 Android 开发的世界。
+后来[Anvil](https://github.com/zserge/anvil)这样的受 React 启发的组件式框架以及 Jedux 这样借鉴了 Redux 全局状态管理的框架也将 Unidirectional 架构引入了 Android 开发的世界。
 
 ### MVC
 
 - 声明 View 中的组件对象或者 Model 对象
 
 ```java
- private Subscription subscription;
- private RecyclerView reposRecycleView;
- private Toolbar toolbar;
- private EditText editTextUsername;
- private ProgressBar progressBar;
- private TextView infoTextView;
- private ImageButton searchButton;
+ private Subscription subscription;
+ private RecyclerView reposRecycleView;
+ private Toolbar toolbar;
+ private EditText editTextUsername;
+ private ProgressBar progressBar;
+ private TextView infoTextView;
+ private ImageButton searchButton;
 ```
 
 - 将组件与 Activity 中对象绑定，并且声明用户响应处理函数
 
 ```java
-  super.onCreate(savedInstanceState);
-  setContentView(R.layout.activity_main);
-  progressBar = (ProgressBar) findViewById(R.id.progress);
-  infoTextView = (TextView) findViewById(R.id.text_info);
-  //Set up ToolBar
-  toolbar = (Toolbar) findViewById(R.id.toolbar);
-  setSupportActionBar(toolbar);
-  //Set up RecyclerView
-  reposRecycleView = (RecyclerView) findViewById(R.id.repos_recycler_view);
-  setupRecyclerView(reposRecycleView);
-  // Set up search button
-  searchButton = (ImageButton) findViewById(R.id.button_search);
-  searchButton.setOnClickListener(new View.OnClickListener() {
-   @Override
-   public void onClick(View v) {
-    loadGithubRepos(editTextUsername.getText().toString());
-   }
-  });
-  //Set up username EditText
-  editTextUsername = (EditText) findViewById(R.id.edit_text_username);
-  editTextUsername.addTextChangedListener(mHideShowButtonTextWatcher);
-  editTextUsername.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-   @Override
-   public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-     String username = editTextUsername.getText().toString();
-     if (username.length() > 0) loadGithubRepos(username);
-     return true;
-    }
-    return false;
-   }
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_main);
+  progressBar = (ProgressBar) findViewById(R.id.progress);
+  infoTextView = (TextView) findViewById(R.id.text_info);
+  //Set up ToolBar
+  toolbar = (Toolbar) findViewById(R.id.toolbar);
+  setSupportActionBar(toolbar);
+  //Set up RecyclerView
+  reposRecycleView = (RecyclerView) findViewById(R.id.repos_recycler_view);
+  setupRecyclerView(reposRecycleView);
+  // Set up search button
+  searchButton = (ImageButton) findViewById(R.id.button_search);
+  searchButton.setOnClickListener(new View.OnClickListener() {
+   @Override
+   public void onClick(View v) {
+    loadGithubRepos(editTextUsername.getText().toString());
+   }
+  });
+  //Set up username EditText
+  editTextUsername = (EditText) findViewById(R.id.edit_text_username);
+  editTextUsername.addTextChangedListener(mHideShowButtonTextWatcher);
+  editTextUsername.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+   @Override
+   public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+     String username = editTextUsername.getText().toString();
+     if (username.length() > 0) loadGithubRepos(username);
+     return true;
+    }
+    return false;
+   }
 });
 ```
 
@@ -200,44 +201,44 @@ ArchiApplication application = ArchiApplication.get(this);
 GithubService githubService = application.getGithubService();
 
 subscription = githubService.publicRepositories(username)
-    .observeOn(AndroidSchedulers.mainThread())
-    .subscribeOn(application.defaultSubscribeScheduler())
-    .subscribe(new Subscriber<List<Repository>>() {
-     @Override
-     public void onCompleted() {
+    .observeOn(AndroidSchedulers.mainThread())
+    .subscribeOn(application.defaultSubscribeScheduler())
+    .subscribe(new Subscriber<List<Repository>>() {
+     @Override
+     public void onCompleted() {
 		progressBar.setVisibility(View.GONE);
 		if (reposRecycleView.getAdapter().getItemCount() > 0) {
-		 reposRecycleView.requestFocus();
-		 hideSoftKeyboard();
-		 reposRecycleView.setVisibility(View.VISIBLE);
+		 reposRecycleView.requestFocus();
+		 hideSoftKeyboard();
+		 reposRecycleView.setVisibility(View.VISIBLE);
 		} else {
-		 infoTextView.setText(R.string.text_empty_repos);
-		 infoTextView.setVisibility(View.VISIBLE);
+		 infoTextView.setText(R.string.text_empty_repos);
+		 infoTextView.setVisibility(View.VISIBLE);
 		}
-     }
+     }
 
 
-     @Override
-     public void onError(Throwable error) {
+     @Override
+     public void onError(Throwable error) {
 		Log.e(TAG, "Error loading GitHub repos ", error);
 		progressBar.setVisibility(View.GONE);
 		if (error instanceof HttpException
-		  && ((HttpException) error).code() == 404) {
-		 infoTextView.setText(R.string.error_username_not_found);
+		  && ((HttpException) error).code() == 404) {
+		 infoTextView.setText(R.string.error_username_not_found);
 		} else {
-		 infoTextView.setText(R.string.error_loading_repos);
+		 infoTextView.setText(R.string.error_loading_repos);
 		}
 		infoTextView.setVisibility(View.VISIBLE);
-     }
+     }
 
 
-     @Override
-     public void onNext(List<Repository> repositories) {
+     @Override
+     public void onNext(List<Repository> repositories) {
 		Log.i(TAG, "Repos loaded " + repositories);
 		RepositoryAdapter adapter =
-		  (RepositoryAdapter) reposRecycleView.getAdapter();
+		  (RepositoryAdapter) reposRecycleView.getAdapter();
 		adapter.setRepositories(repositories);
 		adapter.notifyDataSetChanged();
-     }
+     }
 });
 ```

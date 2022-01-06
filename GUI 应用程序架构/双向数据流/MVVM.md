@@ -24,49 +24,49 @@ MVVM 模式进一步深化了 Presentation Model 的思想，利用 Data Binding
 import UIKit
 
 struct Person { // Model
-    let firstName: String
-    let lastName: String
+    let firstName: String
+    let lastName: String
 }
 
 protocol GreetingViewModelProtocol: class {
-    var greeting: String? { get }
-    var greetingDidChange: ((GreetingViewModelProtocol) -> ())? { get set } // function to call when greeting did change
-    init(person: Person)
-    func showGreeting()
+    var greeting: String? { get }
+    var greetingDidChange: ((GreetingViewModelProtocol) -> ())? { get set } // function to call when greeting did change
+    init(person: Person)
+    func showGreeting()
 }
 
 class GreetingViewModel : GreetingViewModelProtocol {
-    let person: Person
-    var greeting: String? {
+    let person: Person
+    var greeting: String? {
 didSet {
-    self.greetingDidChange?(self)
+    self.greetingDidChange?(self)
 }
-    }
-    var greetingDidChange: ((GreetingViewModelProtocol) -> ())?
-    required init(person: Person) {
+    }
+    var greetingDidChange: ((GreetingViewModelProtocol) -> ())?
+    required init(person: Person) {
 self.person = person
-    }
-    func showGreeting() {
+    }
+    func showGreeting() {
 self.greeting = "Hello" + " " + self.person.firstName + " " + self.person.lastName
-    }
+    }
 }
 
 class GreetingViewController : UIViewController {
-    var viewModel: GreetingViewModelProtocol! {
+    var viewModel: GreetingViewModelProtocol! {
 didSet {
-    self.viewModel.greetingDidChange = { [unowned self] viewModel in
+    self.viewModel.greetingDidChange = { [unowned self] viewModel in
 self.greetingLabel.text = viewModel.greeting
-    }
+    }
 }
-    }
-    let showGreetingButton = UIButton()
-    let greetingLabel = UILabel()
-    
-    override func viewDidLoad() {
+    }
+    let showGreetingButton = UIButton()
+    let greetingLabel = UILabel()
+
+    override func viewDidLoad() {
 super.viewDidLoad()
 self.showGreetingButton.addTarget(self.viewModel, action: "showGreeting", forControlEvents: .TouchUpInside)
-    }
-    // layout code goes here
+    }
+    // layout code goes here
 }
 // Assembling of MVVM
 let model = Person(firstName: "David", lastName: "Blaine")
@@ -86,12 +86,12 @@ view.viewModel = viewModel
 ```xml
 <data>
 <variable
-    name="viewModel"
-    type="uk.ivanc.archimvvm.viewmodel.MainViewModel"/>
+    name="viewModel"
+    type="uk.ivanc.archimvvm.viewmodel.MainViewModel"/>
 </data>
 ...
 
-    <EditText
+    <EditText
 android:id="@+id/edit_text_username"
 android:layout_width="match_parent"
 android:layout_height="wrap_content"
@@ -102,7 +102,7 @@ android:inputType="text"
 android:onEditorAction="@{viewModel.onSearchAction}"
 android:textColor="@color/white"
 android:theme="@style/LightEditText"
-                app:addTextChangedListener="@{viewModel.usernameEditTextWatcher}"/>
+                app:addTextChangedListener="@{viewModel.usernameEditTextWatcher}"/>
 
 
 
@@ -116,7 +116,7 @@ binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
 mainViewModel = new MainViewModel(this, this);
 binding.setViewModel(mainViewModel);
 setSupportActionBar(binding.toolbar);
-        setupRecyclerView(binding.reposRecyclerView);
+        setupRecyclerView(binding.reposRecyclerView);
 ```
 
 - ViewModel 中进行数据操作
@@ -124,40 +124,40 @@ setSupportActionBar(binding.toolbar);
 ```java
 public boolean onSearchAction(TextView view, int actionId, KeyEvent event) {
 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-    String username = view.getText().toString();
-    if (username.length() > 0) loadGithubRepos(username);
-    return true;
+    String username = view.getText().toString();
+    if (username.length() > 0) loadGithubRepos(username);
+    return true;
         }
         return false;
 }
 
 
-    public void onClickSearch(View view) {
+    public void onClickSearch(View view) {
 loadGithubRepos(editTextUsernameValue);
-    }
+    }
 
 
-    public TextWatcher getUsernameEditTextWatcher() {
+    public TextWatcher getUsernameEditTextWatcher() {
 return new TextWatcher() {
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
 
 
-    }
+    }
 
 
-    @Override
-    public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+    @Override
+    public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
 editTextUsernameValue = charSequence.toString();
 searchButtonVisibility.set(charSequence.length() > 0 ? View.VISIBLE : View.GONE);
-    }
+    }
 
 
-    @Override
-    public void afterTextChanged(Editable editable) {
+    @Override
+    public void afterTextChanged(Editable editable) {
 
 
-    }
+    }
 };
 }
 ```

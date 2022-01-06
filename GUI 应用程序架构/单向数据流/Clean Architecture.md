@@ -21,77 +21,77 @@ Viper 架构中职责分割地更为细致，大概分为了五层:
 import UIKit
 
 struct Person { // Entity (usually more complex e.g. NSManagedObject)
-    let firstName: String
-    let lastName: String
+    let firstName: String
+    let lastName: String
 }
 
 struct GreetingData { // Transport data structure (not Entity)
-    let greeting: String
-    let subject: String
+    let greeting: String
+    let subject: String
 }
 
 protocol GreetingProvider {
-    func provideGreetingData()
+    func provideGreetingData()
 }
 
 protocol GreetingOutput: class {
-    func receiveGreetingData(greetingData: GreetingData)
+    func receiveGreetingData(greetingData: GreetingData)
 }
 
 class GreetingInteractor : GreetingProvider {
-    weak var output: GreetingOutput!
+    weak var output: GreetingOutput!
 
-    func provideGreetingData() {
-        let person = Person(firstName: "David", lastName: "Blaine") // usually comes from data access layer
-        let subject = person.firstName + " " + person.lastName
-        let greeting = GreetingData(greeting: "Hello", subject: subject)
-        self.output.receiveGreetingData(greeting)
-    }
+    func provideGreetingData() {
+        let person = Person(firstName: "David", lastName: "Blaine") // usually comes from data access layer
+        let subject = person.firstName + " " + person.lastName
+        let greeting = GreetingData(greeting: "Hello", subject: subject)
+        self.output.receiveGreetingData(greeting)
+    }
 }
 
 
 protocol GreetingViewEventHandler {
-    func didTapShowGreetingButton()
+    func didTapShowGreetingButton()
 }
 
 protocol GreetingView: class {
-    func setGreeting(greeting: String)
+    func setGreeting(greeting: String)
 }
 
 class GreetingPresenter : GreetingOutput, GreetingViewEventHandler {
-    weak var view: GreetingView!
-    var greetingProvider: GreetingProvider!
+    weak var view: GreetingView!
+    var greetingProvider: GreetingProvider!
 
-    func didTapShowGreetingButton() {
-        self.greetingProvider.provideGreetingData()
-    }
+    func didTapShowGreetingButton() {
+        self.greetingProvider.provideGreetingData()
+    }
 
-    func receiveGreetingData(greetingData: GreetingData) {
-        let greeting = greetingData.greeting + " " + greetingData.subject
-        self.view.setGreeting(greeting)
-    }
+    func receiveGreetingData(greetingData: GreetingData) {
+        let greeting = greetingData.greeting + " " + greetingData.subject
+        self.view.setGreeting(greeting)
+    }
 }
 
 class GreetingViewController : UIViewController, GreetingView {
-    var eventHandler: GreetingViewEventHandler!
-    let showGreetingButton = UIButton()
-    let greetingLabel = UILabel()
+    var eventHandler: GreetingViewEventHandler!
+    let showGreetingButton = UIButton()
+    let greetingLabel = UILabel()
 
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.showGreetingButton.addTarget(self, action: "didTapButton:", forControlEvents: .TouchUpInside)
-    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.showGreetingButton.addTarget(self, action: "didTapButton:", forControlEvents: .TouchUpInside)
+    }
 
-    func didTapButton(button: UIButton) {
-        self.eventHandler.didTapShowGreetingButton()
-    }
+    func didTapButton(button: UIButton) {
+        self.eventHandler.didTapShowGreetingButton()
+    }
 
-    func setGreeting(greeting: String) {
-        self.greetingLabel.text = greeting
-    }
+    func setGreeting(greeting: String) {
+        self.greetingLabel.text = greeting
+    }
 
-    // layout code goes here
+    // layout code goes here
 }
 // Assembling of VIPER module, without Router
 let view = GreetingViewController()

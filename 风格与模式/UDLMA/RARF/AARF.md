@@ -134,7 +134,7 @@ AARF 与 MicroServices 的最终目标都是为了避免巨石应用程序的出
 
 在理想的情况下，每个开发者都能具有高度一致的编码风格与能力，并且对整个项目了如指掌，这样才能够快速地无冗余地根据业务需求来修改代码。并且辅助以大量的回归测试来保证代码的可用性，毕竟
 
-Request per thread is an old beast and should be avoided as much as possible. It not only affects an application's scalability but can also lead to cascading failures.
+Request per thread is an old beast and should be avoided as much as possible. It not only affects an application's scalability but can also lead to cascading failures.
 
 - [Non-Blocking REST Services With Spring](https://dzone.com/articles/non-blocking-rest-services-with-spring)
 
@@ -144,13 +144,13 @@ Request per thread is an old beast and should be avoided as much as possible. It
 
 在笔者的基于 Spring 框架的 AARF 的实践中，选用了 RxJava 作为 FRP 的实现库。不过实际上每个 ResourceHandler 非常类似于 Actor
 
-Reactive programming is an emerging discipline which combines concurrency and event-based and asynchronous systems.Reactive programming can be seen as a natural extension of higher-order functional programming to concurrent systems that deal with distributed state by coordinating and orchestrating asynchronous data streams exchanged by actors.
+Reactive programming is an emerging discipline which combines concurrency and event-based and asynchronous systems.Reactive programming can be seen as a natural extension of higher-order functional programming to concurrent systems that deal with distributed state by coordinating and orchestrating asynchronous data streams exchanged by actors.
 
 Reactive Programming Principles (via manifesto)
 
 - Responsive: The application should be quick to reacts to users, even under load and in the presence of failures
 - Resilient and Scalable: The application should be resilient, in order to stay responsive under various conditions. They also should react to changes in the input rate by increasing or decreasing the resources allocated to service these inputs. Today’s applications have more integration complexity, as they are composed of multiple applications.
-- Message Driven: A *message-driven*architecture is the foundation of scalable, resilient, and ultimately responsive systems.
+- Message Driven: A *message-driven*architecture is the foundation of scalable, resilient, and ultimately responsive systems.
 
 **参考文献**
 

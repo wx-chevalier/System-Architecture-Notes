@@ -8,7 +8,7 @@ Facebook 强调，双向数据绑定极不利于代码的扩展与维护。从�
 
 这里还需要提及一下，很多人应该是从 React 开始认知到单向数据流这种架构模式的，而当时 Angular 1 的缓慢与性能之差令人发指，但是譬如 Vue 与 Angular 2 的性能就非常优秀。借用 Vue.js 官方的说法，
 The virtual-DOM approach provides a functional way to describe your view at any point of time, which is really nice. Because it doesn’t use observables and re-renders the entire app on every update, the view is by definition guaranteed to be in sync with the data. It also opens up possibilities to isomorphic JavaScript applications.
-Instead of a Virtual DOM, Vue.js uses the actual DOM as the template and keeps references to actual nodes for data bindings. This limits Vue.js to environments where DOM is present. However, contrary to the common misconception that Virtual-DOM makes React faster than anything else, Vue.js actually out-performs React when it comes to hot updates, and requires almost no hand-tuned optimization. With React, you need to implementshouldComponentUpdate everywhere and use immutable data structures to achieve fully optimized re-renders.
+Instead of a Virtual DOM, Vue.js uses the actual DOM as the template and keeps references to actual nodes for data bindings. This limits Vue.js to environments where DOM is present. However, contrary to the common misconception that Virtual-DOM makes React faster than anything else, Vue.js actually out-performs React when it comes to hot updates, and requires almost no hand-tuned optimization. With React, you need to implementshouldComponentUpdate everywhere and use immutable data structures to achieve fully optimized re-renders.
 
 总而言之，笔者认为双向数据流与单向数据流相比，性能上孰优孰劣尚无定论，最大的区别在于单向数据流与双向数据流相比有更好地可控性，这一点在上文提及的函数响应式编程中也有体现。若论快速开发，笔者感觉双向数据绑定略胜一筹，毕竟这种 View 与 ViewModel/ViewLogic 之间的直接绑定直观便捷。而如果是注重于全局的状态管理，希望维护耦合程度较低、可测试性/可扩展性较高的代码，那么还是单向数据流，即 Unidirectional Architecture 较为合适。一家之言，欢迎讨论。
 
@@ -27,52 +27,52 @@ Flux 不能算是绝对的先行者，但是在 Unidirectional Architecture 中�
 
 - 只有 View 使用可组合的组件: 在 Flux 中只有 React 的组件可以进行层次化组合，而 Stores 与 Actions 都不可以进行层次化组合。React 组件与 Flux 一般是松耦合的，因此 Flux 并不是 Fractal，Dispatcher 与 Stores 可以被看做 Orchestrator。
 
-- 用户事件响应在渲染时声明: 在 React 的 `render()`  函数中，即负责响应用户交互，也负责注册用户事件的处理器
+- 用户事件响应在渲染时声明: 在 React 的 `render()` 函数中，即负责响应用户交互，也负责注册用户事件的处理器
 
 下面我们来看一个具体的代码对比，首先是以经典的 Cocoa 风格编写一个简单的计数器按钮:
 
 ```ojc
 class ModelCounter
 
-    constructor: (@value=1) ->
-    increaseValue: (delta) =>
-        @value += delta
+    constructor: (@value=1) ->
+    increaseValue: (delta) =>
+        @value += delta
 
 class ControllerCounter
 
-    constructor: (opts) ->
-        @model_counter = opts.model_counter
-        @observers = []
+    constructor: (opts) ->
+        @model_counter = opts.model_counter
+        @observers = []
 
-    getValue: => @model_counter.value
+    getValue: => @model_counter.value
 
-    increaseValue: (delta) =>
-        @model_counter.increaseValue(delta)
-        @notifyObservers()
+    increaseValue: (delta) =>
+        @model_counter.increaseValue(delta)
+        @notifyObservers()
 
-    notifyObservers: =>
-        obj.notify(this) for obj in @observers
+    notifyObservers: =>
+        obj.notify(this) for obj in @observers
 
-    registerObserver: (observer) =>
-        @observers.push(observer)
+    registerObserver: (observer) =>
+        @observers.push(observer)
 
 
 class ViewCounterButton
 
-    constructor: (opts) ->
-        @controller_counter = opts.controller_counter
-        @button_class = opts.button_class or 'button_counter'
-        @controller_counter.registerObserver(this)
+    constructor: (opts) ->
+        @controller_counter = opts.controller_counter
+        @button_class = opts.button_class or 'button_counter'
+        @controller_counter.registerObserver(this)
 
-    render: =>
-        elm = $("<button class=\"#{@button_class}\">
-                #{@controller_counter.getValue()}</button>")
-        elm.click =>
-            @controller_counter.increaseValue(1)
-        return elm
+    render: =>
+        elm = $("<button class=\"#{@button_class}\">
+                #{@controller_counter.getValue()}</button>")
+        elm.click =>
+            @controller_counter.increaseValue(1)
+        return elm
 
-    notify: =>
-        $("button.#{@button_class}").replaceWith(=> @render())
+    notify: =>
+        $("button.#{@button_class}").replaceWith(=> @render())
 ```
 
 上述代码逻辑用上文提及的 MVC 模式图演示就是:
@@ -83,53 +83,53 @@ class ViewCounterButton
 # Store
 class CounterStore extends EventEmitter
 
-    constructor: ->
-        @count = 0
-        @dispatchToken = @registerToDispatcher()
+    constructor: ->
+        @count = 0
+        @dispatchToken = @registerToDispatcher()
 
-    increaseValue: (delta) ->
-        @count += 1
+    increaseValue: (delta) ->
+        @count += 1
 
 
-    getCount: ->
-        return @count
+    getCount: ->
+        return @count
 
-    registerToDispatcher: ->
-        CounterDispatcher.register((payload) =>
-            switch payload.type
-                when ActionTypes.INCREASE_COUNT
-                    @increaseValue(payload.delta)
-        )
+    registerToDispatcher: ->
+        CounterDispatcher.register((payload) =>
+            switch payload.type
+                when ActionTypes.INCREASE_COUNT
+                    @increaseValue(payload.delta)
+        )
 
 
 # Action
 class CounterActions
 
-    @increaseCount: (delta) ->
-        CounterDispatcher.handleViewAction({
-            'type': ActionTypes.INCREASE_COUNT
-            'delta': delta
-        })
+    @increaseCount: (delta) ->
+        CounterDispatcher.handleViewAction({
+            'type': ActionTypes.INCREASE_COUNT
+            'delta': delta
+        })
 
 # View
 CounterButton = React.createClass(
 
-    getInitialState: ->
-        return {'count': 0}
+    getInitialState: ->
+        return {'count': 0}
 
-    _onChange: ->
-        @setState({
-            count: CounterStore.getCount()
-        })
+    _onChange: ->
+        @setState({
+            count: CounterStore.getCount()
+        })
 
-    componentDidMount: ->
-        CounterStore.addListener('CHANGE', @_onChange)
+    componentDidMount: ->
+        CounterStore.addListener('CHANGE', @_onChange)
 
-    componentWillUnmount: ->
-        CounterStore.removeListener('CHANGE', @_onChange)
+    componentWillUnmount: ->
+        CounterStore.removeListener('CHANGE', @_onChange)
 
-    render: ->
-        return React.DOM.button({'className': @prop.class}, @state.value)
+    render: ->
+        return React.DOM.button({'className': @prop.class}, @state.value)
 )
 ```
 
@@ -169,7 +169,7 @@ Redux 是 Flux 的所有变种中最为出色的一个，并且也是当前 Web 
 - 到处可见的层次化组合:Redux 只是在 View 层允许将组件进行层次化组合，而 MVU 中在 Model 与 Update 函数中也允许进行层次化组合，甚至 Actions 都可以包含内嵌的子 Action
 - Elm 属于 Fractal 架构:因为 Elm 中所有的模块组件都支持层次化组合，即都可以被单独地导出使用
 
-## Model-View-Intent
+## Model-View-Intent
 
 MVI 是一个基于[RxJS](https://github.com/Reactive-Extensions/RxJS)的响应式单向数据流架构。MVI 也是[Cycle.js](http://cycle.js.org/)的首选架构，主要由 Observable 事件流对象与处理函数组成。其主要的组成部分包括:
 
