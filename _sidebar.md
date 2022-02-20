@@ -68,6 +68,8 @@
       - [3.5.5 避免提早优化](/复杂性与设计原则/KISS/避免提早优化.md)
     - 3.6 编程语言的设计之道
       - [3.6.1 Python](/复杂性与设计原则/编程语言的设计之道/Python.md)
+    - 3.7 .more
+      - [3.7.1 怎么写 Bug](/复杂性与设计原则/.more/怎么写%20Bug.md)
   - [4 风格与模式](/风格与模式/README.md)
     - [4.1 CQRS](/风格与模式/CQRS/README.md)
       - [4.1.1 EventSourcing](/风格与模式/CQRS/EventSourcing.md)
