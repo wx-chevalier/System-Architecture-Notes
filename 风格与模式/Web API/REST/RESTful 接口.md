@@ -6,8 +6,6 @@
 
 # State Management | 状态管理
 
-![](http://img1.tuicool.com/jAnqmmj.jpg!web)
-
 状态管理即维持一个页面状态或者控制的状态。HTTP 协议本身是一个无状态的协议，因此状态管理就是用来维持一系列的来自客户端的请求状态的机制。REST 服务本身提供了两个基础的状态类型：
 
 - Active : 当服务被调用或者执行的时候即进入 Active 状态
