@@ -36,63 +36,65 @@
       - [1.6.5 避免提早优化](/0.复杂性与设计原则/KISS/避免提早优化.md)
     - 1.7 编程语言的设计之道 [1]
       - [1.7.1 Python](/0.复杂性与设计原则/编程语言的设计之道/Python.md)
-  - [2 1.架构风格与模式 [9]](/1.架构风格与模式/README.md)
-    - [2.1 CQRS [2]](/1.架构风格与模式/CQRS/README.md)
-      - [2.1.1 EventSourcing](/1.架构风格与模式/CQRS/EventSourcing.md)
-      - [2.1.2 Spring 与 CQRS](/1.架构风格与模式/CQRS/Spring%20与%20CQRS.md)
-    - [2.2 CRUD](/1.架构风格与模式/CRUD/README.md)
+  - [2 1.架构风格与模式 [10]](/1.架构风格与模式/README.md)
+    - 2.1 999.参考资料 [1]
+      - [2.1.1 什么是架构模式和架构风格](/1.架构风格与模式/999.参考资料/2018-什么是架构模式和架构风格.md)
+    - [2.2 CQRS [2]](/1.架构风格与模式/CQRS/README.md)
+      - [2.2.1 EventSourcing](/1.架构风格与模式/CQRS/EventSourcing.md)
+      - [2.2.2 Spring 与 CQRS](/1.架构风格与模式/CQRS/Spring%20与%20CQRS.md)
+    - [2.3 CRUD](/1.架构风格与模式/CRUD/README.md)
       
-    - [2.3 EDA [1]](/1.架构风格与模式/EDA/README.md)
-      - [2.3.1 事件溯源](/1.架构风格与模式/EDA/事件溯源.md)
-    - [2.4 UDLMA [2]](/1.架构风格与模式/UDLMA/README.md)
-      - 2.4.1 RARF [5]
-        - [2.4.1.1 AARF.en](/1.架构风格与模式/UDLMA/RARF/AARF.en.md)
-        - [2.4.1.2 AARF](/1.架构风格与模式/UDLMA/RARF/AARF.md)
-        - [2.4.1.3 RARF.en](/1.架构风格与模式/UDLMA/RARF/RARF.en.md)
-        - [2.4.1.4 RARF](/1.架构风格与模式/UDLMA/RARF/RARF.md)
-        - [2.4.1.5 类 Redux 的代码组织](/1.架构风格与模式/UDLMA/RARF/类%20Redux%20的代码组织.md)
-      - 2.4.2 扩展 [2]
-        - [2.4.2.1 反应式](/1.架构风格与模式/UDLMA/扩展/反应式.md)
-        - [2.4.2.2 扩展点](/1.架构风格与模式/UDLMA/扩展/扩展点.md)
-    - [2.5 Web API [5]](/1.架构风格与模式/Web%20API/README.md)
-      - [2.5.1 API 生成](/1.架构风格与模式/Web%20API/API%20生成/README.md)
+    - [2.4 EDA [1]](/1.架构风格与模式/EDA/README.md)
+      - [2.4.1 事件溯源](/1.架构风格与模式/EDA/事件溯源.md)
+    - [2.5 UDLMA [2]](/1.架构风格与模式/UDLMA/README.md)
+      - 2.5.1 RARF [5]
+        - [2.5.1.1 AARF.en](/1.架构风格与模式/UDLMA/RARF/AARF.en.md)
+        - [2.5.1.2 AARF](/1.架构风格与模式/UDLMA/RARF/AARF.md)
+        - [2.5.1.3 RARF.en](/1.架构风格与模式/UDLMA/RARF/RARF.en.md)
+        - [2.5.1.4 RARF](/1.架构风格与模式/UDLMA/RARF/RARF.md)
+        - [2.5.1.5 类 Redux 的代码组织](/1.架构风格与模式/UDLMA/RARF/类%20Redux%20的代码组织.md)
+      - 2.5.2 扩展 [2]
+        - [2.5.2.1 反应式](/1.架构风格与模式/UDLMA/扩展/反应式.md)
+        - [2.5.2.2 扩展点](/1.架构风格与模式/UDLMA/扩展/扩展点.md)
+    - [2.6 Web API [5]](/1.架构风格与模式/Web%20API/README.md)
+      - [2.6.1 API 生成](/1.架构风格与模式/Web%20API/API%20生成/README.md)
         
-      - [2.5.2 OpenAPI](/1.架构风格与模式/Web%20API/OpenAPI/README.md)
+      - [2.6.2 OpenAPI](/1.架构风格与模式/Web%20API/OpenAPI/README.md)
         
-      - [2.5.3 REST [3]](/1.架构风格与模式/Web%20API/REST/README.md)
-        - [2.5.3.1 Microsoft API 设计标准](/1.架构风格与模式/Web%20API/REST/Microsoft%20API%20设计标准.md)
-        - [2.5.3.2 Paypal API 设计标准](/1.架构风格与模式/Web%20API/REST/Paypal%20API%20设计标准.md)
-        - [2.5.3.3 RESTful 接口](/1.架构风格与模式/Web%20API/REST/RESTful%20接口.md)
-      - 2.5.4 演化与变迁 [2]
-        - [2.5.4.1 API 的过去，现在与未来](/1.架构风格与模式/Web%20API/演化与变迁/API%20的过去，现在与未来.md)
-        - [2.5.4.2 WebAPI 风格变迁](/1.架构风格与模式/Web%20API/演化与变迁/WebAPI%20风格变迁.md)
-      - 2.5.5 参考资料 [1]
-        - [2.5.5.1 Writing API Design Standards](/1.架构风格与模式/Web%20API/.more/2022-Writing%20API%20Design%20Standards.md)
-    - 2.6 事务脚本 [3]
-      - [2.6.1 事务脚本](/1.架构风格与模式/事务脚本/事务脚本.md)
-      - [2.6.2 活动记录](/1.架构风格与模式/事务脚本/活动记录.md)
-      - [2.6.3 表模块](/1.架构风格与模式/事务脚本/表模块.md)
-    - [2.7 分层架构 [6]](/1.架构风格与模式/分层架构/README.md)
-      - [2.7.1 COLA](/1.架构风格与模式/分层架构/COLA/README.md)
+      - [2.6.3 REST [3]](/1.架构风格与模式/Web%20API/REST/README.md)
+        - [2.6.3.1 Microsoft API 设计标准](/1.架构风格与模式/Web%20API/REST/Microsoft%20API%20设计标准.md)
+        - [2.6.3.2 Paypal API 设计标准](/1.架构风格与模式/Web%20API/REST/Paypal%20API%20设计标准.md)
+        - [2.6.3.3 RESTful 接口](/1.架构风格与模式/Web%20API/REST/RESTful%20接口.md)
+      - 2.6.4 演化与变迁 [2]
+        - [2.6.4.1 API 的过去，现在与未来](/1.架构风格与模式/Web%20API/演化与变迁/API%20的过去，现在与未来.md)
+        - [2.6.4.2 WebAPI 风格变迁](/1.架构风格与模式/Web%20API/演化与变迁/WebAPI%20风格变迁.md)
+      - 2.6.5 参考资料 [1]
+        - [2.6.5.1 Writing API Design Standards](/1.架构风格与模式/Web%20API/.more/2022-Writing%20API%20Design%20Standards.md)
+    - 2.7 事务脚本 [3]
+      - [2.7.1 事务脚本](/1.架构风格与模式/事务脚本/事务脚本.md)
+      - [2.7.2 活动记录](/1.架构风格与模式/事务脚本/活动记录.md)
+      - [2.7.3 表模块](/1.架构风格与模式/事务脚本/表模块.md)
+    - [2.8 分层架构 [6]](/1.架构风格与模式/分层架构/README.md)
+      - [2.8.1 COLA](/1.架构风格与模式/分层架构/COLA/README.md)
         
-      - [2.7.2 DOMA](/1.架构风格与模式/分层架构/DOMA/README.md)
+      - [2.8.2 DOMA](/1.架构风格与模式/分层架构/DOMA/README.md)
         
-      - [2.7.3 六边形架构](/1.架构风格与模式/分层架构/六边形架构/README.md)
+      - [2.8.3 六边形架构](/1.架构风格与模式/分层架构/六边形架构/README.md)
         
-      - [2.7.4 分层设计](/1.架构风格与模式/分层架构/分层设计/README.md)
+      - [2.8.4 分层设计](/1.架构风格与模式/分层架构/分层设计/README.md)
         
-      - [2.7.5 整洁架构 [1]](/1.架构风格与模式/分层架构/整洁架构/README.md)
-        - [2.7.5.1 Go 的整洁架构实践](/1.架构风格与模式/分层架构/整洁架构/Go%20的整洁架构实践.md)
-      - [2.7.6 洋葱架构](/1.架构风格与模式/分层架构/洋葱架构/README.md)
+      - [2.8.5 整洁架构 [1]](/1.架构风格与模式/分层架构/整洁架构/README.md)
+        - [2.8.5.1 Go 的整洁架构实践](/1.架构风格与模式/分层架构/整洁架构/Go%20的整洁架构实践.md)
+      - [2.8.6 洋葱架构](/1.架构风格与模式/分层架构/洋葱架构/README.md)
         
-    - [2.8 服务化架构](/1.架构风格与模式/服务化架构/README.md)
+    - [2.9 服务化架构](/1.架构风格与模式/服务化架构/README.md)
       
-    - [2.9 架构框架 [5]](/1.架构风格与模式/架构框架/README.md)
-      - [2.9.1 DODAF](/1.架构风格与模式/架构框架/DODAF.md)
-      - [2.9.2 ITSA](/1.架构风格与模式/架构框架/ITSA.md)
-      - [2.9.3 TOGAF](/1.架构风格与模式/架构框架/TOGAF/README.md)
+    - [2.10 架构框架 [5]](/1.架构风格与模式/架构框架/README.md)
+      - [2.10.1 DODAF](/1.架构风格与模式/架构框架/DODAF.md)
+      - [2.10.2 ITSA](/1.架构风格与模式/架构框架/ITSA.md)
+      - [2.10.3 TOGAF](/1.架构风格与模式/架构框架/TOGAF/README.md)
         
-      - [2.9.4 Zachman](/1.架构风格与模式/架构框架/Zachman.md)
+      - [2.10.4 Zachman](/1.架构风格与模式/架构框架/Zachman.md)
   - [3 2.架构设计方式 [7]](/2.架构设计方式/README.md)
     - [3.1 UML [4]](/2.架构设计方式/UML/README.md)
       - [3.1.1 PlantUML](/2.架构设计方式/UML/PlantUML.md)
