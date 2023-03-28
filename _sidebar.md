@@ -57,19 +57,19 @@
         - [2.5.2.1 反应式](/1.架构风格与模式/UDLMA/扩展/反应式.md)
         - [2.5.2.2 扩展点](/1.架构风格与模式/UDLMA/扩展/扩展点.md)
     - [2.6 Web API [5]](/1.架构风格与模式/Web%20API/README.md)
-      - [2.6.1 API 生成](/1.架构风格与模式/Web%20API/API%20生成/README.md)
+      - 2.6.1 999.参考资料 [1]
+        - [2.6.1.1 Writing API Design Standards](/1.架构风格与模式/Web%20API/999.参考资料/2022-Writing%20API%20Design%20Standards.md)
+      - [2.6.2 API 生成](/1.架构风格与模式/Web%20API/API%20生成/README.md)
         
-      - [2.6.2 OpenAPI](/1.架构风格与模式/Web%20API/OpenAPI/README.md)
+      - [2.6.3 OpenAPI](/1.架构风格与模式/Web%20API/OpenAPI/README.md)
         
-      - [2.6.3 REST [3]](/1.架构风格与模式/Web%20API/REST/README.md)
-        - [2.6.3.1 Microsoft API 设计标准](/1.架构风格与模式/Web%20API/REST/Microsoft%20API%20设计标准.md)
-        - [2.6.3.2 Paypal API 设计标准](/1.架构风格与模式/Web%20API/REST/Paypal%20API%20设计标准.md)
-        - [2.6.3.3 RESTful 接口](/1.架构风格与模式/Web%20API/REST/RESTful%20接口.md)
-      - 2.6.4 演化与变迁 [2]
-        - [2.6.4.1 API 的过去，现在与未来](/1.架构风格与模式/Web%20API/演化与变迁/API%20的过去，现在与未来.md)
-        - [2.6.4.2 WebAPI 风格变迁](/1.架构风格与模式/Web%20API/演化与变迁/WebAPI%20风格变迁.md)
-      - 2.6.5 参考资料 [1]
-        - [2.6.5.1 Writing API Design Standards](/1.架构风格与模式/Web%20API/.more/2022-Writing%20API%20Design%20Standards.md)
+      - [2.6.4 REST [3]](/1.架构风格与模式/Web%20API/REST/README.md)
+        - [2.6.4.1 Microsoft API 设计标准](/1.架构风格与模式/Web%20API/REST/Microsoft%20API%20设计标准.md)
+        - [2.6.4.2 Paypal API 设计标准](/1.架构风格与模式/Web%20API/REST/Paypal%20API%20设计标准.md)
+        - [2.6.4.3 RESTful 接口](/1.架构风格与模式/Web%20API/REST/RESTful%20接口.md)
+      - 2.6.5 演化与变迁 [2]
+        - [2.6.5.1 API 的过去，现在与未来](/1.架构风格与模式/Web%20API/演化与变迁/API%20的过去，现在与未来.md)
+        - [2.6.5.2 WebAPI 风格变迁](/1.架构风格与模式/Web%20API/演化与变迁/WebAPI%20风格变迁.md)
     - 2.7 事务脚本 [3]
       - [2.7.1 事务脚本](/1.架构风格与模式/事务脚本/事务脚本.md)
       - [2.7.2 活动记录](/1.架构风格与模式/事务脚本/活动记录.md)
