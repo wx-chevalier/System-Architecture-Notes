@@ -34,11 +34,11 @@
       - [1.5.5 避免提早优化](/0.复杂性与设计原则/5.KISS/避免提早优化.md)
     - 1.6 6.编程语言的设计之道 [1]
       - [1.6.1 Python](/0.复杂性与设计原则/6.编程语言的设计之道/Python.md)
-    - 1.7 999.参考资料 [1]
-      - [1.7.1 怎么写 Bug](/0.复杂性与设计原则/999.参考资料/怎么写%20Bug.md)
+    - 1.7 99.参考资料 [1]
+      - [1.7.1 怎么写 Bug](/0.复杂性与设计原则/99.参考资料/怎么写%20Bug.md)
   - [2 1.架构风格与模式 [10]](/1.架构风格与模式/README.md)
-    - 2.1 999.参考资料 [1]
-      - [2.1.1 什么是架构模式和架构风格](/1.架构风格与模式/999.参考资料/2018-什么是架构模式和架构风格.md)
+    - 2.1 99.参考资料 [1]
+      - [2.1.1 什么是架构模式和架构风格](/1.架构风格与模式/99.参考资料/2018-什么是架构模式和架构风格.md)
     - [2.2 CQRS [2]](/1.架构风格与模式/CQRS/README.md)
       - [2.2.1 EventSourcing](/1.架构风格与模式/CQRS/EventSourcing.md)
       - [2.2.2 Spring 与 CQRS](/1.架构风格与模式/CQRS/Spring%20与%20CQRS.md)
@@ -57,8 +57,8 @@
         - [2.5.2.1 反应式](/1.架构风格与模式/UDLMA/扩展/反应式.md)
         - [2.5.2.2 扩展点](/1.架构风格与模式/UDLMA/扩展/扩展点.md)
     - [2.6 Web API [5]](/1.架构风格与模式/Web%20API/README.md)
-      - 2.6.1 999.参考资料 [1]
-        - [2.6.1.1 Writing API Design Standards](/1.架构风格与模式/Web%20API/999.参考资料/2022-Writing%20API%20Design%20Standards.md)
+      - 2.6.1 99.参考资料 [1]
+        - [2.6.1.1 Writing API Design Standards](/1.架构风格与模式/Web%20API/99.参考资料/2022-Writing%20API%20Design%20Standards.md)
       - [2.6.2 API 生成](/1.架构风格与模式/Web%20API/API%20生成/README.md)
         
       - [2.6.3 OpenAPI](/1.架构风格与模式/Web%20API/OpenAPI/README.md)
@@ -76,8 +76,8 @@
       - [2.7.3 表模块](/1.架构风格与模式/事务脚本/表模块.md)
     - [2.8 分层架构 [6]](/1.架构风格与模式/分层架构/README.md)
       - [2.8.1 COLA [1]](/1.架构风格与模式/分层架构/COLA/README.md)
-        - 2.8.1.1 999.参考资料 [1]
-          - [2.8.1.1.1 COLA 4.0：应用架构的最佳实践](/1.架构风格与模式/分层架构/COLA/999.参考资料/2022-COLA%204.0：应用架构的最佳实践.md)
+        - 2.8.1.1 99.参考资料 [1]
+          - [2.8.1.1.1 COLA 4.0：应用架构的最佳实践](/1.架构风格与模式/分层架构/COLA/99.参考资料/2022-COLA%204.0：应用架构的最佳实践.md)
       - [2.8.2 DOMA](/1.架构风格与模式/分层架构/DOMA/README.md)
         
       - [2.8.3 六边形架构](/1.架构风格与模式/分层架构/六边形架构/README.md)
@@ -218,29 +218,29 @@
       - [6.3.1 Atomic Design](/5.GUI%20应用程序架构/组件化/Atomic%20Design.md)
   - [7 6.服务化架构](/6.服务化架构/README.md)
     
-  - 8 999.参考资料 [1]
-    - [8.1 A Philosophy of Software Design [23]](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/README.md)
-      - [8.1.1 ch01](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch01.md)
-      - [8.1.2 ch02](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch02.md)
-      - [8.1.3 ch03](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch03.md)
-      - [8.1.4 ch04](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch04.md)
-      - [8.1.5 ch05](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch05.md)
-      - [8.1.6 ch06](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch06.md)
-      - [8.1.7 ch07](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch07.md)
-      - [8.1.8 ch08](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch08.md)
-      - [8.1.9 ch09](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch09.md)
-      - [8.1.10 ch10](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch10.md)
-      - [8.1.11 ch11](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch11.md)
-      - [8.1.12 ch12](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch12.md)
-      - [8.1.13 ch13](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch13.md)
-      - [8.1.14 ch14](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch14.md)
-      - [8.1.15 ch15](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch15.md)
-      - [8.1.16 ch16](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch16.md)
-      - [8.1.17 ch17](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch17.md)
-      - [8.1.18 ch18](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch18.md)
-      - [8.1.19 ch19](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch19.md)
-      - [8.1.20 ch20](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch20.md)
-      - [8.1.21 ch21](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch21.md)
-      - [8.1.22 preface](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/preface.md)
-      - [8.1.23 summary](/999.参考资料/2018-A%20Philosophy%20of%20Software%20Design/summary.md)
+  - 8 99.参考资料 [1]
+    - [8.1 A Philosophy of Software Design [23]](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/README.md)
+      - [8.1.1 ch01](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch01.md)
+      - [8.1.2 ch02](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch02.md)
+      - [8.1.3 ch03](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch03.md)
+      - [8.1.4 ch04](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch04.md)
+      - [8.1.5 ch05](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch05.md)
+      - [8.1.6 ch06](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch06.md)
+      - [8.1.7 ch07](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch07.md)
+      - [8.1.8 ch08](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch08.md)
+      - [8.1.9 ch09](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch09.md)
+      - [8.1.10 ch10](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch10.md)
+      - [8.1.11 ch11](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch11.md)
+      - [8.1.12 ch12](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch12.md)
+      - [8.1.13 ch13](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch13.md)
+      - [8.1.14 ch14](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch14.md)
+      - [8.1.15 ch15](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch15.md)
+      - [8.1.16 ch16](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch16.md)
+      - [8.1.17 ch17](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch17.md)
+      - [8.1.18 ch18](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch18.md)
+      - [8.1.19 ch19](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch19.md)
+      - [8.1.20 ch20](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch20.md)
+      - [8.1.21 ch21](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/ch21.md)
+      - [8.1.22 preface](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/preface.md)
+      - [8.1.23 summary](/99.参考资料/2018-A%20Philosophy%20of%20Software%20Design/summary.md)
   - [9 INTRODUCTION](/INTRODUCTION.md)
