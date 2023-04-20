@@ -14,7 +14,7 @@
 
 工厂和资源库都是对领域对象生命周期的管理。前者负责领域对象的创建，往往用于封装复杂或者可能变化的创建逻辑；后者则负责从存放资源的位置（数据库、内存或者其他 Web 资源）获取、添加、删除或者修改领域对象。领域模型中的资源库不应该暴露访问领域对象的技术实现细节。
 
-![DDD 关键术语对比](https://i.postimg.cc/1X77QS5Q/image.png)
+![DDD 关键术语对比](https://assets.ng-tech.icu/item/20230420133528.png)
 
 # 战术设计
 
@@ -43,7 +43,7 @@
 
 还是看银行的例子，Account（账号）是 CustomerInfo（客户信息）Entity 和 Address（值对象）的聚合根，Tansaction（交易）是流水（Journal）的聚合根，因为流水是因为交易才产生的，具有相同的生命周期。
 
-![](https://i.postimg.cc/qMztqZcL/image.png)
+![](https://assets.ng-tech.icu/item/20230420134154.png)
 
 聚合根是一个逻辑概念，主观性很强，所以在建模过程中很容易产生分歧，因此在日常工作中千万不要教条，把握住一条主要原则，我们的最终目的是为了业务语义显现化，如果因为聚合根把模型弄的晦涩难懂那就得不偿失了。
 
@@ -90,7 +90,7 @@
 
 Mapping 的方式有很多种，有 Shared Kernal（共享内核），Conformist（追随者），以及 Anti-Corruption（防腐层）等等。比如会员这个概念在 ICBU 网站是指网站上的 Buyer，但是在 CRM 领域是指 Customer，虽然很多的属性都是一样的，但是二者在不同的 Context 下其语义和概念是有差别的，我们需要用 AC 做一下转换：
 
-![](https://i.postimg.cc/fWKzs76v/image.png)
+![](https://assets.ng-tech.icu/item/20230420134213.png)
 
 ## 事件风暴（Event Storming）
 
@@ -108,7 +108,7 @@ Mapping 的方式有很多种，有 Shared Kernal（共享内核），Conformist
 
 It’s possible that only one of the teams will maintain the code, build, and test for what is shared. A Shared Kernel is often very difficult to conceive in the first place, and difficult to maintain, because you must have open communication between teams and constant agreement on what constitutes the model to be shared.
 
-![](https://i.postimg.cc/y6D9BmZv/image.png)
+![](https://assets.ng-tech.icu/item/20230420134232.png)
 
 其优点是 Share（减少重复建设），其缺点也是 Share（团队之间紧耦合）。
 
@@ -116,7 +116,7 @@ It’s possible that only one of the teams will maintain the code, build, and te
 
 An Anticorruption Layer is the most defensive Context Mapping relationship, where the downstream team creates a translation layer between its Ubiquitous Language (model) and the Ubiquitous Language (model) that is upstream to it.
 
-![](https://i.postimg.cc/50q9FYMH/image.png)
+![](https://assets.ng-tech.icu/item/20230420133551.png)
 
 防腐层是隔离最彻底的做法，其优点是没有 Share（完全解耦，各自独立），其缺点也是没有 Share（有一定的转换成本）。笔者比较赞成防腐层的做法，因为增加的语义转换陈本，相较于系统的可维护性和可理解性而言，是完全值得的。
 

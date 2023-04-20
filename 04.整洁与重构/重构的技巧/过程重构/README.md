@@ -2,7 +2,7 @@
 
 以典型的电商系统为例，其往往某个操作会包含复杂的逻辑过程：
 
-![](https://i.postimg.cc/przvyfSZ/image.png)
+![](https://assets.ng-tech.icu/item/20230420134319.png)
 
 其中某个上架的链路，可能包含以下的流程：
 
@@ -165,4 +165,4 @@ if (backOffer.getStockAmount() < 1){
 
 通过上面的案例，我们可以看到有过程分解要好于没有分解，过程分解+对象模型要好于仅仅是过程分解。对于商品上架这个 case，如果采用过程分解+对象模型的方式，最终我们会得到一个如下的系统结构：
 
-![](https://i.postimg.cc/TYfFrv5G/image.png)
+![](https://assets.ng-tech.icu/item/20230420134256.png)
