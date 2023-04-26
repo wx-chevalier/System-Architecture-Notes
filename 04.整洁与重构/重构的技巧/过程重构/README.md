@@ -14,7 +14,7 @@
 
 回到商品上架的问题，这里问题核心是工具吗？是设计模式带来的代码灵活性吗？显然不是，问题的核心应该是如何分解问题和抽象问题，知道金字塔原理的应该知道，此处，我们可以使用结构化分解将问题解构成一个有层级的金字塔结构：
 
-![](https://i.postimg.cc/52nVHNsZ/image.png)
+![](https://assets.ng-tech.icu/item/20230426101710.png)
 
 以商品上架为例，程序的入口是一个上架命令（OnSaleCommand）, 它由三个阶段（Phase）组成。
 
@@ -111,7 +111,7 @@ public class OnSaleProcessPhase {
 
 因此，在做过程分解的时候，我建议工程师不要把太多精力放在工具上，放在设计模式带来的灵活性上。而是应该多花时间在对问题分析，结构化分解，最后通过合理的抽象，形成合适的阶段（Phase）和步骤（Step）上。
 
-![](https://i.postimg.cc/YSPB3DKR/image.png)
+![](https://assets.ng-tech.icu/item/20230426100534.png)
 
 # 对象模型
 
