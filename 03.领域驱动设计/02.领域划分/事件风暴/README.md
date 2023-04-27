@@ -80,7 +80,7 @@
 
 其中 Use Case 还会包含这些信息：名称、简单描述、关系、活动图和状态图、前置条件、后置条件等等。以一个简单的用户账号管理为例，我们绘制的整体 Use Case 图如下：
 
-![](https://i.postimg.cc/q7chY3SD/image.png)
+![](https://assets.ng-tech.icu/item/20230426174734.png)
 
 比如让你设计一个中介系统，一个典型的 User Story 可能是“小明去找工作，中介说你留个电话，有工作机会我会通知你”，这里面的关键名词很可能就是我们需要的领域对象：
 
@@ -98,7 +98,7 @@
 
 分析用例句子中的词语及词性，提取句中的名词，找出业务主体。参考的词性列举如下：
 
-![](https://i.postimg.cc/xdFxd6zr/image.png)
+![](https://assets.ng-tech.icu/item/20230426174717.png)
 
 譬如上述描述中的名词有：
 
@@ -113,7 +113,7 @@
 
 分析用例句子中词语的关系，构建业务主体关系。参考的句法：
 
-![](https://i.postimg.cc/1XxZ8mqZ/image.png)
+![](https://assets.ng-tech.icu/item/20230426174657.png)
 
 - 商户拥有 MAP 账户
 - 账户被商户与用户拥有
@@ -124,4 +124,4 @@
 
 基于此我们可以去建立业务主体间的关系：
 
-![](https://i.postimg.cc/xTGDxVW6/image.png)
+![](https://assets.ng-tech.icu/item/20230426174641.png)
