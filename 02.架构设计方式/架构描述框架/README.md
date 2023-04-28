@@ -8,4 +8,4 @@ TOGAF 强调商业目标作为架构的驱动力，并提供了一个最佳实�
 
 ADM 是一个迭代的步骤顺序以发展企业范围的架构的方法。
 
-![](https://i.postimg.cc/rpVfNz95/image.png)
+![](https://assets.ng-tech.icu/item/20230427181823.png)

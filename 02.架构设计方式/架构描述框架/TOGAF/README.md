@@ -2,7 +2,7 @@
 
 TOGAF 是 The Open Group Architecture Framework 的缩写，它由 The Open Group 开发，The Open Group 是一个非盈利的技术行业联盟。
 
-![](https://i.postimg.cc/prMRfhcR/image.png)
+![](https://assets.ng-tech.icu/item/20230427181632.png)
 
 # 背景
 

@@ -6,4 +6,4 @@ DODAF 涵盖 DoD 的所有业务领域，定义了表示、描述和集成 DoD �
 
 DODAF 核心是 8 个视点和 52 个模型。
 
-![](https://i.postimg.cc/0QrZh3FQ/image.png)
+![](https://assets.ng-tech.icu/item/20230427181840.png)

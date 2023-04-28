@@ -43,7 +43,7 @@ c2(yes)->io->e
 c2(no)->op2->e
 ```
 
-![示意图](https://i.postimg.cc/0QTqyqGk/image.png)
+![示意图](https://assets.ng-tech.icu/item/20230427200554.png)
 
 ```s
 st=>start: Start
@@ -57,7 +57,7 @@ cond(yes)->op1->e
 cond(no)->op2->e
 ```
 
-![Flowchart 示意图](https://i.postimg.cc/LsWcxMbt/image.png)
+![Flowchart 示意图](https://assets.ng-tech.icu/item/20230427200534.png)
 
 ```s
 st=>start: Start
@@ -73,4 +73,4 @@ cond2(yes)->e
 cond2(no)->op->e
 ```
 
-![Flowchart 示意图](https://i.postimg.cc/mrPqz5gt/image.png)
+![Flowchart 示意图](https://assets.ng-tech.icu/item/20230427200517.png)
