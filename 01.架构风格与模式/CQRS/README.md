@@ -33,7 +33,7 @@ CQRS(Command Query Separation，命令查询分离)最早来自于 Betrand Meyer
 
 CQRS 使用分离的接口将数据查询操作（Queries）和数据修改操作（Commands）分离开来，这也意味着在查询和更新过程中使用的数据模型也是不一样的。这样读和写逻辑就隔离开来了，分离了读写职责之后，可以对数据进行读写分离操作来改进性能，可扩展性和安全性。
 
-![](https://i.postimg.cc/kXcKDsx2/image.png)
+![](https://assets.ng-tech.icu/item/20230430221038.png)
 
 # 设计理念
 
@@ -41,7 +41,7 @@ CQRS 使用分离的接口将数据查询操作（Queries）和数据修改操�
 
 主数据库处理 CUD，从库处理 R，从库的的结构可以和主库的结构完全一样，也可以不一样，从库主要用来进行只读的查询操作。在数量上从库的个数也可以根据查询的规模进行扩展，在业务逻辑上，也可以根据专题从主库中划分出不同的从库。从库也可以实现成 ReportingDatabase，根据查询的业务需求，从主库中抽取一些必要的数据生成一系列查询报表来存储。
 
-![](https://i.postimg.cc/L4v81bbF/image.png)
+![](https://assets.ng-tech.icu/item/20230430221020.png)
 
 在 CQRS 中，所有的涉及到对 DB 的操作都是通过发送 Command，然后特定的 Command 触发对应事件来完成操作，这个过程是异步的，并且所有涉及到对系统的变更行为都包含在具体的事件中，结合 Eventing Source 模式，可以记录下所有的事件，而不是以往的某一点的数据信息，这些信息可以作为系统的操作日志，可以来对系统进行回退或者重放。
 
@@ -51,7 +51,7 @@ CQRS 就是对事务脚本和领域模型两种模式的综合，因为对于 Qu
 
 CQRS 还可以与 DDD 相结合：
 
-![](https://i.postimg.cc/YCQc14CL/image.png)
+![](https://assets.ng-tech.icu/item/20230430221005.png)
 
 # 优势与对比
 
