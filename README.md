@@ -7,12 +7,12 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/wx-chevalier/SoftwareArchitecture-Series">
+  <a href="https://github.com/wx-chevalier/SoftwareArchitecture-Notes">
     <img src="https://assets.ng-tech.icu/item/header.svg" alt="Logo" style="width: 100vw;height: 400px" />
   </a>
 
   <p align="center">
-    <a href="https://ng-tech.icu/books/SoftwareArchitecture-Series"><strong>在线阅读 >> </strong></a>
+    <a href="https://ng-tech.icu/books/SoftwareArchitecture-Notes"><strong>在线阅读 >> </strong></a>
     <br />
     <br />
     <a href="https://github.com/wx-chevalier">代码案例</a>
@@ -67,13 +67,13 @@
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/wx-chevalier/SoftwareArchitecture-Series.svg?style=flat-square
-[contributors-url]: https://github.com/wx-chevalier/SoftwareArchitecture-Series/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/wx-chevalier/SoftwareArchitecture-Series.svg?style=flat-square
-[forks-url]: https://github.com/wx-chevalier/SoftwareArchitecture-Series/network/members
-[stars-shield]: https://img.shields.io/github/stars/wx-chevalier/SoftwareArchitecture-Series.svg?style=flat-square
-[stars-url]: https://github.com/wx-chevalier/SoftwareArchitecture-Series/stargazers
-[issues-shield]: https://img.shields.io/github/issues/wx-chevalier/SoftwareArchitecture-Series.svg?style=flat-square
-[issues-url]: https://github.com/wx-chevalier/SoftwareArchitecture-Series/issues
-[license-shield]: https://img.shields.io/github/license/wx-chevalier/SoftwareArchitecture-Series.svg?style=flat-square
-[license-url]: https://github.com/wx-chevalier/SoftwareArchitecture-Series/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/wx-chevalier/SoftwareArchitecture-Notes.svg?style=flat-square
+[contributors-url]: https://github.com/wx-chevalier/SoftwareArchitecture-Notes/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/wx-chevalier/SoftwareArchitecture-Notes.svg?style=flat-square
+[forks-url]: https://github.com/wx-chevalier/SoftwareArchitecture-Notes/network/members
+[stars-shield]: https://img.shields.io/github/stars/wx-chevalier/SoftwareArchitecture-Notes.svg?style=flat-square
+[stars-url]: https://github.com/wx-chevalier/SoftwareArchitecture-Notes/stargazers
+[issues-shield]: https://img.shields.io/github/issues/wx-chevalier/SoftwareArchitecture-Notes.svg?style=flat-square
+[issues-url]: https://github.com/wx-chevalier/SoftwareArchitecture-Notes/issues
+[license-shield]: https://img.shields.io/github/license/wx-chevalier/SoftwareArchitecture-Notes.svg?style=flat-square
+[license-url]: https://github.com/wx-chevalier/SoftwareArchitecture-Notes/blob/master/LICENSE.txt
