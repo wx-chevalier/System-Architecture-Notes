@@ -158,23 +158,31 @@
       - [4.4.10 洋葱架构](/03.领域驱动设计/03.分层架构/洋葱架构/README.md)
         
       - [4.4.11 领域事件](/03.领域驱动设计/03.分层架构/领域事件.md)
-    - 4.5 04.开源框架 [1]
-      - [4.5.1 ContextMapper [1]](/03.领域驱动设计/04.开源框架/ContextMapper/README.md)
-        - [4.5.1.1 会员系统 DSL 描述](/03.领域驱动设计/04.开源框架/ContextMapper/会员系统%20DSL%20描述.md)
-    - 4.6 05.应用案例 [6]
-      - [4.6.1 Domain Driven Design Starter Modelling Process](/03.领域驱动设计/05.应用案例/Domain-Driven%20Design%20Starter%20Modelling%20Process/README.md)
+    - 4.5 04.框架应用 [2]
+      - [4.5.1 ContextMapper [1]](/03.领域驱动设计/04.框架应用/ContextMapper/README.md)
+        - [4.5.1.1 会员系统 DSL 描述](/03.领域驱动设计/04.框架应用/ContextMapper/会员系统%20DSL%20描述.md)
+      - 4.5.2 Java Spring [3]
+        - 4.5.2.1 99.参考资料 [1]
+          - [4.5.2.1.1 手把手教你落地 DDD](/03.领域驱动设计/04.框架应用/Java%20Spring/99.参考资料/2023-手把手教你落地%20DDD.md)
+        - 4.5.2.2 对象分层与转换 [1]
+          - [4.5.2.2.1 对象分类](/03.领域驱动设计/04.框架应用/Java%20Spring/对象分层与转换/对象分类.md)
+        - [4.5.2.3 领域构建 [2]](/03.领域驱动设计/04.框架应用/Java%20Spring/领域构建/README.md)
+          - [4.5.2.3.1 对象分类](/03.领域驱动设计/04.框架应用/Java%20Spring/领域构建/对象分类.md)
+          - [4.5.2.3.2 领域事件](/03.领域驱动设计/04.框架应用/Java%20Spring/领域构建/领域事件.md)
+    - 4.6 05.系统案例 [6]
+      - [4.6.1 Domain Driven Design Starter Modelling Process](/03.领域驱动设计/05.系统案例/Domain-Driven%20Design%20Starter%20Modelling%20Process/README.md)
         
-      - [4.6.2 Modular Monolith with DDD](/03.领域驱动设计/05.应用案例/Modular%20Monolith%20with%20DDD/README.md)
+      - [4.6.2 Modular Monolith with DDD](/03.领域驱动设计/05.系统案例/Modular%20Monolith%20with%20DDD/README.md)
         
-      - [4.6.3 Sairyss Domain Driven Hexagonal](/03.领域驱动设计/05.应用案例/Sairyss%20Domain%20Driven%20Hexagonal/README.md)
+      - [4.6.3 Sairyss Domain Driven Hexagonal](/03.领域驱动设计/05.系统案例/Sairyss%20Domain%20Driven%20Hexagonal/README.md)
         
       - 4.6.4 从 MVC 到 DDD [1]
-        - [4.6.4.1 从 MVC 到 DDD 的架构演进](/03.领域驱动设计/05.应用案例/从%20MVC%20到%20DDD/从%20MVC%20到%20DDD%20的架构演进.md)
-      - [4.6.5 保险电商系统](/03.领域驱动设计/05.应用案例/保险电商系统/README.md)
+        - [4.6.4.1 从 MVC 到 DDD 的架构演进](/03.领域驱动设计/05.系统案例/从%20MVC%20到%20DDD/从%20MVC%20到%20DDD%20的架构演进.md)
+      - [4.6.5 保险电商系统](/03.领域驱动设计/05.系统案例/保险电商系统/README.md)
         
       - 4.6.6 数字钱包系统 [2]
-        - [4.6.6.1 代码设计](/03.领域驱动设计/05.应用案例/数字钱包系统/代码设计.md)
-        - [4.6.6.2 银行转账](/03.领域驱动设计/05.应用案例/数字钱包系统/银行转账.md)
+        - [4.6.6.1 代码设计](/03.领域驱动设计/05.系统案例/数字钱包系统/代码设计.md)
+        - [4.6.6.2 银行转账](/03.领域驱动设计/05.系统案例/数字钱包系统/银行转账.md)
     - 4.7 99.参考资料 [3]
       - [4.7.1 如何设计一个复杂的业务系统？从对领域设计、云原生、微服务、中台的理解开始](/03.领域驱动设计/99.参考资料/2022-如何设计一个复杂的业务系统？从对领域设计、云原生、微服务、中台的理解开始.md)
       - [4.7.2 领域驱动设计（DDD）架构演进和 DDD 的几种典型架构介绍（图文详解）](/03.领域驱动设计/99.参考资料/2022-领域驱动设计（DDD）架构演进和%20DDD%20的几种典型架构介绍（图文详解）.md)
