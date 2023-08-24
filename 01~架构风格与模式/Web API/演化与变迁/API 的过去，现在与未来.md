@@ -103,6 +103,6 @@ print forecast(Temperature)
 
 - [来自于 PayPal 的 RESTful API 标准](https://segmentfault.com/a/1190000005924733)
 - [来自微软的接口设计指南](https://segmentfault.com/a/1190000006037478)
-- [2016- 我的技术之路：编程知识体系结构图](https://zhuanlan.zhihu.com/p/24476917)
-- [2016- 我的前端之路 : 工具化与工程化](https://zhuanlan.zhihu.com/p/24575395)
+- [2016~ 我的技术之路：编程知识体系结构图](https://zhuanlan.zhihu.com/p/24476917)
+- [2016~ 我的前端之路 : 工具化与工程化](https://zhuanlan.zhihu.com/p/24575395)
 - [GraphQL 初探 : 从 REST 到 GraphQL，更完善的数据查询定义](https://segmentfault.com/a/1190000005766732)
