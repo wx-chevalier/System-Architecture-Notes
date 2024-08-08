@@ -1,0 +1,108 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @db.VarChar(36)
+  email     String   @unique @db.VarChar(255)
+  password  String   @db.VarChar(255)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt() @map("updated_at")
+
+  Profile         Profile?
+  UserDeviceToken UserDeviceToken?
+
+  @@map("users")
+}
+
+model UserDeviceToken {
+  id        String   @id @db.VarChar(36)
+  token     String   @unique @db.VarChar(255)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt() @map("updated_at")
+
+  userId String @unique @map("user_id")
+  User   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_device_tokens")
+}
+
+model Profile {
+  id        String   @id @db.VarChar(36)
+  name      String   @db.VarChar(255)
+  imageUrl  String?  @map("image_url") @db.VarChar(255)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt() @map("updated_at")
+
+  userId String @unique @map("user_id")
+  User   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  Notifications            Notification[]
+  DebtorAgreementProfile   AgreementProfile? @relation(name: "debtorProfileId")
+  CreditorAgreementProfile AgreementProfile? @relation(name: "creditorProfileId")
+
+  @@map("profiles")
+}
+
+enum PartyStatus {
+  PENDING
+  ACCEPTED
+  DENIED
+  CANCELED
+  PAID
+}
+
+model Agreement {
+  id             String      @id @db.VarChar(36)
+  madeAt         DateTime    @map("made_at")
+  amount         Int
+  isCurrency     Boolean     @map("is_currency")
+  description    String?     @db.VarChar(255)
+  debtorStatus   PartyStatus @map("debtor_status")
+  creditorStatus PartyStatus @map("creditor_status")
+  createdAt      DateTime    @default(now()) @map("created_at")
+  updatedAt      DateTime    @updatedAt() @map("updated_at")
+
+  AgreementProfile AgreementProfile?
+
+  @@map("agreements")
+}
+
+model AgreementProfile {
+  id String @id @db.VarChar(36)
+
+  debtorProfileId String  @unique @map("debtor_profile_id")
+  DebtorProfile   Profile @relation(name: "debtorProfileId", fields: [debtorProfileId], references: [id], onDelete: Cascade)
+
+  creditorProfileId String  @unique @map("creditor_profile_id")
+  CreditorProfile   Profile @relation(name: "creditorProfileId", fields: [creditorProfileId], references: [id], onDelete: Cascade)
+
+  agreementId String    @unique @map("agreement_id")
+  Agreement   Agreement @relation(fields: [agreementId], references: [id], onDelete: Cascade)
+
+  @@map("agreements_profiles")
+}
+
+model Notification {
+  id        String    @id @db.VarChar(36)
+  title     String    @db.VarChar(255)
+  content   String    @db.VarChar(255)
+  sentAt    DateTime  @map("sent_at")
+  readAt    DateTime? @map("read_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt() @map("updated_at")
+
+  recipientProfileId String  @unique
+  RecipientProfile   Profile @relation(fields: [recipientProfileId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}

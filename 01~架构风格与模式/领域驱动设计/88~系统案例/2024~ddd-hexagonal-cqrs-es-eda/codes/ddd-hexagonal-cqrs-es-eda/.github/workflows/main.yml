@@ -1,0 +1,40 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.11.1]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+        cache-dependency-path: backend/yarn.lock
+    - name: Install Yarn
+      run: npm install -g yarn
+    - run: yarn install --frozen-lockfile
+      working-directory: backend
+    - name: Run build script if present
+      run: |
+        if grep -q "\"build\":" backend/package.json; then
+          yarn run build
+        else
+          echo "Build script not found. Skipping."
+        fi
+      working-directory: backend
+    - run: yarn test
+      working-directory: backend
