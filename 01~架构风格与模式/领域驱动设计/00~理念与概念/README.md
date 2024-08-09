@@ -1,6 +1,6 @@
 # 元模型
 
-![元模型关系](https://s3.ax1x.com/2021/02/04/y1jJ7q.png)
+![领域、子域到实体模型的关系](https://s3.ax1x.com/2021/02/04/y1jJ7q.png)
 
 在 DDD 中，我们可以把名词分为战术设计(Tactic DDD)与战略设计(Strategic DDD)两类，战略设计更大一些，偏宏观，你可以理解为公司高层在讨论的业务和技术方向，各个团队或者产品的分工和配合；而战术设计则相对小很多，主要集中在一个 BoundedContext 内部，比如如何设计 DDD 那些 Entity，Service，Repository 等，外加可能的应用开发的技术选型，可以说更关注技术层面。战术设计与战略设计的相关名词划分如下：
 
@@ -39,17 +39,7 @@ Mapping 的方式有很多种，有 Shared Kernal（共享内核），Conformist
 
 ![](https://assets.ng-tech.icu/item/20230420134213.png)
 
-## 事件风暴（Event Storming）
-
-事件风暴是一项团队活动，旨在通过领域事件识别出聚合根，进而划分微服务的限界上下文。在活动中，团队先通过头脑风暴的形式罗列出领域中所有的领域事件，整合之后形成最终的领域事件集合，然后对于每一个事件，标注出导致该事件的命令（Command），再然后为每个事件标注出命令发起方的角色，命令可以是用户发起，也可以是第三方系统调用或者是定时器触发等。最后对事件进行分类整理出聚合根以及限界上下文。
-
-## 领域状态
-
-在软件设计领域经常会提到状态（State）这个词，而服务之间的状态本质上体现的还是一种数据关系。如果一个数据需要在多个服务之间共享才能完成一项业务功能，那么这项业务功能就被称为有状态。基于这项业务功能所设计和实现的一系列服务之间就形成了一种状态性，这一系列服务就是有状态服务。
-
-很多服务都会把自己的状态下沉到一个庞大的共享数据库中，这也是一些传统 Web 框架的做法。这种做法就会造成在扩展性、可用性以及数据集成上很难做好把控。而在本质上，一个使用共享数据库的微服务架构本质还是一个单体应用。一个服务既然具有单一职责，那么合理的方式就应该是该服务拥有自己的状态和持久化机制，建模成一个边界上下文。这里就需要充分应用领域驱动设计（Domain Driven Design，DDD）中的相关策略设计和技术设计方面的方法和工程实践。
-
-## 共享内核（Shared Kernel）
+### 共享内核（Shared Kernel）
 
 如何实现不同域之间的协作，同时又要保证各自领域的概念的完整性是有一套方法论的。总体来说，大概有两种方式：共享内核（Shared Kernel）和防腐层（ACL，Anti-Corruption Layer）。
 
@@ -59,7 +49,7 @@ It’s possible that only one of the teams will maintain the code, build, and te
 
 其优点是 Share（减少重复建设），其缺点也是 Share（团队之间紧耦合）。
 
-## 防腐层（ACL，Anti-Corruption Layer）
+### 防腐层（ACL，Anti-Corruption Layer）
 
 An Anticorruption Layer is the most defensive Context Mapping relationship, where the downstream team creates a translation layer between its Ubiquitous Language (model) and the Ubiquitous Language (model) that is upstream to it.
 
@@ -68,6 +58,16 @@ An Anticorruption Layer is the most defensive Context Mapping relationship, wher
 防腐层是隔离最彻底的做法，其优点是没有 Share（完全解耦，各自独立），其缺点也是没有 Share（有一定的转换成本）。笔者比较赞成防腐层的做法，因为增加的语义转换陈本，相较于系统的可维护性和可理解性而言，是完全值得的。
 
 Whenever possible, you should try to create an Anticorruption Layer between your downstream model and an upstream integration model, so that you can produce model concepts on your side of the integration that specifically fit your business needs and that keep you completely isolated from foreign concepts.
+
+## 事件风暴（Event Storming）
+
+事件风暴是一项团队活动，旨在通过领域事件识别出聚合根，进而划分微服务的限界上下文。在活动中，团队先通过头脑风暴的形式罗列出领域中所有的领域事件，整合之后形成最终的领域事件集合，然后对于每一个事件，标注出导致该事件的命令（Command），再然后为每个事件标注出命令发起方的角色，命令可以是用户发起，也可以是第三方系统调用或者是定时器触发等。最后对事件进行分类整理出聚合根以及限界上下文。
+
+## 领域状态
+
+在软件设计领域经常会提到状态（State）这个词，而服务之间的状态本质上体现的还是一种数据关系。如果一个数据需要在多个服务之间共享才能完成一项业务功能，那么这项业务功能就被称为有状态。基于这项业务功能所设计和实现的一系列服务之间就形成了一种状态性，这一系列服务就是有状态服务。
+
+很多服务都会把自己的状态下沉到一个庞大的共享数据库中，这也是一些传统 Web 框架的做法。这种做法就会造成在扩展性、可用性以及数据集成上很难做好把控。而在本质上，一个使用共享数据库的微服务架构本质还是一个单体应用。一个服务既然具有单一职责，那么合理的方式就应该是该服务拥有自己的状态和持久化机制，建模成一个边界上下文。这里就需要充分应用领域驱动设计（Domain Driven Design，DDD）中的相关策略设计和技术设计方面的方法和工程实践。
 
 # 战术设计
 
