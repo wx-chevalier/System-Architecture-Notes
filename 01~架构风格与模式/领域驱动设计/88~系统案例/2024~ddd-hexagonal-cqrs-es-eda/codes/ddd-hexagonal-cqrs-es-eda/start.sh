@@ -1,1 +1,0 @@
-docker compose -p bitloops-todo-app up -d
