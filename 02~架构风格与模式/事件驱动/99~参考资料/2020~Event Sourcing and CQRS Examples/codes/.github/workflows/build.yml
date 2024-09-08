@@ -1,0 +1,48 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4.2.2
+        with:
+          java-version: 19
+          distribution: 'adopt'
+
+      - name: Cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Build with Maven
+        run: mvn -B verify -Pcode-coverage --file pom.xml
+
+      - name: Code Coverage Report
+        if: ${{ github.actor != 'dependabot[bot]' }}
+        env:
+          GIT_BRANCH: ${GITHUB_REF/refs\/heads\//}
+          JACOCO_SOURCE_PATH: src/main/java
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        run: |
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+          chmod +x ./cc-test-reporter
+          ./cc-test-reporter format-coverage -t jacoco target/site/jacoco/jacoco.xml -o coverage/unit.json
+          ./cc-test-reporter format-coverage -t jacoco target/site/jacoco-it/jacoco.xml -o coverage/it.json
+          ./cc-test-reporter sum-coverage coverage/*.json -p 2
+          ./cc-test-reporter upload-coverage
