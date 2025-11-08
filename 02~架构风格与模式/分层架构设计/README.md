@@ -2,7 +2,7 @@
 
 分层是一种常见的根据系统中的角色（职责拆分）和组织代码单元的常规实践。常见的分层结构如下图所示：
 
-![](https://assets.ng-tech.icu/item/20230430220925.png)
+![](https://ngte-superbed.oss-cn-beijing.aliyuncs.com/item/20230430220925.png)
 
 # 参考资料
 
