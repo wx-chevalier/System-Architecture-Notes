@@ -122,7 +122,7 @@ Check the created account in the response's 'Location' header.
 Go ahead and check the code! :)
 
 # Contributing
-If you would like to help making this project better, see the [CONTRIBUTING.md](CONTRIBUTING.md).  
+If you would like to help making this project better, see the [CONTRIBUTING.md](02~软件/02~软件架构/System-Technical-Architecture-Notes/02~架构风格与模式/EDA%20事件驱动架构/99~参考资料/2020~Event%20Sourcing%20and%20CQRS%20Examples/codes/CONTRIBUTING.md).  
 
 # Maintainers
 Send any other comments, flowers and suggestions to [André Schaffer](https://github.com/andreschaffer) and [Dan Eidmark](https://github.com/daneidmark).
