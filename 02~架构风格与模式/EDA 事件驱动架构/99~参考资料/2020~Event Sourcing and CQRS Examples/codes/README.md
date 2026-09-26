@@ -4,16 +4,16 @@
 [![Dependabot](https://img.shields.io/badge/Dependabot-enabled-blue?logo=dependabot)](https://docs.github.com/en/github/administering-a-repository/keeping-your-dependencies-updated-automatically)
 
 # Event Sourcing and CQRS Examples
-This project aims to provide examples of how to use Event Sourcing and CQRS applied to a minimalistic bank context.  
+This project aims to provide examples of how to use Event Sourcing and CQRS applied to a minimalistic bank context.
 
-We assume the reader has basic knowledge of Event Sourcing and CQRS concepts.  
-If you want to brush up on the subject we suggest reading:  
+We assume the reader has basic knowledge of Event Sourcing and CQRS concepts.
+If you want to brush up on the subject we suggest reading:
 - [https://martinfowler.com/eaaDev/EventSourcing.html](https://martinfowler.com/eaaDev/EventSourcing.html)
 - [https://martinfowler.com/bliki/CQRS.html](https://martinfowler.com/bliki/CQRS.html)
 
 ## Domain overview
-In this minimalistic bank, a _client_ can _open_ one or more _accounts_.  
-On each _account_, the _client_ can _deposit_ or _withdraw_ money.  
+In this minimalistic bank, a _client_ can _open_ one or more _accounts_.
+On each _account_, the _client_ can _deposit_ or _withdraw_ money.
 The history of an _account's transactions_ is available to the _client_ as well as a summary of the _client's accounts_.
 
 ## Design choices
@@ -38,7 +38,7 @@ The history of an _account's transactions_ is available to the _client_ as well 
     |                         |
     |           API           |
     |                         |
-    +-------------------------+ 
+    +-------------------------+
 
 #### Ports and Adapters
 For the Domain Model, we chose the Ports and Adapters structure because we wanted to protect the domain logic from
@@ -48,18 +48,18 @@ For more information about it read [here](http://www.dossier-andreas.net/softwar
 
 #### Package by Feature
 For the Read Models, we chose the Package by Feature structure because we would not benefit from isolating the layers
-and instead we put all feature related parts close together. 
+and instead we put all feature related parts close together.
 
 For more information about it read [here](http://www.javapractices.com/topic/TopicAction.do?Id=205).
 
 ### DDD and REST
 There has been a myth of DDD and REST being incompatible due to DDD being all about behaviour
-whereas REST is all about state.  
-In this project we followed both techniques quite strictly and hope that the result shows that they can be well combined.  
+whereas REST is all about state.
+In this project we followed both techniques quite strictly and hope that the result shows that they can be well combined.
 Note: We did not include REST hypermedia controls as we believe it is a big subject in itself and didn't want to shift focus from Event Sourcing and CQRS.
 
 ### Event Sourcing and CQRS (finally!)
-We have taken a pragmatic approach when combining Event Sourcing and CQRS. 
+We have taken a pragmatic approach when combining Event Sourcing and CQRS.
 By the book, CQRS proposes a complete separation between the read/query and write/command sides,
 but that's not what we have here.
 The approach we've taken instead:
@@ -71,18 +71,18 @@ The approach we've taken instead:
   - For any other kind of query, we don't want to compromise the domain model.
     Therefore, we create read models to fulfill those queries.
     They are basically projections, potentially built from different events and aggregates
-    that can be queried by more appropriate fields. 
-    
+    that can be queried by more appropriate fields.
+
 #### Events
-Events are a thing from the past. It communicates a significant change that _happened_. 
+Events are a thing from the past. It communicates a significant change that _happened_.
 
 ##### Idempotency when replaying events
-When replaying events, we don't want to execute any business logic because we can't change history. We only want to do assignments.  
-A simple example is with a deposit event: instead of adding the deposited amount to the balance when replaying (business logic), we want 
+When replaying events, we don't want to execute any business logic because we can't change history. We only want to do assignments.
+A simple example is with a deposit event: instead of adding the deposited amount to the balance when replaying (business logic), we want
 the updated balance already available so that we can just assign it. This makes it possible to replay the event multiple times with the same outcome.
 
 ##### Ordering of events
-In a distributed world, event timestamps are unreliable for ordering - machines have their own clocks.  
+In a distributed world, event timestamps are unreliable for ordering - machines have their own clocks.
 Instead we can make the ordering explicit with an event version.
 In this project we use event versioning in two ways:
 - In the write/command side, we use it for protecting ourselves from race conditions via optimistic locking;
@@ -122,7 +122,7 @@ Check the created account in the response's 'Location' header.
 Go ahead and check the code! :)
 
 # Contributing
-If you would like to help making this project better, see the [CONTRIBUTING.md](02~软件/02~软件架构/System-Technical-Architecture-Notes/02~架构风格与模式/EDA%20事件驱动架构/99~参考资料/2020~Event%20Sourcing%20and%20CQRS%20Examples/codes/CONTRIBUTING.md).  
+If you would like to help making this project better, see the [CONTRIBUTING.md](02~软件/02~软件架构/System-Technical-Architecture-Notes/02~架构风格与模式/EDA%20事件驱动架构/99~参考资料/2020~Event%20Sourcing%20and%20CQRS%20Examples/codes/CONTRIBUTING.md).
 
 # Maintainers
 Send any other comments, flowers and suggestions to [André Schaffer](https://github.com/andreschaffer) and [Dan Eidmark](https://github.com/daneidmark).

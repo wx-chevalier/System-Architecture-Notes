@@ -6,7 +6,7 @@
   【
   <a href="https://www.youtube.com/channel/UCZgt6AzoyjslHTC9dz0UoTw">
     👨🏻‍💻 YouTube
-  </a> | 
+  </a> |
   <a href="https://blog.bytebytego.com/?utm_source=site">
     📮 Newsletter
   </a> 】

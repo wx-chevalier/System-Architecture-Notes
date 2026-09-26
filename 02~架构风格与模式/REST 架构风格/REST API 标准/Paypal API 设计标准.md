@@ -337,7 +337,7 @@ POST /v1/vault/credit-cards
   - 要保证 API 客户端的可用性，如果在某个 URI 中维持大量的层级资源标识符会大大增加复杂度。
   - 服务端开发者需要校验每一层级的标识符来判断是否具有访问权限，如果层级过深极易导致复杂度的陡升。
 
-* URI Templates
+- URI Templates
 
 ```
 POST /{version}/{namespace}/{resource}/{resource-id}/{sub-resource}
